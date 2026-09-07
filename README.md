@@ -1,98 +1,84 @@
-# vinext-starter
+# Local topology planner
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+An open-source planning tool for running open-weight AI models on hardware you
+actually own. It answers a question a VRAM calculator cannot: **which machines
+can run a specific model together, by which execution path, and with what
+confidence?**
 
-## Prerequisites
+The planner is deliberately topology-aware. A cluster is not automatically one
+large memory pool, and a Mac attached to a remote NVIDIA server is not model
+sharding. Every result keeps weights, KV cache, runtime reserve, network
+assumptions, and evidence level visible.
 
-- Node.js `>=22.13.0`
+## What it covers
 
-## Quick Start
+- Apple Silicon single-node inference and Mac clusters
+- Experimental Mac + NVIDIA execution paths, with their caveats surfaced
+- Mac as a development/control machine with inference served remotely by NVIDIA
+  or DGX hardware
+- Agent/request routing, where more nodes increase concurrency but do not pool
+  model memory
+- Exact model artifacts, quantizations, context targets, and usable-memory
+  estimates rather than parameter-count-only recommendations
+
+The current UI is an MVP. Its catalog is a versioned seed dataset—not an
+authoritative benchmark database—so estimates are labelled as estimates until a
+reproducible record supports them.
+
+## Run locally
+
+Requires Node.js 22.13 or newer.
 
 ```bash
 npm install
 npm run dev
+```
+
+Use `npm run build` to verify a production build.
+
+## Project layout
+
+- `app/page.tsx` — interactive planner UI and transparent calculation logic
+- `data/catalog.ts` — editable seed model and hardware presets
+- `work/DESIGN_SPEC.md` — product/design decisions
+- `work/IMPLEMENTATION_SPEC.md` — data model and implementation plan
+
+## Contributing
+
+Contributions are most useful when they make a recommendation more
+reproducible—not just more optimistic. The in-product starting point is the
+[Contribute section of the planner](https://local-topology-planner.q5tynhntkd.chatgpt.site/#contribute).
+
+You can contribute one of three things:
+
+1. **Artifact metadata** — model revision, runtime format, quantization, weight
+   size, and context assumptions.
+2. **Hardware presets** — exact machine/GPU configuration, available memory,
+   OS/runtime version, and link type where relevant.
+3. **Benchmark evidence** — a sanitized, reproducible run with topology,
+   command/runtime, model artifact, context, prompt/decode throughput, and any
+   failure notes.
+
+For a benchmark record, include the exact configuration and method used, keep
+credentials and private host details out of the submission, and distinguish
+measured results from estimates. For a heterogeneous topology, explicitly say
+whether it is remote serving, request routing, or true model sharding; those
+are different claims.
+
+Before opening a pull request, run:
+
+```bash
 npm run build
 ```
 
-This starter does not use `wrangler.jsonc`.
+The project intends to use MIT for code and CC0 for first-party measurement
+records; imported data retains its original license and attribution.
 
-## Included Shape
+## Scope and safety notes
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
-
-## Workspace Auth Headers
-
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
-```
-
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+The planner does not treat separate machines as pooled memory unless the chosen
+runtime and topology genuinely support sharding. In particular, a Mac used for
+coding while a DGX/NVIDIA machine serves the model contributes client-side
+latency and orchestration—not model capacity. Treat hardware recommendations as
+planning input, then validate them with the exact artifact and runtime before a
+purchase.
