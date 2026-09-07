@@ -13,6 +13,7 @@ const modes: Array<{ id: Mode; label: string; note: string }> = [
 ];
 
 const memory = (n: number) => `${n.toFixed(n >= 100 ? 0 : 1)} GiB`;
+const tokenCount = (thousands: number) => thousands >= 1000 ? `${(thousands / 1000).toFixed(thousands >= 10_000 ? 0 : 1)}M` : `${Math.round(thousands)}K`;
 
 export default function Home() {
   const [catalog, setCatalog] = useState<Awaited<ReturnType<typeof loadCatalog>> | null>(null);
@@ -217,7 +218,7 @@ export default function Home() {
             <p className="result-copy">{!result.fits ? `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.` : !allocationFits ? "This custom split overfills at least one node. Adjust the allocation or return to automatic." : `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.`}</p>
             <div className="metric-grid">
               <div><span>DECODE</span><b>~{result.speed.toFixed(0)} tok/s</b><small>{result.exact === "estimated" ? "topology estimate" : "evidence-adjusted"}</small></div>
-              <div><span>MAX CONTEXT</span><b>{result.fits ? `${Math.max(8, Math.floor((result.capacity - model.weightGiB - result.runtime) / model.kvGiBAt8K * 8))}K` : "—"}</b><small>at selected quant</small></div>
+              <div><span>MAX CONTEXT</span><b>{result.fits ? tokenCount(Math.max(8, Math.floor((result.capacity - model.weightGiB - result.runtime) / model.kvGiBAt8K * 8))) : "—"}</b><small>at selected quant</small></div>
             </div>
             <div className="risk-note"><span className="risk-bar" /><p><b>{result.risk}</b><br />{result.compatibility.note}{mode === "rpc" && result.compatibility.supported ? " Validate with the exact llama.cpp build and link before purchasing hardware." : ""}</p></div>
             <button className="primary-button" type="button" onClick={() => setShowDetail(true)}>Inspect & adjust allocation <span>→</span></button>
