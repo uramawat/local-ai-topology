@@ -28,6 +28,7 @@ export default function Home() {
   const [topologyIds, setTopologyIds] = useState(["mac-studio-m3-ultra-192", "macbook-pro-m4-max-64", "rtx-5090-32"]);
   const [hardwareToAdd, setHardwareToAdd] = useState("");
   const [artifactFormat, setArtifactFormat] = useState<"all" | "gguf" | "mlx">("all");
+  const [modelQuery, setModelQuery] = useState("");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -48,7 +49,14 @@ export default function Home() {
     const selected = topologyIds.map((id) => catalog.hardware.find((item) => item.id === id)).filter((item): item is NonNullable<typeof item> => Boolean(item));
     return selected.length ? selected : starterTopology(catalog);
   }, [catalog, topologyIds]);
-  const visibleModels = useMemo(() => catalog?.models.filter((item) => artifactFormat === "all" || item.format === artifactFormat) ?? [], [artifactFormat, catalog]);
+  const visibleModels = useMemo(() => {
+    const query = modelQuery.trim().toLowerCase();
+    return catalog?.models.filter((item) => {
+      const matchesFormat = artifactFormat === "all" || item.format === artifactFormat;
+      const matchesQuery = !query || [item.name, item.family, item.artifact, item.quantization].some((value) => value.toLowerCase().includes(query));
+      return matchesFormat && matchesQuery;
+    }) ?? [];
+  }, [artifactFormat, catalog, modelQuery]);
   useEffect(() => {
     if (visibleModels.length && !visibleModels.some((item) => item.id === modelId)) setModelId(visibleModels[0].id);
   }, [modelId, visibleModels]);
@@ -169,10 +177,12 @@ export default function Home() {
           <aside className="control-panel" aria-label="Planner inputs">
             <label className="field-label" htmlFor="model">MODEL ARTIFACT</label>
             <div className="artifact-filter" role="group" aria-label="Artifact format filter"><button type="button" className={artifactFormat === "all" ? "active" : ""} onClick={() => setArtifactFormat("all")}>All</button><button type="button" className={artifactFormat === "gguf" ? "active" : ""} onClick={() => setArtifactFormat("gguf")}>GGUF</button><button type="button" className={artifactFormat === "mlx" ? "active" : ""} onClick={() => setArtifactFormat("mlx")}>MLX</button></div>
-            <select id="model" value={modelId} onChange={(event) => setModelId(event.target.value)}>
-              {visibleModels.map((item) => <option key={item.id} value={item.id}>{item.name} · {item.artifact}</option>)}
+            <label className="sr-only" htmlFor="model-search">Search model artifacts</label>
+            <input className="model-search" id="model-search" type="search" value={modelQuery} onChange={(event) => setModelQuery(event.target.value)} placeholder="Search name, family, or quant…" />
+            <select id="model" value={visibleModels.some((item) => item.id === modelId) ? modelId : ""} onChange={(event) => setModelId(event.target.value)} disabled={!visibleModels.length}>
+              {!visibleModels.length ? <option value="">No matching artifacts</option> : visibleModels.map((item) => <option key={item.id} value={item.id}>{item.name} · {item.artifact}</option>)}
             </select>
-            <p className="catalog-note">{catalog.coverage.modelArtifacts} curated model artifacts · {catalog.coverage.hardwarePresets} hardware presets · catalog {catalog.catalogVersion}</p>
+            <p className="catalog-note">{visibleModels.length} shown of {catalog.coverage.modelArtifacts} curated artifacts · {catalog.coverage.hardwarePresets} hardware presets · catalog {catalog.catalogVersion}</p>
             <details className="catalog-review"><summary>What to review in this catalog</summary><p>Check the selected artifact’s source link, format, quantization, and estimate label. A row is only eligible for a stronger confidence level after a reproducible evidence record is accepted.</p></details>
 
             <div className="field-group topology-editor">
