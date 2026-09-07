@@ -1,21 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { hardwareCatalog, modelCatalog, starterTopology } from "../data/catalog";
 
 type Mode = "single" | "mlx" | "rpc" | "router";
-
-const models = [
-  { id: "qwen32", name: "Qwen3 32B", artifact: "GGUF · Q4_K_M", weights: 20.3, kv: 1.4, badge: "balanced" },
-  { id: "gemma27", name: "Gemma 3 27B", artifact: "GGUF · Q4_K_M", weights: 17.1, kv: 1.7, badge: "vision-ready" },
-  { id: "gptoss120", name: "gpt-oss 120B", artifact: "GGUF · MXFP4", weights: 65.2, kv: 2.1, badge: "frontier class" },
-  { id: "qwen235", name: "Qwen3 235B-A22B", artifact: "GGUF · Q4_K_M", weights: 130.8, kv: 2.6, badge: "large MoE" },
-];
-
-const nodes = [
-  { id: "studio", name: "Mac Studio", chip: "M3 Ultra · 192 GB", kind: "Apple Silicon", usable: 184, color: "lime" },
-  { id: "macbook", name: "MacBook Pro", chip: "M4 Max · 64 GB", kind: "Apple Silicon", usable: 58, color: "cyan" },
-  { id: "rtx", name: "RTX workstation", chip: "RTX 5090 · 32 GB", kind: "NVIDIA CUDA", usable: 29, color: "violet" },
-];
 
 const modes: Array<{ id: Mode; label: string; note: string }> = [
   { id: "single", label: "One node", note: "Best interactive latency" },
@@ -33,20 +21,20 @@ export default function Home() {
   const [hasFastLink, setHasFastLink] = useState(true);
   const [showDetail, setShowDetail] = useState(false);
 
-  const model = models.find((item) => item.id === modelId) ?? models[0];
+  const model = modelCatalog.find((item) => item.id === modelId) ?? modelCatalog[0];
   const result = useMemo(() => {
     const cache = model.kv * (context / 8192);
     const runtime = mode === "router" ? 1.8 : mode === "single" ? 2.4 : 4.8;
     const required = model.weights + cache + runtime;
     const selectedNodes =
       mode === "single"
-        ? [nodes[0]]
+        ? [starterTopology[0]]
         : mode === "mlx"
-          ? nodes.filter((node) => node.kind === "Apple Silicon")
-          : mode === "rpc"
-            ? nodes
-            : nodes;
-    const capacity = mode === "router" ? Math.max(...nodes.map((node) => node.usable)) : selectedNodes.reduce((sum, node) => sum + node.usable, 0);
+          ? starterTopology.filter((node) => node.kind === "Apple Silicon")
+        : mode === "rpc"
+            ? starterTopology
+            : starterTopology;
+    const capacity = mode === "router" ? Math.max(...starterTopology.map((node) => node.usable)) : selectedNodes.reduce((sum, node) => sum + node.usable, 0);
     const fits = required <= capacity;
     const exact = mode === "rpc" ? "estimated" : mode === "router" ? "inferred" : "verified";
     const risk = mode === "rpc" ? "Experimental runtime path" : mode === "router" ? "Memory does not pool" : hasFastLink ? "Low topology risk" : "Network constrained";
@@ -112,8 +100,9 @@ export default function Home() {
           <aside className="control-panel" aria-label="Planner inputs">
             <label className="field-label" htmlFor="model">MODEL ARTIFACT</label>
             <select id="model" value={modelId} onChange={(event) => setModelId(event.target.value)}>
-              {models.map((item) => <option key={item.id} value={item.id}>{item.name} · {item.artifact}</option>)}
+              {modelCatalog.map((item) => <option key={item.id} value={item.id}>{item.name} · {item.artifact}</option>)}
             </select>
+            <p className="catalog-note">{modelCatalog.length} curated model artifacts · {hardwareCatalog.length} hardware presets · source-backed catalog coming next.</p>
 
             <div className="field-group">
               <span className="field-label">DEPLOYMENT MODE</span>
@@ -143,8 +132,8 @@ export default function Home() {
           <section className="topology-stage" aria-label="Current hardware topology">
             <div className="stage-label"><span>DEPLOYMENT GRAPH</span><span>{mode === "router" ? "REQUESTS ROUTE · MEMORY STAYS LOCAL" : "WEIGHTS + KV ARE ALLOCATED"}</span></div>
             <div className="node-map">
-              <div className="map-rail rail-one" /><div className="map-rail rail-two" /><div className="map-rail rail-three" />
-              {nodes.map((node) => <article className={`hardware-node ${node.color}`} key={node.id}>
+              <div className="map-rail rail-one" /><div className="map-rail rail-two" />
+              {starterTopology.map((node) => <article className={`hardware-node ${node.color}`} key={node.id}>
                 <span className="node-type">{node.kind}</span><strong>{node.name}</strong><small>{node.chip}</small><b>{node.usable} GiB usable</b>
               </article>)}
               <div className="model-core"><span>MODEL</span><strong>{model.name}</strong><small>{model.artifact}</small></div>
