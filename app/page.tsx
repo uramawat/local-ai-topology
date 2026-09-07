@@ -21,6 +21,8 @@ export default function Home() {
   const [context, setContext] = useState(32768);
   const [hasFastLink, setHasFastLink] = useState(true);
   const [showDetail, setShowDetail] = useState(false);
+  const [allocationMode, setAllocationMode] = useState<"auto" | "manual">("auto");
+  const [manualShares, setManualShares] = useState<Record<string, number>>({});
 
   useEffect(() => {
     const controller = new AbortController();
@@ -60,10 +62,21 @@ export default function Home() {
     return { cache, runtime, required, capacity, fits, exact, risk, speed, selectedNodes };
   }, [context, hasFastLink, mode, model, nodes]);
 
-  const allocation = result?.selectedNodes.map((node) => ({
-    ...node,
-    amount: Math.min(node.usableGiB, result.required * (node.usableGiB / result.capacity)),
-  })) ?? [];
+  const allocation = useMemo(() => {
+    if (!result) return [];
+    const shareTotal = result.selectedNodes.reduce((sum, node) => sum + (allocationMode === "manual" ? manualShares[node.id] ?? 0 : node.usableGiB), 0);
+    return result.selectedNodes.map((node) => {
+      const share = allocationMode === "manual" ? manualShares[node.id] ?? 0 : node.usableGiB;
+      return { ...node, amount: shareTotal > 0 ? result.required * (share / shareTotal) : 0, share: shareTotal > 0 ? share / shareTotal * 100 : 0 };
+    });
+  }, [allocationMode, manualShares, result]);
+  const allocationTotal = allocation.reduce((sum, node) => sum + node.amount, 0);
+  const allocationFits = allocation.length > 0 && Math.abs(allocationTotal - (result?.required ?? 0)) < 0.01 && allocation.every((node) => node.amount <= node.usableGiB);
+  const planFits = Boolean(result?.fits) && allocationFits;
+  const enableManualAllocation = () => {
+    setManualShares(Object.fromEntries(allocation.map((node) => [node.id, node.share])));
+    setAllocationMode("manual");
+  };
   const graphLinks = mode === "rpc" ? ["rpc-studio-rtx", "rpc-macbook-rtx"] : mode === "mlx" ? ["mlx-macs"] : [];
 
   return (
@@ -133,7 +146,7 @@ export default function Home() {
               <span className="field-label">DEPLOYMENT MODE</span>
               <div className="mode-list">
                 {modes.map((item) => (
-                  <button key={item.id} type="button" className={`mode-button ${mode === item.id ? "active" : ""}`} onClick={() => setMode(item.id)}>
+                  <button key={item.id} type="button" className={`mode-button ${mode === item.id ? "active" : ""}`} onClick={() => { setMode(item.id); setAllocationMode("auto"); }}>
                     <strong>{item.label}</strong><small>{item.note}</small>
                   </button>
                 ))}
@@ -168,21 +181,22 @@ export default function Home() {
           <section className="result-panel" aria-live="polite">
             <div className="result-header"><span className={`confidence ${result.exact}`}>{result.exact}</span><span>{mode === "rpc" ? "HETEROGENEOUS PLAN" : "SHARDED PLAN"}</span></div>
             <div className="workload-summary"><span>SELECTED WORKLOAD</span><b>{model.name}</b><small>{model.artifact} · {model.confidence} artifact estimate</small></div>
-            <div className="verdict-line"><span className={`verdict-symbol ${result.fits ? "yes" : "no"}`}>{result.fits ? "✓" : "×"}</span><h3>{result.fits ? "This can run" : "This does not fit"}</h3></div>
-            <p className="result-copy">{result.fits ? `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.` : `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.`}</p>
+            <div className="verdict-line"><span className={`verdict-symbol ${planFits ? "yes" : "no"}`}>{planFits ? "✓" : "×"}</span><h3>{planFits ? "This can run" : "This does not fit"}</h3></div>
+            <p className="result-copy">{!result.fits ? `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.` : !allocationFits ? "This custom split overfills at least one node. Adjust the allocation or return to automatic." : `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.`}</p>
             <div className="metric-grid">
               <div><span>DECODE</span><b>~{result.speed.toFixed(0)} tok/s</b><small>{result.exact === "estimated" ? "topology estimate" : "evidence-adjusted"}</small></div>
               <div><span>MAX CONTEXT</span><b>{result.fits ? `${Math.max(8, Math.floor((result.capacity - model.weightGiB - result.runtime) / model.kvGiBAt8K * 8))}K` : "—"}</b><small>at selected quant</small></div>
             </div>
             <div className="risk-note"><span className="risk-bar" /><p><b>{result.risk}</b><br />{mode === "rpc" ? "Validate with the exact llama.cpp build and link before purchasing hardware." : "A matching measured record upgrades this plan from estimate to verified."}</p></div>
-            <button className="primary-button" type="button" onClick={() => setShowDetail(true)}>Inspect allocation <span>→</span></button>
+            <button className="primary-button" type="button" onClick={() => setShowDetail(true)}>Inspect & adjust allocation <span>→</span></button>
           </section>
         </div>
 
         {showDetail && <section className="details-strip" id="evidence" aria-label="Memory allocation details">
-          <div className="details-intro"><p className="eyebrow">ALLOCATION RECEIPT</p><h3>Nothing is hidden in the total.</h3><p>Weights, cache, runtime reserve, and node headroom stay separate so an apparent fit can be audited.</p></div>
+          <div className="details-intro"><p className="eyebrow">ALLOCATION SANDBOX</p><h3>Test a possible split.</h3><p>Automatic uses usable-memory weighting. Manual mode is a what-if tool, not a claim that every runtime accepts the exact split.</p></div>
           <div className="allocation-list">
-            {allocation.map((node) => <div className="allocation-row" key={node.id}><div><b>{node.name}</b><span>{node.chip}</span></div><div className="allocation-bar"><i style={{ width: `${Math.min(100, node.amount / node.usableGiB * 100)}%` }} /></div><strong>{memory(node.amount)} <small>/ {node.usableGiB} GiB</small></strong></div>)}
+            <div className="allocation-controls"><span>ALLOCATION MODE</span><div><button className={allocationMode === "auto" ? "active" : ""} type="button" onClick={() => setAllocationMode("auto")}>Automatic</button><button className={allocationMode === "manual" ? "active" : ""} type="button" onClick={enableManualAllocation}>Manual</button></div></div>
+            {allocation.map((node) => <div className="allocation-row" key={node.id}><div><b>{node.name}</b><span>{node.chip}</span></div><div><div className="allocation-bar"><i style={{ width: `${Math.min(100, node.amount / node.usableGiB * 100)}%` }} /></div><div className="allocation-slider"><input aria-label={`${node.name} allocation share`} type="range" min="0" max="100" value={Math.round(node.share)} disabled={allocationMode === "auto"} onChange={(event) => setManualShares((current) => ({ ...current, [node.id]: Number(event.target.value) }))} /><output>{Math.round(node.share)}%</output></div></div><strong>{memory(node.amount)} <small>/ {node.usableGiB} GiB</small></strong></div>)}
           </div>
           <div className="formula"><span>MEMORY RECEIPT</span><b>{memory(model.weightGiB)}</b> weights <i>+</i> <b>{memory(result.cache)}</b> KV cache <i>+</i> <b>{memory(result.runtime)}</b> runtime</div>
         </section>}
