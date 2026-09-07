@@ -39,6 +39,7 @@ For mixed hardware, state which topology applies:
 
 ```bash
 npm run catalog:build
+npm run evidence:validate
 npm run build
 ```
 

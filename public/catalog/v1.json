@@ -3,8 +3,8 @@
   "catalogVersion": "2026.09.07-seed.1",
   "generatedAt": "2026-09-07T00:00:00.000Z",
   "coverage": {
-    "modelArtifacts": 20,
-    "hardwarePresets": 11,
+    "modelArtifacts": 22,
+    "hardwarePresets": 15,
     "targetModelArtifacts": 200,
     "status": "seed"
   },
@@ -44,6 +44,18 @@
       "kvGiBAt8K": 1.7,
       "confidence": "estimated",
       "sourceUrl": "https://huggingface.co/google/gemma-3-27b-it"
+    },
+    {
+      "id": "gemma3-27b-mlx-4bit",
+      "name": "Gemma 3 27B",
+      "family": "Google Gemma",
+      "artifact": "MLX · 4-bit",
+      "format": "mlx",
+      "quantization": "4-bit",
+      "weightGiB": 16.9,
+      "kvGiBAt8K": 1.7,
+      "confidence": "estimated",
+      "sourceUrl": "https://huggingface.co/mlx-community/gemma-3-27b-it-4bit"
     },
     {
       "id": "gpt-oss-20b-gguf-mxfp4",
@@ -248,6 +260,18 @@
       "kvGiBAt8K": 1.4,
       "confidence": "estimated",
       "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+    },
+    {
+      "id": "deepseek-r1-distill-32b-mlx-4bit",
+      "name": "DeepSeek-R1-Distill-Qwen 32B",
+      "family": "DeepSeek",
+      "artifact": "MLX · 4-bit",
+      "format": "mlx",
+      "quantization": "4-bit",
+      "weightGiB": 18.4,
+      "kvGiBAt8K": 1.4,
+      "confidence": "estimated",
+      "sourceUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit"
     }
   ],
   "hardware": [
@@ -360,6 +384,46 @@
       "color": "violet",
       "confidence": "estimated",
       "sourceUrl": "https://www.nvidia.com/"
+    },
+    {
+      "id": "rtx-pro-6000-blackwell-96",
+      "name": "RTX PRO workstation",
+      "chip": "RTX PRO 6000 Blackwell · 96 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 90,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-us/design-visualization/rtx-pro/"
+    },
+    {
+      "id": "nvidia-a100-80",
+      "name": "NVIDIA datacenter GPU",
+      "chip": "A100 · 80 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 74,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-us/data-center/a100/"
+    },
+    {
+      "id": "nvidia-h100-80",
+      "name": "NVIDIA datacenter GPU",
+      "chip": "H100 · 80 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 74,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-us/data-center/h100/"
+    },
+    {
+      "id": "dgx-spark-128",
+      "name": "DGX Spark",
+      "chip": "GB10 · 128 GB unified memory",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 118,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/"
     }
   ]
 }

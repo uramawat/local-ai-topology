@@ -1,0 +1,25 @@
+name: Refresh source metadata
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * 1"
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/refresh-hf-metadata.mjs
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "Refresh source metadata"
+          title: "Refresh source metadata"
+          body: "Automated metadata refresh. Review revisions, licenses, and source changes before merging."
+          branch: automation/refresh-source-metadata

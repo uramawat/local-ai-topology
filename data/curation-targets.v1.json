@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0.0",
+  "targetArtifactCount": 200,
+  "selectionPolicy": "Curate recommended open-weight model releases across general, code, reasoning, multilingual, vision, and MoE use cases. Each target requires a separately reviewed exact artifact before it becomes selectable.",
+  "families": ["GLM", "MiniMax", "Kimi", "Qwen", "Llama", "DeepSeek", "Mistral", "Gemma", "gpt-oss", "Phi", "OLMo", "Falcon", "Aya", "BLOOM", "Command-R"],
+  "formats": ["gguf", "mlx"],
+  "status": "curation_in_progress"
+}

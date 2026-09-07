@@ -3,8 +3,8 @@
   "catalogVersion": "2026.09.07-seed.1",
   "generatedAt": "2026-09-07T00:00:00.000Z",
   "coverage": {
-    "modelArtifacts": 20,
-    "hardwarePresets": 11,
+    "modelArtifacts": 22,
+    "hardwarePresets": 15,
     "targetModelArtifacts": 200,
     "status": "seed"
   },

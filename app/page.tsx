@@ -3,12 +3,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { loadCatalog, starterTopology } from "./catalog";
 
-type Mode = "single" | "mlx" | "rpc";
+type Mode = "single" | "mlx" | "rpc" | "remote";
 
 const modes: Array<{ id: Mode; label: string; note: string }> = [
   { id: "single", label: "One node", note: "Best interactive latency" },
   { id: "mlx", label: "Mac cluster", note: "MLX distributed inference" },
   { id: "rpc", label: "Mac + NVIDIA", note: "llama.cpp RPC · experimental" },
+  { id: "remote", label: "Remote NVIDIA", note: "Mac client · NVIDIA serves" },
 ];
 
 const memory = (n: number) => `${n.toFixed(n >= 100 ? 0 : 1)} GiB`;
@@ -23,6 +24,8 @@ export default function Home() {
   const [showDetail, setShowDetail] = useState(false);
   const [allocationMode, setAllocationMode] = useState<"auto" | "manual">("auto");
   const [manualShares, setManualShares] = useState<Record<string, number>>({});
+  const [topologyIds, setTopologyIds] = useState(["mac-studio-m3-ultra-192", "macbook-pro-m4-max-64", "rtx-5090-32"]);
+  const [hardwareToAdd, setHardwareToAdd] = useState("");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -38,7 +41,11 @@ export default function Home() {
     return () => controller.abort();
   }, []);
 
-  const nodes = useMemo(() => catalog ? starterTopology(catalog) : [], [catalog]);
+  const nodes = useMemo(() => {
+    if (!catalog) return [];
+    const selected = topologyIds.map((id) => catalog.hardware.find((item) => item.id === id)).filter((item): item is NonNullable<typeof item> => Boolean(item));
+    return selected.length ? selected : starterTopology(catalog);
+  }, [catalog, topologyIds]);
   const model = catalog?.models.find((item) => item.id === modelId) ?? catalog?.models[0];
   const result = useMemo(() => {
     if (!model || nodes.length === 0) return null;
@@ -52,14 +59,31 @@ export default function Home() {
           ? nodes.filter((node) => node.kind === "Apple Silicon")
         : mode === "rpc"
             ? nodes
+            : mode === "remote"
+              ? nodes.filter((node) => node.kind === "NVIDIA CUDA")
             : nodes;
     const capacity = selectedNodes.reduce((sum, node) => sum + node.usableGiB, 0);
-    const fits = required <= capacity;
-    const exact = mode === "rpc" ? "estimated" : "verified";
-    const risk = mode === "rpc" ? "Experimental runtime path" : hasFastLink ? "Low topology risk" : "Network constrained";
-    const speedBase = mode === "single" ? 33 : mode === "mlx" ? 46 : hasFastLink ? 22 : 8;
+    const hasApple = selectedNodes.some((node) => node.kind === "Apple Silicon");
+    const hasNvidia = selectedNodes.some((node) => node.kind === "NVIDIA CUDA");
+    const compatibility = mode === "mlx"
+      ? model.format === "mlx" && selectedNodes.length >= 2
+        ? { supported: true, note: "MLX artifact across Apple Silicon nodes" }
+        : { supported: false, note: "Mac cluster requires an MLX artifact and at least two Apple Silicon nodes" }
+      : mode === "rpc"
+        ? model.format === "gguf" && hasApple && hasNvidia
+          ? { supported: true, note: "GGUF via experimental llama.cpp RPC" }
+          : { supported: false, note: "Mac + NVIDIA requires GGUF plus both Apple Silicon and NVIDIA nodes" }
+        : mode === "remote"
+          ? model.format === "gguf" && hasNvidia
+            ? { supported: true, note: "NVIDIA serves; Macs remain client/control nodes" }
+            : { supported: false, note: "Remote NVIDIA serving requires a GGUF artifact and an NVIDIA serving node" }
+        : { supported: true, note: "Single-node artifact path" };
+    const fits = compatibility.supported && required <= capacity;
+    const exact = "estimated";
+    const risk = !compatibility.supported ? "Unsupported artifact/topology pair" : mode === "rpc" ? "Experimental runtime path" : mode === "remote" ? "Remote-serving latency" : hasFastLink ? "Low topology risk" : "Network constrained";
+    const speedBase = mode === "single" ? 33 : mode === "mlx" ? 46 : mode === "remote" ? 26 : hasFastLink ? 22 : 8;
     const speed = Math.max(3, speedBase - Math.max(0, (model.weightGiB - 20) / 9) - (context / 32768) * 2);
-    return { cache, runtime, required, capacity, fits, exact, risk, speed, selectedNodes };
+    return { cache, runtime, required, capacity, fits, exact, risk, speed, selectedNodes, compatibility };
   }, [context, hasFastLink, mode, model, nodes]);
 
   const allocation = useMemo(() => {
@@ -77,7 +101,8 @@ export default function Home() {
     setManualShares(Object.fromEntries(allocation.map((node) => [node.id, node.share])));
     setAllocationMode("manual");
   };
-  const graphLinks = mode === "rpc" ? ["rpc-studio-rtx", "rpc-macbook-rtx"] : mode === "mlx" ? ["mlx-macs"] : [];
+  const graphNodes = mode === "remote" ? nodes : result?.selectedNodes ?? [];
+  const graphLinks = mode === "rpc" ? ["rpc-studio-rtx", "rpc-macbook-rtx"] : mode === "mlx" ? ["mlx-macs"] : mode === "remote" ? ["remote-client-server"] : [];
 
   return (
     <main>
@@ -142,6 +167,12 @@ export default function Home() {
             </select>
             <p className="catalog-note">{catalog.coverage.modelArtifacts} curated model artifacts · {catalog.coverage.hardwarePresets} hardware presets · catalog {catalog.catalogVersion}</p>
 
+            <div className="field-group topology-editor">
+              <span className="field-label">ACTIVE HARDWARE · UP TO 3 NODES</span>
+              <div className="hardware-chips">{nodes.map((node) => <button type="button" key={node.id} onClick={() => setTopologyIds((current) => current.filter((id) => id !== node.id))}>{node.name} <span>×</span></button>)}</div>
+              <div className="hardware-add"><select aria-label="Hardware preset to add" value={hardwareToAdd} onChange={(event) => setHardwareToAdd(event.target.value)} disabled={nodes.length >= 3}><option value="">Add a preset…</option>{catalog.hardware.filter((item) => !topologyIds.includes(item.id)).map((item) => <option key={item.id} value={item.id}>{item.name} · {item.chip}</option>)}</select><button type="button" disabled={!hardwareToAdd || nodes.length >= 3} onClick={() => { setTopologyIds((current) => [...current, hardwareToAdd]); setHardwareToAdd(""); }}>Add</button></div>
+            </div>
+
             <div className="field-group">
               <span className="field-label">DEPLOYMENT MODE</span>
               <div className="mode-list">
@@ -168,26 +199,26 @@ export default function Home() {
           </aside>
 
           <section className="topology-stage" aria-label="Current hardware and network topology">
-            <div className="stage-label"><span>HARDWARE TOPOLOGY</span><span>{mode === "single" ? "1 NODE · LOCAL INFERENCE" : mode === "mlx" ? "2 MACS · DISTRIBUTED" : "3 NODES · 2 EXECUTION LINKS"}</span></div>
+            <div className="stage-label"><span>HARDWARE TOPOLOGY</span><span>{mode === "single" ? "1 NODE · LOCAL INFERENCE" : mode === "mlx" ? "2 MACS · DISTRIBUTED" : mode === "remote" ? "MAC CLIENT · NVIDIA SERVING" : "3 NODES · 2 EXECUTION LINKS"}</span></div>
             <div className={`node-map mode-${mode}`}>
               {graphLinks.map((link) => <div className={`map-rail ${link}`} key={link} />)}
-              {result.selectedNodes.map((node) => <article className={`hardware-node ${node.color}`} key={node.id}>
-                <span className="node-type">{node.kind}</span><strong>{node.name}</strong><small>{node.chip}</small><b>{node.usableGiB} GiB usable</b>
+              {graphNodes.map((node, index) => <article className={`hardware-node ${node.color} topology-node-${index}`} key={node.id}>
+                <span className="node-type">{mode === "remote" && node.kind === "Apple Silicon" ? "CLIENT / CONTROL" : node.kind}</span><strong>{node.name}</strong><small>{node.chip}</small><b>{mode === "remote" && node.kind === "Apple Silicon" ? "not in model capacity" : `${node.usableGiB} GiB usable`}</b>
               </article>)}
             </div>
-            <p className="stage-footnote">{mode === "rpc" ? "This is an experimental, networked execution path—not a generic pooled GPU claim." : "Memory and network assumptions are visible in the result, not hidden behind a green check."}</p>
+            <p className="stage-footnote">{mode === "rpc" ? "This is an experimental, networked execution path—not a generic pooled GPU claim." : mode === "remote" ? "Only the NVIDIA serving nodes count toward the model fit; Macs stay outside the allocation." : "Memory and network assumptions are visible in the result, not hidden behind a green check."}</p>
           </section>
 
           <section className="result-panel" aria-live="polite">
-            <div className="result-header"><span className={`confidence ${result.exact}`}>{result.exact}</span><span>{mode === "rpc" ? "HETEROGENEOUS PLAN" : "SHARDED PLAN"}</span></div>
-            <div className="workload-summary"><span>SELECTED WORKLOAD</span><b>{model.name}</b><small>{model.artifact} · {model.confidence} artifact estimate</small></div>
+            <div className="result-header"><span className={`confidence ${result.exact}`}>{result.exact}</span><span>{mode === "rpc" ? "HETEROGENEOUS PLAN" : mode === "mlx" ? "MLX CLUSTER PLAN" : mode === "remote" ? "REMOTE SERVING PLAN" : "SINGLE-NODE PLAN"}</span></div>
+            <div className="workload-summary"><span>SELECTED WORKLOAD</span><b>{model.name}</b><small>{model.artifact} · {model.confidence} artifact estimate · <a href={model.sourceUrl} target="_blank" rel="noreferrer">source ↗</a></small></div>
             <div className="verdict-line"><span className={`verdict-symbol ${planFits ? "yes" : "no"}`}>{planFits ? "✓" : "×"}</span><h3>{planFits ? "This can run" : "This does not fit"}</h3></div>
             <p className="result-copy">{!result.fits ? `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.` : !allocationFits ? "This custom split overfills at least one node. Adjust the allocation or return to automatic." : `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.`}</p>
             <div className="metric-grid">
               <div><span>DECODE</span><b>~{result.speed.toFixed(0)} tok/s</b><small>{result.exact === "estimated" ? "topology estimate" : "evidence-adjusted"}</small></div>
               <div><span>MAX CONTEXT</span><b>{result.fits ? `${Math.max(8, Math.floor((result.capacity - model.weightGiB - result.runtime) / model.kvGiBAt8K * 8))}K` : "—"}</b><small>at selected quant</small></div>
             </div>
-            <div className="risk-note"><span className="risk-bar" /><p><b>{result.risk}</b><br />{mode === "rpc" ? "Validate with the exact llama.cpp build and link before purchasing hardware." : "A matching measured record upgrades this plan from estimate to verified."}</p></div>
+            <div className="risk-note"><span className="risk-bar" /><p><b>{result.risk}</b><br />{result.compatibility.note}{mode === "rpc" && result.compatibility.supported ? " Validate with the exact llama.cpp build and link before purchasing hardware." : ""}</p></div>
             <button className="primary-button" type="button" onClick={() => setShowDetail(true)}>Inspect & adjust allocation <span>→</span></button>
           </section>
         </div>

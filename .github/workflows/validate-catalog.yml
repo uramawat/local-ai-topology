@@ -21,4 +21,5 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/build-catalog.mjs
+      - run: node scripts/validate-evidence.mjs
       - run: git diff --exit-code -- public/catalog/v1.json data/generated/catalog-index.json

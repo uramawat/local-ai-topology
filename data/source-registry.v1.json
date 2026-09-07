@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": [
+    { "id": "huggingface-model-card", "kind": "upstream_model", "url": "https://huggingface.co", "policy": "Record the exact repository URL, revision where available, and upstream license. Do not copy weights." },
+    { "id": "mlx-community", "kind": "artifact_conversion", "url": "https://huggingface.co/mlx-community", "policy": "Treat each converted MLX repository as a distinct artifact with its own files and source URL." },
+    { "id": "apple-specifications", "kind": "hardware", "url": "https://support.apple.com/specs", "policy": "Use manufacturer memory configuration data; usable memory remains a planner policy, not a manufacturer claim." },
+    { "id": "nvidia-specifications", "kind": "hardware", "url": "https://www.nvidia.com", "policy": "Use manufacturer accelerator-memory specifications; usable memory remains a planner policy." }
+  ]
+}

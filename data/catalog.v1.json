@@ -2,11 +2,12 @@
   "schemaVersion": "1.0.0",
   "catalogVersion": "2026.09.07-seed.1",
   "generatedAt": "2026-09-07T00:00:00.000Z",
-  "coverage": { "modelArtifacts": 20, "hardwarePresets": 11, "targetModelArtifacts": 200, "status": "seed" },
+  "coverage": { "modelArtifacts": 22, "hardwarePresets": 15, "targetModelArtifacts": 200, "status": "seed" },
   "models": [
     { "id": "gemma3-4b-gguf-q4km", "name": "Gemma 3 4B", "family": "Google Gemma", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 3.1, "kvGiBAt8K": 0.6, "confidence": "estimated", "sourceUrl": "https://huggingface.co/google/gemma-3-4b-it" },
     { "id": "gemma3-12b-gguf-q4km", "name": "Gemma 3 12B", "family": "Google Gemma", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 7.7, "kvGiBAt8K": 1.0, "confidence": "estimated", "sourceUrl": "https://huggingface.co/google/gemma-3-12b-it" },
     { "id": "gemma3-27b-gguf-q4km", "name": "Gemma 3 27B", "family": "Google Gemma", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 17.1, "kvGiBAt8K": 1.7, "confidence": "estimated", "sourceUrl": "https://huggingface.co/google/gemma-3-27b-it" },
+    { "id": "gemma3-27b-mlx-4bit", "name": "Gemma 3 27B", "family": "Google Gemma", "artifact": "MLX · 4-bit", "format": "mlx", "quantization": "4-bit", "weightGiB": 16.9, "kvGiBAt8K": 1.7, "confidence": "estimated", "sourceUrl": "https://huggingface.co/mlx-community/gemma-3-27b-it-4bit" },
     { "id": "gpt-oss-20b-gguf-mxfp4", "name": "gpt-oss 20B", "family": "OpenAI gpt-oss", "artifact": "GGUF · MXFP4", "format": "gguf", "quantization": "MXFP4", "weightGiB": 12.5, "kvGiBAt8K": 1.2, "confidence": "estimated", "sourceUrl": "https://huggingface.co/openai/gpt-oss-20b" },
     { "id": "gpt-oss-120b-gguf-mxfp4", "name": "gpt-oss 120B", "family": "OpenAI gpt-oss", "artifact": "GGUF · MXFP4", "format": "gguf", "quantization": "MXFP4", "weightGiB": 65.2, "kvGiBAt8K": 2.1, "confidence": "estimated", "sourceUrl": "https://huggingface.co/openai/gpt-oss-120b" },
     { "id": "llama31-8b-gguf-q4km", "name": "Llama 3.1 8B", "family": "Meta Llama", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 5.0, "kvGiBAt8K": 0.8, "confidence": "estimated", "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct" },
@@ -23,7 +24,8 @@
     { "id": "qwen3-32b-gguf-q4km", "name": "Qwen3 32B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 20.3, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen3-32B" },
     { "id": "qwen3-235b-a22b-gguf-q4km", "name": "Qwen3 235B-A22B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 130.8, "kvGiBAt8K": 2.6, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen3-235B-A22B" },
     { "id": "deepseek-r1-distill-14b-gguf-q4km", "name": "DeepSeek-R1-Distill-Qwen 14B", "family": "DeepSeek", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 9.0, "kvGiBAt8K": 1.1, "confidence": "estimated", "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B" },
-    { "id": "deepseek-r1-distill-32b-gguf-q4km", "name": "DeepSeek-R1-Distill-Qwen 32B", "family": "DeepSeek", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 20.3, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B" }
+    { "id": "deepseek-r1-distill-32b-gguf-q4km", "name": "DeepSeek-R1-Distill-Qwen 32B", "family": "DeepSeek", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 20.3, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B" },
+    { "id": "deepseek-r1-distill-32b-mlx-4bit", "name": "DeepSeek-R1-Distill-Qwen 32B", "family": "DeepSeek", "artifact": "MLX · 4-bit", "format": "mlx", "quantization": "4-bit", "weightGiB": 18.4, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit" }
   ],
   "hardware": [
     { "id": "mac-mini-m4-24", "name": "Mac mini", "chip": "M4 · 24 GB", "kind": "Apple Silicon", "usableGiB": 19, "color": "cyan", "confidence": "estimated", "sourceUrl": "https://www.apple.com/mac-mini/" },
@@ -36,6 +38,10 @@
     { "id": "rtx-3090-24", "name": "RTX workstation", "chip": "RTX 3090 · 24 GB", "kind": "NVIDIA CUDA", "usableGiB": 21, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/" },
     { "id": "rtx-4090-24", "name": "RTX workstation", "chip": "RTX 4090 · 24 GB", "kind": "NVIDIA CUDA", "usableGiB": 21, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/" },
     { "id": "rtx-5090-32", "name": "RTX workstation", "chip": "RTX 5090 · 32 GB", "kind": "NVIDIA CUDA", "usableGiB": 29, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/" },
-    { "id": "rtx-6000-ada-48", "name": "RTX workstation", "chip": "RTX 6000 Ada · 48 GB", "kind": "NVIDIA CUDA", "usableGiB": 44, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/" }
+    { "id": "rtx-6000-ada-48", "name": "RTX workstation", "chip": "RTX 6000 Ada · 48 GB", "kind": "NVIDIA CUDA", "usableGiB": 44, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/" },
+    { "id": "rtx-pro-6000-blackwell-96", "name": "RTX PRO workstation", "chip": "RTX PRO 6000 Blackwell · 96 GB", "kind": "NVIDIA CUDA", "usableGiB": 90, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/design-visualization/rtx-pro/" },
+    { "id": "nvidia-a100-80", "name": "NVIDIA datacenter GPU", "chip": "A100 · 80 GB", "kind": "NVIDIA CUDA", "usableGiB": 74, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/a100/" },
+    { "id": "nvidia-h100-80", "name": "NVIDIA datacenter GPU", "chip": "H100 · 80 GB", "kind": "NVIDIA CUDA", "usableGiB": 74, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/h100/" },
+    { "id": "dgx-spark-128", "name": "DGX Spark", "chip": "GB10 · 128 GB unified memory", "kind": "NVIDIA CUDA", "usableGiB": 118, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/" }
   ]
 }

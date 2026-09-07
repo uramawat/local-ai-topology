@@ -73,8 +73,9 @@ Use the full field guide in [CONTRIBUTING.md](CONTRIBUTING.md). Before opening a
 npm run build
 ```
 
-The project intends to use MIT for code and CC0 for first-party measurement
-records; imported data retains its original license and attribution.
+Code is licensed under [MIT](LICENSE). First-party measurement records are
+dedicated under [CC0](LICENSE-DATA); imported data retains its original license
+and attribution.
 
 ## Scope and safety notes
 
