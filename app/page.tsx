@@ -4,6 +4,28 @@ import { useEffect, useMemo, useState } from "react";
 import { loadCatalog, starterTopology } from "./catalog";
 
 type Mode = "single" | "mlx" | "rpc" | "remote";
+type GraphLink = { id: string; from: string; to: string };
+
+const graphPositions = [
+  { left: "24%", top: "24%" }, { left: "24%", top: "76%" }, { left: "76%", top: "34%" },
+  { left: "76%", top: "76%" }, { left: "50%", top: "51%" },
+];
+const linkId = (from: string, to: string) => [from, to].sort().join("::");
+const makeLink = (from: string, to: string): GraphLink => ({ id: linkId(from, to), from, to });
+const chainLinks = <T extends { id: string }>(nodes: T[]) => nodes.slice(1).map((node, index) => makeLink(nodes[index].id, node.id));
+const isConnected = <T extends { id: string }>(nodes: T[], links: GraphLink[]) => {
+  if (nodes.length < 2) return true;
+  const visited = new Set([nodes[0].id]);
+  const pending = [nodes[0].id];
+  while (pending.length) {
+    const current = pending.shift();
+    links.filter((link) => link.from === current || link.to === current).forEach((link) => {
+      const next = link.from === current ? link.to : link.from;
+      if (!visited.has(next)) { visited.add(next); pending.push(next); }
+    });
+  }
+  return visited.size === nodes.length;
+};
 
 const modes: Array<{ id: Mode; label: string; note: string }> = [
   { id: "single", label: "One node", note: "Best interactive latency" },
@@ -29,6 +51,8 @@ export default function Home() {
   const [hardwareToAdd, setHardwareToAdd] = useState("");
   const [artifactFormat, setArtifactFormat] = useState<"all" | "gguf" | "mlx">("all");
   const [modelQuery, setModelQuery] = useState("");
+  const [manualGraphLinks, setManualGraphLinks] = useState<GraphLink[]>([]);
+  const [graphLinksCustomized, setGraphLinksCustomized] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -110,13 +134,33 @@ export default function Home() {
   }, [allocationMode, manualShares, result]);
   const allocationTotal = allocation.reduce((sum, node) => sum + node.amount, 0);
   const allocationFits = allocation.length > 0 && Math.abs(allocationTotal - (result?.required ?? 0)) < 0.01 && allocation.every((node) => node.amount <= node.usableGiB);
-  const planFits = Boolean(result?.fits) && allocationFits;
   const enableManualAllocation = () => {
     setManualShares(Object.fromEntries(allocation.map((node) => [node.id, node.share])));
     setAllocationMode("manual");
   };
   const graphNodes = mode === "remote" ? nodes : result?.selectedNodes ?? [];
-  const graphLinks = result?.compatibility.supported && graphNodes.length <= 3 ? graphNodes.length === 2 ? ["pair-bridge"] : mode === "rpc" ? ["rpc-studio-rtx", "rpc-macbook-rtx"] : mode === "mlx" ? ["mlx-macs"] : mode === "remote" ? ["remote-client-server"] : [] : [];
+  const defaultGraphLinks = useMemo(() => {
+    if (!result?.compatibility.supported || graphNodes.length < 2 || mode === "single") return [];
+    const macs = graphNodes.filter((node) => node.kind === "Apple Silicon");
+    const nvidia = graphNodes.filter((node) => node.kind === "NVIDIA CUDA");
+    if (mode === "mlx") return chainLinks(macs);
+    if (macs.length && nvidia.length) return macs.flatMap((mac) => nvidia.map((gpu) => makeLink(mac.id, gpu.id)));
+    return chainLinks(graphNodes);
+  }, [graphNodes, mode, result?.compatibility.supported]);
+  const graphLinks = useMemo(() => {
+    const activeIds = new Set(graphNodes.map((node) => node.id));
+    return (graphLinksCustomized ? manualGraphLinks : defaultGraphLinks).filter((link) => activeIds.has(link.from) && activeIds.has(link.to));
+  }, [defaultGraphLinks, graphLinksCustomized, graphNodes, manualGraphLinks]);
+  const possibleGraphLinks = useMemo(() => graphNodes.flatMap((node, index) => graphNodes.slice(index + 1).map((other) => makeLink(node.id, other.id))), [graphNodes]);
+  const topologyComplete = result?.compatibility.supported ? isConnected(graphNodes, graphLinks) : false;
+  const planFits = Boolean(result?.fits) && allocationFits && topologyComplete;
+  const toggleGraphLink = (link: GraphLink) => {
+    setGraphLinksCustomized(true);
+    setManualGraphLinks((current) => {
+      const base = graphLinksCustomized ? current : defaultGraphLinks;
+      return base.some((item) => item.id === link.id) ? base.filter((item) => item.id !== link.id) : [...base, link];
+    });
+  };
 
   return (
     <main>
@@ -217,21 +261,26 @@ export default function Home() {
           </aside>
 
           <section className="topology-stage" aria-label="Current hardware and network topology">
-            <div className="stage-label"><span>HARDWARE TOPOLOGY</span><span>{!result.compatibility.supported ? "INVALID CONFIGURATION · NO LINKS" : graphNodes.length > 3 ? `${graphNodes.length} NODES · LINK MAP NOT YET SET` : mode === "single" ? "1 NODE · LOCAL INFERENCE" : mode === "mlx" ? "2 MACS · DISTRIBUTED" : mode === "remote" ? "MAC CLIENT · NVIDIA SERVING" : "3 NODES · 2 EXECUTION LINKS"}</span></div>
+            <div className="stage-label"><span>HARDWARE TOPOLOGY</span><span>{!result.compatibility.supported ? "INVALID CONFIGURATION · NO LINKS" : mode === "single" ? "1 NODE · LOCAL INFERENCE" : `${graphNodes.length} NODES · ${graphLinks.length} EXECUTION LINKS`}</span></div>
             <div className={`node-map mode-${mode}`}>
-              {graphLinks.map((link) => <div className={`map-rail ${link}`} key={link} />)}
-              {graphNodes.map((node, index) => <article className={`hardware-node ${node.color} topology-node-${index}`} key={node.id}>
+              <svg className="graph-links" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">{graphLinks.map((link) => {
+                const from = graphPositions[graphNodes.findIndex((node) => node.id === link.from)];
+                const to = graphPositions[graphNodes.findIndex((node) => node.id === link.to)];
+                return from && to ? <line key={link.id} x1={Number.parseFloat(from.left)} y1={Number.parseFloat(from.top)} x2={Number.parseFloat(to.left)} y2={Number.parseFloat(to.top)} /> : null;
+              })}</svg>
+              {graphNodes.map((node, index) => <article className={`hardware-node ${node.color}`} style={graphPositions[index]} key={node.id}>
                 <span className="node-type">{mode === "remote" && node.kind === "Apple Silicon" ? "CLIENT / CONTROL" : node.kind}</span><strong>{node.name}</strong><small>{node.chip}</small><b>{mode === "remote" && node.kind === "Apple Silicon" ? "not in model capacity" : `${node.usableGiB} GiB usable`}</b>
               </article>)}
             </div>
-            <p className="stage-footnote">{!result.compatibility.supported ? result.compatibility.note : graphNodes.length > 3 ? "Five-node selection is supported; per-link editing is the next topology upgrade, so no connection lines are inferred here." : mode === "rpc" ? "This is an experimental, networked execution path—not a generic pooled GPU claim." : mode === "remote" ? "Only the NVIDIA serving nodes count toward the model fit; Macs stay outside the allocation." : "Memory and network assumptions are visible in the result, not hidden behind a green check."}</p>
+            {result.compatibility.supported && possibleGraphLinks.length > 0 && <div className="topology-link-editor"><div><span>EXECUTION LINKS</span><button type="button" onClick={() => { setGraphLinksCustomized(false); setManualGraphLinks([]); }}>Reset suggested</button></div><div className="link-options">{possibleGraphLinks.map((link) => <button type="button" key={link.id} className={graphLinks.some((item) => item.id === link.id) ? "active" : ""} onClick={() => toggleGraphLink(link)}>{graphNodes.find((node) => node.id === link.from)?.name} ↔ {graphNodes.find((node) => node.id === link.to)?.name}</button>)}</div></div>}
+            <p className="stage-footnote">{!result.compatibility.supported ? result.compatibility.note : !topologyComplete ? "Link plan is incomplete: connect every displayed execution node before treating this as a runnable plan." : mode === "rpc" ? "This is an experimental, networked execution path—not a generic pooled GPU claim." : mode === "remote" ? "Only the NVIDIA serving nodes count toward the model fit; Macs stay outside the allocation." : "Memory and network assumptions are visible in the result, not hidden behind a green check."}</p>
           </section>
 
           <section className="result-panel" aria-live="polite">
             <div className="result-header"><span className={`confidence ${result.exact}`}>{result.exact}</span><span>{mode === "rpc" ? "HETEROGENEOUS PLAN" : mode === "mlx" ? "MLX CLUSTER PLAN" : mode === "remote" ? "REMOTE SERVING PLAN" : "SINGLE-NODE PLAN"}</span></div>
             <div className="workload-summary"><span>SELECTED WORKLOAD</span><b>{model.name}</b><small>{model.artifact} · {model.confidence} artifact estimate · <a href={model.sourceUrl} target="_blank" rel="noreferrer">source ↗</a></small></div>
             <div className="verdict-line"><span className={`verdict-symbol ${planFits ? "yes" : "no"}`}>{planFits ? "✓" : "×"}</span><h3>{planFits ? "This can run" : "This does not fit"}</h3></div>
-            <p className="result-copy">{!result.fits ? `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.` : !allocationFits ? "This custom split overfills at least one node. Adjust the allocation or return to automatic." : `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.`}</p>
+            <p className="result-copy">{!result.fits ? `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.` : !topologyComplete ? "The memory math fits, but the selected link plan leaves an execution node disconnected." : !allocationFits ? "This custom split overfills at least one node. Adjust the allocation or return to automatic." : `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.`}</p>
             <div className="metric-grid">
               <div><span>DECODE</span><b>~{result.speed.toFixed(0)} tok/s</b><small>{result.exact === "estimated" ? "topology estimate" : "evidence-adjusted"}</small></div>
               <div><span>MAX CONTEXT</span><b>{result.fits ? tokenCount(Math.max(8, Math.floor((result.capacity - model.weightGiB - result.runtime) / model.kvGiBAt8K * 8))) : "—"}</b><small>at selected quant</small></div>
