@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "catalogVersion": "2026.09.07-seed.1",
   "generatedAt": "2026-09-07T00:00:00.000Z",
-  "coverage": { "modelArtifacts": 22, "hardwarePresets": 15, "targetModelArtifacts": 200, "status": "seed" },
+  "coverage": { "modelArtifacts": 25, "hardwarePresets": 23, "targetModelArtifacts": 200, "status": "seed" },
   "models": [
     { "id": "gemma3-4b-gguf-q4km", "name": "Gemma 3 4B", "family": "Google Gemma", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 3.1, "kvGiBAt8K": 0.6, "confidence": "estimated", "sourceUrl": "https://huggingface.co/google/gemma-3-4b-it" },
     { "id": "gemma3-12b-gguf-q4km", "name": "Gemma 3 12B", "family": "Google Gemma", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 7.7, "kvGiBAt8K": 1.0, "confidence": "estimated", "sourceUrl": "https://huggingface.co/google/gemma-3-12b-it" },
@@ -25,23 +25,34 @@
     { "id": "qwen3-235b-a22b-gguf-q4km", "name": "Qwen3 235B-A22B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 130.8, "kvGiBAt8K": 2.6, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen3-235B-A22B" },
     { "id": "deepseek-r1-distill-14b-gguf-q4km", "name": "DeepSeek-R1-Distill-Qwen 14B", "family": "DeepSeek", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 9.0, "kvGiBAt8K": 1.1, "confidence": "estimated", "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B" },
     { "id": "deepseek-r1-distill-32b-gguf-q4km", "name": "DeepSeek-R1-Distill-Qwen 32B", "family": "DeepSeek", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 20.3, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B" },
-    { "id": "deepseek-r1-distill-32b-mlx-4bit", "name": "DeepSeek-R1-Distill-Qwen 32B", "family": "DeepSeek", "artifact": "MLX · 4-bit", "format": "mlx", "quantization": "4-bit", "weightGiB": 18.4, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit" }
+    { "id": "deepseek-r1-distill-32b-mlx-4bit", "name": "DeepSeek-R1-Distill-Qwen 32B", "family": "DeepSeek", "artifact": "MLX · 4-bit", "format": "mlx", "quantization": "4-bit", "weightGiB": 18.4, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit" },
+    { "id": "glm47-flash-gguf-q4k", "name": "GLM-4.7-Flash", "family": "GLM", "artifact": "GGUF · Q4_K", "format": "gguf", "quantization": "Q4_K", "weightGiB": 16.99, "kvGiBAt8K": 1.8, "confidence": "estimated", "sourceUrl": "https://huggingface.co/ggml-org/GLM-4.7-Flash-GGUF/tree/main" },
+    { "id": "minimax-m27-gguf-ud-q4km", "name": "MiniMax M2.7", "family": "MiniMax", "artifact": "GGUF · UD-Q4_K_M", "format": "gguf", "quantization": "UD-Q4_K_M", "weightGiB": 130.54, "kvGiBAt8K": 3.2, "confidence": "estimated", "sourceUrl": "https://huggingface.co/unsloth/MiniMax-M2.7-GGUF/tree/main/UD-Q4_K_M" },
+    { "id": "kimi-k25-gguf-q4km", "name": "Kimi K2.5", "family": "Kimi", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 578.58, "kvGiBAt8K": 4.0, "confidence": "estimated", "sourceUrl": "https://huggingface.co/unsloth/Kimi-K2.5-GGUF/tree/main/Q4_K_M" }
   ],
   "hardware": [
     { "id": "mac-mini-m4-24", "name": "Mac mini", "chip": "M4 · 24 GB", "kind": "Apple Silicon", "usableGiB": 19, "color": "cyan", "confidence": "estimated", "sourceUrl": "https://www.apple.com/mac-mini/" },
     { "id": "mac-mini-m4-pro-64", "name": "Mac mini", "chip": "M4 Pro · 64 GB", "kind": "Apple Silicon", "usableGiB": 58, "color": "cyan", "confidence": "estimated", "sourceUrl": "https://www.apple.com/mac-mini/" },
+    { "id": "macbook-air-m4-32", "name": "MacBook Air", "chip": "M4 · 32 GB", "kind": "Apple Silicon", "usableGiB": 27, "color": "cyan", "confidence": "estimated", "sourceUrl": "https://www.apple.com/macbook-air/" },
+    { "id": "macbook-pro-m4-pro-48", "name": "MacBook Pro", "chip": "M4 Pro · 48 GB", "kind": "Apple Silicon", "usableGiB": 42, "color": "cyan", "confidence": "estimated", "sourceUrl": "https://www.apple.com/macbook-pro/" },
     { "id": "macbook-pro-m3-max-128", "name": "MacBook Pro", "chip": "M3 Max · 128 GB", "kind": "Apple Silicon", "usableGiB": 120, "color": "cyan", "confidence": "estimated", "sourceUrl": "https://support.apple.com/" },
     { "id": "macbook-pro-m4-max-64", "name": "MacBook Pro", "chip": "M4 Max · 64 GB", "kind": "Apple Silicon", "usableGiB": 58, "color": "cyan", "confidence": "estimated", "sourceUrl": "https://www.apple.com/macbook-pro/" },
+    { "id": "macbook-pro-m4-max-128", "name": "MacBook Pro", "chip": "M4 Max · 128 GB", "kind": "Apple Silicon", "usableGiB": 120, "color": "cyan", "confidence": "estimated", "sourceUrl": "https://www.apple.com/macbook-pro/" },
     { "id": "mac-studio-m2-ultra-192", "name": "Mac Studio", "chip": "M2 Ultra · 192 GB", "kind": "Apple Silicon", "usableGiB": 184, "color": "lime", "confidence": "estimated", "sourceUrl": "https://support.apple.com/" },
     { "id": "mac-studio-m3-ultra-192", "name": "Mac Studio", "chip": "M3 Ultra · 192 GB", "kind": "Apple Silicon", "usableGiB": 184, "color": "lime", "confidence": "estimated", "sourceUrl": "https://www.apple.com/mac-studio/" },
     { "id": "mac-studio-m3-ultra-512", "name": "Mac Studio", "chip": "M3 Ultra · 512 GB", "kind": "Apple Silicon", "usableGiB": 500, "color": "lime", "confidence": "estimated", "sourceUrl": "https://www.apple.com/mac-studio/" },
+    { "id": "mac-studio-m3-ultra-256", "name": "Mac Studio", "chip": "M3 Ultra · 256 GB", "kind": "Apple Silicon", "usableGiB": 244, "color": "lime", "confidence": "estimated", "sourceUrl": "https://www.apple.com/mac-studio/" },
     { "id": "rtx-3090-24", "name": "RTX workstation", "chip": "RTX 3090 · 24 GB", "kind": "NVIDIA CUDA", "usableGiB": 21, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/" },
     { "id": "rtx-4090-24", "name": "RTX workstation", "chip": "RTX 4090 · 24 GB", "kind": "NVIDIA CUDA", "usableGiB": 21, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/" },
     { "id": "rtx-5090-32", "name": "RTX workstation", "chip": "RTX 5090 · 32 GB", "kind": "NVIDIA CUDA", "usableGiB": 29, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/" },
     { "id": "rtx-6000-ada-48", "name": "RTX workstation", "chip": "RTX 6000 Ada · 48 GB", "kind": "NVIDIA CUDA", "usableGiB": 44, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/" },
+    { "id": "rtx-a6000-48", "name": "RTX workstation", "chip": "RTX A6000 · 48 GB", "kind": "NVIDIA CUDA", "usableGiB": 44, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/design-visualization/rtx-a6000/" },
+    { "id": "nvidia-l40s-48", "name": "NVIDIA datacenter GPU", "chip": "L40S · 48 GB", "kind": "NVIDIA CUDA", "usableGiB": 44, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/l40s/" },
     { "id": "rtx-pro-6000-blackwell-96", "name": "RTX PRO workstation", "chip": "RTX PRO 6000 Blackwell · 96 GB", "kind": "NVIDIA CUDA", "usableGiB": 90, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/design-visualization/rtx-pro/" },
     { "id": "nvidia-a100-80", "name": "NVIDIA datacenter GPU", "chip": "A100 · 80 GB", "kind": "NVIDIA CUDA", "usableGiB": 74, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/a100/" },
     { "id": "nvidia-h100-80", "name": "NVIDIA datacenter GPU", "chip": "H100 · 80 GB", "kind": "NVIDIA CUDA", "usableGiB": 74, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/h100/" },
+    { "id": "nvidia-h200-141", "name": "NVIDIA datacenter GPU", "chip": "H200 · 141 GB", "kind": "NVIDIA CUDA", "usableGiB": 133, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/h200/" },
+    { "id": "nvidia-b200-180", "name": "NVIDIA datacenter GPU", "chip": "B200 · 180 GB", "kind": "NVIDIA CUDA", "usableGiB": 170, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/b200/" },
     { "id": "dgx-spark-128", "name": "DGX Spark", "chip": "GB10 · 128 GB unified memory", "kind": "NVIDIA CUDA", "usableGiB": 118, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/" }
   ]
 }

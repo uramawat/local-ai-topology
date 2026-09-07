@@ -3,8 +3,8 @@
   "catalogVersion": "2026.09.07-seed.1",
   "generatedAt": "2026-09-07T00:00:00.000Z",
   "coverage": {
-    "modelArtifacts": 22,
-    "hardwarePresets": 15,
+    "modelArtifacts": 25,
+    "hardwarePresets": 23,
     "targetModelArtifacts": 200,
     "status": "seed"
   },
@@ -272,6 +272,42 @@
       "kvGiBAt8K": 1.4,
       "confidence": "estimated",
       "sourceUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit"
+    },
+    {
+      "id": "glm47-flash-gguf-q4k",
+      "name": "GLM-4.7-Flash",
+      "family": "GLM",
+      "artifact": "GGUF · Q4_K",
+      "format": "gguf",
+      "quantization": "Q4_K",
+      "weightGiB": 16.99,
+      "kvGiBAt8K": 1.8,
+      "confidence": "estimated",
+      "sourceUrl": "https://huggingface.co/ggml-org/GLM-4.7-Flash-GGUF/tree/main"
+    },
+    {
+      "id": "minimax-m27-gguf-ud-q4km",
+      "name": "MiniMax M2.7",
+      "family": "MiniMax",
+      "artifact": "GGUF · UD-Q4_K_M",
+      "format": "gguf",
+      "quantization": "UD-Q4_K_M",
+      "weightGiB": 130.54,
+      "kvGiBAt8K": 3.2,
+      "confidence": "estimated",
+      "sourceUrl": "https://huggingface.co/unsloth/MiniMax-M2.7-GGUF/tree/main/UD-Q4_K_M"
+    },
+    {
+      "id": "kimi-k25-gguf-q4km",
+      "name": "Kimi K2.5",
+      "family": "Kimi",
+      "artifact": "GGUF · Q4_K_M",
+      "format": "gguf",
+      "quantization": "Q4_K_M",
+      "weightGiB": 578.58,
+      "kvGiBAt8K": 4,
+      "confidence": "estimated",
+      "sourceUrl": "https://huggingface.co/unsloth/Kimi-K2.5-GGUF/tree/main/Q4_K_M"
     }
   ],
   "hardware": [
@@ -296,6 +332,26 @@
       "sourceUrl": "https://www.apple.com/mac-mini/"
     },
     {
+      "id": "macbook-air-m4-32",
+      "name": "MacBook Air",
+      "chip": "M4 · 32 GB",
+      "kind": "Apple Silicon",
+      "usableGiB": 27,
+      "color": "cyan",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.apple.com/macbook-air/"
+    },
+    {
+      "id": "macbook-pro-m4-pro-48",
+      "name": "MacBook Pro",
+      "chip": "M4 Pro · 48 GB",
+      "kind": "Apple Silicon",
+      "usableGiB": 42,
+      "color": "cyan",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.apple.com/macbook-pro/"
+    },
+    {
       "id": "macbook-pro-m3-max-128",
       "name": "MacBook Pro",
       "chip": "M3 Max · 128 GB",
@@ -311,6 +367,16 @@
       "chip": "M4 Max · 64 GB",
       "kind": "Apple Silicon",
       "usableGiB": 58,
+      "color": "cyan",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.apple.com/macbook-pro/"
+    },
+    {
+      "id": "macbook-pro-m4-max-128",
+      "name": "MacBook Pro",
+      "chip": "M4 Max · 128 GB",
+      "kind": "Apple Silicon",
+      "usableGiB": 120,
       "color": "cyan",
       "confidence": "estimated",
       "sourceUrl": "https://www.apple.com/macbook-pro/"
@@ -341,6 +407,16 @@
       "chip": "M3 Ultra · 512 GB",
       "kind": "Apple Silicon",
       "usableGiB": 500,
+      "color": "lime",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.apple.com/mac-studio/"
+    },
+    {
+      "id": "mac-studio-m3-ultra-256",
+      "name": "Mac Studio",
+      "chip": "M3 Ultra · 256 GB",
+      "kind": "Apple Silicon",
+      "usableGiB": 244,
       "color": "lime",
       "confidence": "estimated",
       "sourceUrl": "https://www.apple.com/mac-studio/"
@@ -386,6 +462,26 @@
       "sourceUrl": "https://www.nvidia.com/"
     },
     {
+      "id": "rtx-a6000-48",
+      "name": "RTX workstation",
+      "chip": "RTX A6000 · 48 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 44,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-us/design-visualization/rtx-a6000/"
+    },
+    {
+      "id": "nvidia-l40s-48",
+      "name": "NVIDIA datacenter GPU",
+      "chip": "L40S · 48 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 44,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-us/data-center/l40s/"
+    },
+    {
       "id": "rtx-pro-6000-blackwell-96",
       "name": "RTX PRO workstation",
       "chip": "RTX PRO 6000 Blackwell · 96 GB",
@@ -414,6 +510,26 @@
       "color": "violet",
       "confidence": "estimated",
       "sourceUrl": "https://www.nvidia.com/en-us/data-center/h100/"
+    },
+    {
+      "id": "nvidia-h200-141",
+      "name": "NVIDIA datacenter GPU",
+      "chip": "H200 · 141 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 133,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-us/data-center/h200/"
+    },
+    {
+      "id": "nvidia-b200-180",
+      "name": "NVIDIA datacenter GPU",
+      "chip": "B200 · 180 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 170,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-us/data-center/b200/"
     },
     {
       "id": "dgx-spark-128",
