@@ -65,6 +65,7 @@ export default function Home() {
     ...node,
     amount: mode === "router" ? result.required : Math.min(node.usableGiB, result.required * (node.usableGiB / result.capacity)),
   })) ?? [];
+  const graphLinks = mode === "rpc" ? ["rpc-studio-rtx", "rpc-macbook-rtx"] : mode === "mlx" ? ["mlx-macs"] : [];
 
   return (
     <main>
@@ -148,20 +149,20 @@ export default function Home() {
             )}
           </aside>
 
-          <section className="topology-stage" aria-label="Current hardware topology">
-            <div className="stage-label"><span>DEPLOYMENT GRAPH</span><span>{mode === "router" ? "REQUESTS ROUTE · MEMORY STAYS LOCAL" : "WEIGHTS + KV ARE ALLOCATED"}</span></div>
-            <div className="node-map">
-              <div className="map-rail rail-one" /><div className="map-rail rail-two" />
-              {nodes.map((node) => <article className={`hardware-node ${node.color}`} key={node.id}>
+          <section className="topology-stage" aria-label="Current hardware and network topology">
+            <div className="stage-label"><span>HARDWARE TOPOLOGY</span><span>{mode === "single" ? "1 NODE · LOCAL INFERENCE" : mode === "mlx" ? "2 MACS · DISTRIBUTED" : mode === "router" ? "3 NODES · REQUESTS STAY LOCAL" : "3 NODES · 2 EXECUTION LINKS"}</span></div>
+            <div className={`node-map mode-${mode}`}>
+              {graphLinks.map((link) => <div className={`map-rail ${link}`} key={link} />)}
+              {result.selectedNodes.map((node) => <article className={`hardware-node ${node.color}`} key={node.id}>
                 <span className="node-type">{node.kind}</span><strong>{node.name}</strong><small>{node.chip}</small><b>{node.usableGiB} GiB usable</b>
               </article>)}
-              <div className="model-core"><span>MODEL</span><strong>{model.name}</strong><small>{model.artifact}</small></div>
             </div>
             <p className="stage-footnote">{mode === "rpc" ? "The planner will not call this a pooled GPU: it is an experimental, networked execution path." : mode === "router" ? "Each job is placed on one node. More nodes raise concurrency, not model capacity." : "Memory and network assumptions are visible in the result, not hidden behind a green check."}</p>
           </section>
 
           <section className="result-panel" aria-live="polite">
             <div className="result-header"><span className={`confidence ${result.exact}`}>{result.exact}</span><span>{mode === "rpc" ? "HETEROGENEOUS PLAN" : mode === "router" ? "ROUTING PLAN" : "SHARDED PLAN"}</span></div>
+            <div className="workload-summary"><span>SELECTED WORKLOAD</span><b>{model.name}</b><small>{model.artifact} · {model.confidence} artifact estimate</small></div>
             <div className="verdict-line"><span className={`verdict-symbol ${result.fits ? "yes" : "no"}`}>{result.fits ? "✓" : "×"}</span><h3>{result.fits ? "This can run" : "This does not fit"}</h3></div>
             <p className="result-copy">{result.fits ? `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.` : `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.`}</p>
             <div className="metric-grid">
