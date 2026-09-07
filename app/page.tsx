@@ -27,6 +27,7 @@ export default function Home() {
   const [manualShares, setManualShares] = useState<Record<string, number>>({});
   const [topologyIds, setTopologyIds] = useState(["mac-studio-m3-ultra-192", "macbook-pro-m4-max-64", "rtx-5090-32"]);
   const [hardwareToAdd, setHardwareToAdd] = useState("");
+  const [artifactFormat, setArtifactFormat] = useState<"all" | "gguf" | "mlx">("all");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -47,6 +48,10 @@ export default function Home() {
     const selected = topologyIds.map((id) => catalog.hardware.find((item) => item.id === id)).filter((item): item is NonNullable<typeof item> => Boolean(item));
     return selected.length ? selected : starterTopology(catalog);
   }, [catalog, topologyIds]);
+  const visibleModels = useMemo(() => catalog?.models.filter((item) => artifactFormat === "all" || item.format === artifactFormat) ?? [], [artifactFormat, catalog]);
+  useEffect(() => {
+    if (visibleModels.length && !visibleModels.some((item) => item.id === modelId)) setModelId(visibleModels[0].id);
+  }, [modelId, visibleModels]);
   const model = catalog?.models.find((item) => item.id === modelId) ?? catalog?.models[0];
   const result = useMemo(() => {
     if (!model || nodes.length === 0) return null;
@@ -103,7 +108,7 @@ export default function Home() {
     setAllocationMode("manual");
   };
   const graphNodes = mode === "remote" ? nodes : result?.selectedNodes ?? [];
-  const graphLinks = result?.compatibility.supported && graphNodes.length <= 3 ? mode === "rpc" ? ["rpc-studio-rtx", "rpc-macbook-rtx"] : mode === "mlx" ? ["mlx-macs"] : mode === "remote" ? ["remote-client-server"] : [] : [];
+  const graphLinks = result?.compatibility.supported && graphNodes.length <= 3 ? graphNodes.length === 2 ? ["pair-bridge"] : mode === "rpc" ? ["rpc-studio-rtx", "rpc-macbook-rtx"] : mode === "mlx" ? ["mlx-macs"] : mode === "remote" ? ["remote-client-server"] : [] : [];
 
   return (
     <main>
@@ -163,8 +168,9 @@ export default function Home() {
         <div className="planner-grid">
           <aside className="control-panel" aria-label="Planner inputs">
             <label className="field-label" htmlFor="model">MODEL ARTIFACT</label>
+            <div className="artifact-filter" role="group" aria-label="Artifact format filter"><button type="button" className={artifactFormat === "all" ? "active" : ""} onClick={() => setArtifactFormat("all")}>All</button><button type="button" className={artifactFormat === "gguf" ? "active" : ""} onClick={() => setArtifactFormat("gguf")}>GGUF</button><button type="button" className={artifactFormat === "mlx" ? "active" : ""} onClick={() => setArtifactFormat("mlx")}>MLX</button></div>
             <select id="model" value={modelId} onChange={(event) => setModelId(event.target.value)}>
-              {catalog.models.map((item) => <option key={item.id} value={item.id}>{item.name} · {item.artifact}</option>)}
+              {visibleModels.map((item) => <option key={item.id} value={item.id}>{item.name} · {item.artifact}</option>)}
             </select>
             <p className="catalog-note">{catalog.coverage.modelArtifacts} curated model artifacts · {catalog.coverage.hardwarePresets} hardware presets · catalog {catalog.catalogVersion}</p>
             <details className="catalog-review"><summary>What to review in this catalog</summary><p>Check the selected artifact’s source link, format, quantization, and estimate label. A row is only eligible for a stronger confidence level after a reproducible evidence record is accepted.</p></details>
