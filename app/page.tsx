@@ -3,13 +3,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { loadCatalog, starterTopology } from "./catalog";
 
-type Mode = "single" | "mlx" | "rpc" | "router";
+type Mode = "single" | "mlx" | "rpc";
 
 const modes: Array<{ id: Mode; label: string; note: string }> = [
   { id: "single", label: "One node", note: "Best interactive latency" },
   { id: "mlx", label: "Mac cluster", note: "MLX distributed inference" },
   { id: "rpc", label: "Mac + NVIDIA", note: "llama.cpp RPC · experimental" },
-  { id: "router", label: "Agent routing", note: "Independent requests only" },
 ];
 
 const memory = (n: number) => `${n.toFixed(n >= 100 ? 0 : 1)} GiB`;
@@ -42,7 +41,7 @@ export default function Home() {
   const result = useMemo(() => {
     if (!model || nodes.length === 0) return null;
     const cache = model.kvGiBAt8K * (context / 8192);
-    const runtime = mode === "router" ? 1.8 : mode === "single" ? 2.4 : 4.8;
+    const runtime = mode === "single" ? 2.4 : 4.8;
     const required = model.weightGiB + cache + runtime;
     const selectedNodes =
       mode === "single"
@@ -52,18 +51,18 @@ export default function Home() {
         : mode === "rpc"
             ? nodes
             : nodes;
-    const capacity = mode === "router" ? Math.max(...nodes.map((node) => node.usableGiB)) : selectedNodes.reduce((sum, node) => sum + node.usableGiB, 0);
+    const capacity = selectedNodes.reduce((sum, node) => sum + node.usableGiB, 0);
     const fits = required <= capacity;
-    const exact = mode === "rpc" ? "estimated" : mode === "router" ? "inferred" : "verified";
-    const risk = mode === "rpc" ? "Experimental runtime path" : mode === "router" ? "Memory does not pool" : hasFastLink ? "Low topology risk" : "Network constrained";
-    const speedBase = mode === "single" ? 33 : mode === "mlx" ? 46 : mode === "router" ? 30 : hasFastLink ? 22 : 8;
+    const exact = mode === "rpc" ? "estimated" : "verified";
+    const risk = mode === "rpc" ? "Experimental runtime path" : hasFastLink ? "Low topology risk" : "Network constrained";
+    const speedBase = mode === "single" ? 33 : mode === "mlx" ? 46 : hasFastLink ? 22 : 8;
     const speed = Math.max(3, speedBase - Math.max(0, (model.weightGiB - 20) / 9) - (context / 32768) * 2);
     return { cache, runtime, required, capacity, fits, exact, risk, speed, selectedNodes };
   }, [context, hasFastLink, mode, model, nodes]);
 
   const allocation = result?.selectedNodes.map((node) => ({
     ...node,
-    amount: mode === "router" ? result.required : Math.min(node.usableGiB, result.required * (node.usableGiB / result.capacity)),
+    amount: Math.min(node.usableGiB, result.required * (node.usableGiB / result.capacity)),
   })) ?? [];
   const graphLinks = mode === "rpc" ? ["rpc-studio-rtx", "rpc-macbook-rtx"] : mode === "mlx" ? ["mlx-macs"] : [];
 
@@ -116,6 +115,12 @@ export default function Home() {
           <div className="status-key"><span className="dot verified" /> Verified <span className="dot inferred" /> Inferred <span className="dot estimated" /> Estimated</div>
         </div>
 
+        <div className="formula-explainer" aria-label="Memory fit formula">
+          <span>HOW THE FIT IS CALCULATED</span>
+          <b>artifact weights <i>+</i> KV cache at target context <i>+</i> runtime reserve <i>≤</i> usable memory of active execution nodes</b>
+          <small>Links affect execution speed and support—not a separate pool of memory.</small>
+        </div>
+
         <div className="planner-grid">
           <aside className="control-panel" aria-label="Planner inputs">
             <label className="field-label" htmlFor="model">MODEL ARTIFACT</label>
@@ -141,7 +146,7 @@ export default function Home() {
               <div className="range-labels"><span>8K</span><span>128K</span></div>
             </div>
 
-            {mode !== "single" && mode !== "router" && (
+            {mode !== "single" && (
               <button className={`link-toggle ${hasFastLink ? "on" : ""}`} type="button" onClick={() => setHasFastLink((value) => !value)} aria-pressed={hasFastLink}>
                 <span className="toggle-dot" />
                 <span><b>{hasFastLink ? "Fast link enabled" : "10 GbE / unknown link"}</b><small>{hasFastLink ? "Thunderbolt RDMA / equivalent" : "Expect a decode bottleneck"}</small></span>
@@ -150,18 +155,18 @@ export default function Home() {
           </aside>
 
           <section className="topology-stage" aria-label="Current hardware and network topology">
-            <div className="stage-label"><span>HARDWARE TOPOLOGY</span><span>{mode === "single" ? "1 NODE · LOCAL INFERENCE" : mode === "mlx" ? "2 MACS · DISTRIBUTED" : mode === "router" ? "3 NODES · REQUESTS STAY LOCAL" : "3 NODES · 2 EXECUTION LINKS"}</span></div>
+            <div className="stage-label"><span>HARDWARE TOPOLOGY</span><span>{mode === "single" ? "1 NODE · LOCAL INFERENCE" : mode === "mlx" ? "2 MACS · DISTRIBUTED" : "3 NODES · 2 EXECUTION LINKS"}</span></div>
             <div className={`node-map mode-${mode}`}>
               {graphLinks.map((link) => <div className={`map-rail ${link}`} key={link} />)}
               {result.selectedNodes.map((node) => <article className={`hardware-node ${node.color}`} key={node.id}>
                 <span className="node-type">{node.kind}</span><strong>{node.name}</strong><small>{node.chip}</small><b>{node.usableGiB} GiB usable</b>
               </article>)}
             </div>
-            <p className="stage-footnote">{mode === "rpc" ? "The planner will not call this a pooled GPU: it is an experimental, networked execution path." : mode === "router" ? "Each job is placed on one node. More nodes raise concurrency, not model capacity." : "Memory and network assumptions are visible in the result, not hidden behind a green check."}</p>
+            <p className="stage-footnote">{mode === "rpc" ? "This is an experimental, networked execution path—not a generic pooled GPU claim." : "Memory and network assumptions are visible in the result, not hidden behind a green check."}</p>
           </section>
 
           <section className="result-panel" aria-live="polite">
-            <div className="result-header"><span className={`confidence ${result.exact}`}>{result.exact}</span><span>{mode === "rpc" ? "HETEROGENEOUS PLAN" : mode === "router" ? "ROUTING PLAN" : "SHARDED PLAN"}</span></div>
+            <div className="result-header"><span className={`confidence ${result.exact}`}>{result.exact}</span><span>{mode === "rpc" ? "HETEROGENEOUS PLAN" : "SHARDED PLAN"}</span></div>
             <div className="workload-summary"><span>SELECTED WORKLOAD</span><b>{model.name}</b><small>{model.artifact} · {model.confidence} artifact estimate</small></div>
             <div className="verdict-line"><span className={`verdict-symbol ${result.fits ? "yes" : "no"}`}>{result.fits ? "✓" : "×"}</span><h3>{result.fits ? "This can run" : "This does not fit"}</h3></div>
             <p className="result-copy">{result.fits ? `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.` : `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.`}</p>
@@ -169,7 +174,7 @@ export default function Home() {
               <div><span>DECODE</span><b>~{result.speed.toFixed(0)} tok/s</b><small>{result.exact === "estimated" ? "topology estimate" : "evidence-adjusted"}</small></div>
               <div><span>MAX CONTEXT</span><b>{result.fits ? `${Math.max(8, Math.floor((result.capacity - model.weightGiB - result.runtime) / model.kvGiBAt8K * 8))}K` : "—"}</b><small>at selected quant</small></div>
             </div>
-            <div className="risk-note"><span className="risk-bar" /><p><b>{result.risk}</b><br />{mode === "rpc" ? "Validate with the exact llama.cpp build and link before purchasing hardware." : mode === "router" ? "Use this mode for concurrent agents, not a model that exceeds every individual node." : "A matching measured record upgrades this plan from estimate to verified."}</p></div>
+            <div className="risk-note"><span className="risk-bar" /><p><b>{result.risk}</b><br />{mode === "rpc" ? "Validate with the exact llama.cpp build and link before purchasing hardware." : "A matching measured record upgrades this plan from estimate to verified."}</p></div>
             <button className="primary-button" type="button" onClick={() => setShowDetail(true)}>Inspect allocation <span>→</span></button>
           </section>
         </div>
@@ -186,8 +191,8 @@ export default function Home() {
       <section className="method-section" id="method">
         <div><p className="eyebrow">WHY THIS IS DIFFERENT</p><h2>A cluster is not a larger computer.</h2></div>
         <div className="method-cards">
-          <article><span>01</span><h3>Route</h3><p>Independent agents can land on different machines. Fast parallel work; no combined memory.</p></article>
-          <article><span>02</span><h3>Shard</h3><p>One model spans machines. Capacity grows, while the slowest stage and link define the experience.</p></article>
+          <article><span>01</span><h3>Select</h3><p>Start with the exact artifact, quantization, and target context—not a generic parameter count.</p></article>
+          <article><span>02</span><h3>Shard</h3><p>One model can span compatible machines. Capacity grows, while the slowest stage and link define the experience.</p></article>
           <article><span>03</span><h3>Prove</h3><p>Exact topology measurements outrank generic bandwidth math—and remain inspectable.</p></article>
         </div>
       </section>
