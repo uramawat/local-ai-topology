@@ -102,7 +102,7 @@ export default function Home() {
     setAllocationMode("manual");
   };
   const graphNodes = mode === "remote" ? nodes : result?.selectedNodes ?? [];
-  const graphLinks = mode === "rpc" ? ["rpc-studio-rtx", "rpc-macbook-rtx"] : mode === "mlx" ? ["mlx-macs"] : mode === "remote" ? ["remote-client-server"] : [];
+  const graphLinks = result?.compatibility.supported && graphNodes.length <= 3 ? mode === "rpc" ? ["rpc-studio-rtx", "rpc-macbook-rtx"] : mode === "mlx" ? ["mlx-macs"] : mode === "remote" ? ["remote-client-server"] : [] : [];
 
   return (
     <main>
@@ -166,11 +166,12 @@ export default function Home() {
               {catalog.models.map((item) => <option key={item.id} value={item.id}>{item.name} · {item.artifact}</option>)}
             </select>
             <p className="catalog-note">{catalog.coverage.modelArtifacts} curated model artifacts · {catalog.coverage.hardwarePresets} hardware presets · catalog {catalog.catalogVersion}</p>
+            <details className="catalog-review"><summary>What to review in this catalog</summary><p>Check the selected artifact’s source link, format, quantization, and estimate label. A row is only eligible for a stronger confidence level after a reproducible evidence record is accepted.</p></details>
 
             <div className="field-group topology-editor">
-              <span className="field-label">ACTIVE HARDWARE · UP TO 3 NODES</span>
+              <span className="field-label">ACTIVE HARDWARE · UP TO 5 NODES</span>
               <div className="hardware-chips">{nodes.map((node) => <button type="button" key={node.id} onClick={() => setTopologyIds((current) => current.filter((id) => id !== node.id))}>{node.name} <span>×</span></button>)}</div>
-              <div className="hardware-add"><select aria-label="Hardware preset to add" value={hardwareToAdd} onChange={(event) => setHardwareToAdd(event.target.value)} disabled={nodes.length >= 3}><option value="">Add a preset…</option>{catalog.hardware.filter((item) => !topologyIds.includes(item.id)).map((item) => <option key={item.id} value={item.id}>{item.name} · {item.chip}</option>)}</select><button type="button" disabled={!hardwareToAdd || nodes.length >= 3} onClick={() => { setTopologyIds((current) => [...current, hardwareToAdd]); setHardwareToAdd(""); }}>Add</button></div>
+              <div className="hardware-add"><select aria-label="Hardware preset to add" value={hardwareToAdd} onChange={(event) => setHardwareToAdd(event.target.value)} disabled={nodes.length >= 5}><option value="">Add a preset…</option>{catalog.hardware.filter((item) => !topologyIds.includes(item.id)).map((item) => <option key={item.id} value={item.id}>{item.name} · {item.chip}</option>)}</select><button type="button" disabled={!hardwareToAdd || nodes.length >= 5} onClick={() => { setTopologyIds((current) => [...current, hardwareToAdd]); setHardwareToAdd(""); }}>Add</button></div>
             </div>
 
             <div className="field-group">
@@ -199,14 +200,14 @@ export default function Home() {
           </aside>
 
           <section className="topology-stage" aria-label="Current hardware and network topology">
-            <div className="stage-label"><span>HARDWARE TOPOLOGY</span><span>{mode === "single" ? "1 NODE · LOCAL INFERENCE" : mode === "mlx" ? "2 MACS · DISTRIBUTED" : mode === "remote" ? "MAC CLIENT · NVIDIA SERVING" : "3 NODES · 2 EXECUTION LINKS"}</span></div>
+            <div className="stage-label"><span>HARDWARE TOPOLOGY</span><span>{!result.compatibility.supported ? "INVALID CONFIGURATION · NO LINKS" : graphNodes.length > 3 ? `${graphNodes.length} NODES · LINK MAP NOT YET SET` : mode === "single" ? "1 NODE · LOCAL INFERENCE" : mode === "mlx" ? "2 MACS · DISTRIBUTED" : mode === "remote" ? "MAC CLIENT · NVIDIA SERVING" : "3 NODES · 2 EXECUTION LINKS"}</span></div>
             <div className={`node-map mode-${mode}`}>
               {graphLinks.map((link) => <div className={`map-rail ${link}`} key={link} />)}
               {graphNodes.map((node, index) => <article className={`hardware-node ${node.color} topology-node-${index}`} key={node.id}>
                 <span className="node-type">{mode === "remote" && node.kind === "Apple Silicon" ? "CLIENT / CONTROL" : node.kind}</span><strong>{node.name}</strong><small>{node.chip}</small><b>{mode === "remote" && node.kind === "Apple Silicon" ? "not in model capacity" : `${node.usableGiB} GiB usable`}</b>
               </article>)}
             </div>
-            <p className="stage-footnote">{mode === "rpc" ? "This is an experimental, networked execution path—not a generic pooled GPU claim." : mode === "remote" ? "Only the NVIDIA serving nodes count toward the model fit; Macs stay outside the allocation." : "Memory and network assumptions are visible in the result, not hidden behind a green check."}</p>
+            <p className="stage-footnote">{!result.compatibility.supported ? result.compatibility.note : graphNodes.length > 3 ? "Five-node selection is supported; per-link editing is the next topology upgrade, so no connection lines are inferred here." : mode === "rpc" ? "This is an experimental, networked execution path—not a generic pooled GPU claim." : mode === "remote" ? "Only the NVIDIA serving nodes count toward the model fit; Macs stay outside the allocation." : "Memory and network assumptions are visible in the result, not hidden behind a green check."}</p>
           </section>
 
           <section className="result-panel" aria-live="polite">
