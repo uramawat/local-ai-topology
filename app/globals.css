@@ -7,6 +7,7 @@ body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial, H
 button, select, input { font:inherit; }
 button { cursor:pointer; }
 main { overflow:hidden; }
+.catalog-loading{max-width:1440px;margin:0 auto 100px;padding:58px 5.5vw;border-top:1px solid #cbd4c5;border-bottom:1px solid #cbd4c5;background:#e8ece1}.catalog-loading h2{margin:0 0 10px;font-size:clamp(32px,4vw,52px);letter-spacing:-.06em}.catalog-loading p:last-child{max-width:520px;margin:0;color:#536158;font-size:14px;line-height:1.5}
 .nav-shell { max-width:1440px; margin:0 auto; padding:25px 5.5vw; display:flex; align-items:center; justify-content:space-between; gap:28px; }
 .brand { display:flex; align-items:center; gap:11px; color:var(--ink); font-size:15px; letter-spacing:-.03em; font-weight:800; text-decoration:none; }
 .brand-mark { display:flex; align-items:flex-end; gap:2px; width:22px; height:22px; padding:3px; border:1.5px solid var(--ink); border-radius:7px; }

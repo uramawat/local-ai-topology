@@ -39,7 +39,9 @@ Use `npm run build` to verify a production build.
 ## Project layout
 
 - `app/page.tsx` — interactive planner UI and transparent calculation logic
-- `data/catalog.ts` — editable seed model and hardware presets
+- `data/catalog.v1.json` — source-of-truth, versioned catalog data
+- `scripts/build-catalog.mjs` — schema checks and public-catalog generator
+- `public/catalog/v1.json` — generated file fetched by the planner at runtime
 - `work/DESIGN_SPEC.md` — product/design decisions
 - `work/IMPLEMENTATION_SPEC.md` — data model and implementation plan
 
@@ -65,7 +67,7 @@ measured results from estimates. For a heterogeneous topology, explicitly say
 whether it is remote serving, request routing, or true model sharding; those
 are different claims.
 
-Before opening a pull request, run:
+Use the full field guide in [CONTRIBUTING.md](CONTRIBUTING.md). Before opening a pull request, run:
 
 ```bash
 npm run build

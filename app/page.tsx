@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { hardwareCatalog, modelCatalog, starterTopology } from "../data/catalog";
+import { useEffect, useMemo, useState } from "react";
+import { loadCatalog, starterTopology } from "./catalog";
 
 type Mode = "single" | "mlx" | "rpc" | "router";
 
@@ -15,38 +15,56 @@ const modes: Array<{ id: Mode; label: string; note: string }> = [
 const memory = (n: number) => `${n.toFixed(n >= 100 ? 0 : 1)} GiB`;
 
 export default function Home() {
-  const [modelId, setModelId] = useState("gptoss120");
+  const [catalog, setCatalog] = useState<Awaited<ReturnType<typeof loadCatalog>> | null>(null);
+  const [catalogError, setCatalogError] = useState<string | null>(null);
+  const [modelId, setModelId] = useState("");
   const [mode, setMode] = useState<Mode>("rpc");
   const [context, setContext] = useState(32768);
   const [hasFastLink, setHasFastLink] = useState(true);
   const [showDetail, setShowDetail] = useState(false);
 
-  const model = modelCatalog.find((item) => item.id === modelId) ?? modelCatalog[0];
+  useEffect(() => {
+    const controller = new AbortController();
+    loadCatalog(controller.signal)
+      .then((nextCatalog) => {
+        setCatalog(nextCatalog);
+        setModelId((currentId) => currentId || nextCatalog.models.find((item) => item.id === "gpt-oss-120b-gguf-mxfp4")?.id || nextCatalog.models[0]?.id || "");
+      })
+      .catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setCatalogError(error instanceof Error ? error.message : "Catalog could not be loaded");
+      });
+    return () => controller.abort();
+  }, []);
+
+  const nodes = useMemo(() => catalog ? starterTopology(catalog) : [], [catalog]);
+  const model = catalog?.models.find((item) => item.id === modelId) ?? catalog?.models[0];
   const result = useMemo(() => {
-    const cache = model.kv * (context / 8192);
+    if (!model || nodes.length === 0) return null;
+    const cache = model.kvGiBAt8K * (context / 8192);
     const runtime = mode === "router" ? 1.8 : mode === "single" ? 2.4 : 4.8;
-    const required = model.weights + cache + runtime;
+    const required = model.weightGiB + cache + runtime;
     const selectedNodes =
       mode === "single"
-        ? [starterTopology[0]]
+        ? [nodes[0]]
         : mode === "mlx"
-          ? starterTopology.filter((node) => node.kind === "Apple Silicon")
+          ? nodes.filter((node) => node.kind === "Apple Silicon")
         : mode === "rpc"
-            ? starterTopology
-            : starterTopology;
-    const capacity = mode === "router" ? Math.max(...starterTopology.map((node) => node.usable)) : selectedNodes.reduce((sum, node) => sum + node.usable, 0);
+            ? nodes
+            : nodes;
+    const capacity = mode === "router" ? Math.max(...nodes.map((node) => node.usableGiB)) : selectedNodes.reduce((sum, node) => sum + node.usableGiB, 0);
     const fits = required <= capacity;
     const exact = mode === "rpc" ? "estimated" : mode === "router" ? "inferred" : "verified";
     const risk = mode === "rpc" ? "Experimental runtime path" : mode === "router" ? "Memory does not pool" : hasFastLink ? "Low topology risk" : "Network constrained";
     const speedBase = mode === "single" ? 33 : mode === "mlx" ? 46 : mode === "router" ? 30 : hasFastLink ? 22 : 8;
-    const speed = Math.max(3, speedBase - Math.max(0, (model.weights - 20) / 9) - (context / 32768) * 2);
+    const speed = Math.max(3, speedBase - Math.max(0, (model.weightGiB - 20) / 9) - (context / 32768) * 2);
     return { cache, runtime, required, capacity, fits, exact, risk, speed, selectedNodes };
-  }, [context, hasFastLink, mode, model]);
+  }, [context, hasFastLink, mode, model, nodes]);
 
-  const allocation = result.selectedNodes.map((node) => ({
+  const allocation = result?.selectedNodes.map((node) => ({
     ...node,
-    amount: mode === "router" ? result.required : Math.min(node.usable, result.required * (node.usable / result.capacity)),
-  }));
+    amount: mode === "router" ? result.required : Math.min(node.usableGiB, result.required * (node.usableGiB / result.capacity)),
+  })) ?? [];
 
   return (
     <main>
@@ -87,6 +105,7 @@ export default function Home() {
         </div>
       </section>
 
+      {!catalog || !model || !result ? <section className="catalog-loading" aria-live="polite"><p className="eyebrow">CATALOG</p><h2>{catalogError ? "Catalog unavailable" : "Loading the latest catalog…"}</h2><p>{catalogError ? "The planner stays offline-safe: check the published catalog URL and try again." : "Model artifacts, hardware presets, and provenance are being loaded outside the application bundle."}</p></section> : <>
       <section className="planner-shell" aria-labelledby="planner-title">
         <div className="planner-heading">
           <div>
@@ -100,9 +119,9 @@ export default function Home() {
           <aside className="control-panel" aria-label="Planner inputs">
             <label className="field-label" htmlFor="model">MODEL ARTIFACT</label>
             <select id="model" value={modelId} onChange={(event) => setModelId(event.target.value)}>
-              {modelCatalog.map((item) => <option key={item.id} value={item.id}>{item.name} · {item.artifact}</option>)}
+              {catalog.models.map((item) => <option key={item.id} value={item.id}>{item.name} · {item.artifact}</option>)}
             </select>
-            <p className="catalog-note">{modelCatalog.length} curated model artifacts · {hardwareCatalog.length} hardware presets · source-backed catalog coming next.</p>
+            <p className="catalog-note">{catalog.coverage.modelArtifacts} curated model artifacts · {catalog.coverage.hardwarePresets} hardware presets · catalog {catalog.catalogVersion}</p>
 
             <div className="field-group">
               <span className="field-label">DEPLOYMENT MODE</span>
@@ -133,8 +152,8 @@ export default function Home() {
             <div className="stage-label"><span>DEPLOYMENT GRAPH</span><span>{mode === "router" ? "REQUESTS ROUTE · MEMORY STAYS LOCAL" : "WEIGHTS + KV ARE ALLOCATED"}</span></div>
             <div className="node-map">
               <div className="map-rail rail-one" /><div className="map-rail rail-two" />
-              {starterTopology.map((node) => <article className={`hardware-node ${node.color}`} key={node.id}>
-                <span className="node-type">{node.kind}</span><strong>{node.name}</strong><small>{node.chip}</small><b>{node.usable} GiB usable</b>
+              {nodes.map((node) => <article className={`hardware-node ${node.color}`} key={node.id}>
+                <span className="node-type">{node.kind}</span><strong>{node.name}</strong><small>{node.chip}</small><b>{node.usableGiB} GiB usable</b>
               </article>)}
               <div className="model-core"><span>MODEL</span><strong>{model.name}</strong><small>{model.artifact}</small></div>
             </div>
@@ -147,7 +166,7 @@ export default function Home() {
             <p className="result-copy">{result.fits ? `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.` : `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.`}</p>
             <div className="metric-grid">
               <div><span>DECODE</span><b>~{result.speed.toFixed(0)} tok/s</b><small>{result.exact === "estimated" ? "topology estimate" : "evidence-adjusted"}</small></div>
-              <div><span>MAX CONTEXT</span><b>{result.fits ? `${Math.max(8, Math.floor((result.capacity - model.weights - result.runtime) / model.kv * 8))}K` : "—"}</b><small>at selected quant</small></div>
+              <div><span>MAX CONTEXT</span><b>{result.fits ? `${Math.max(8, Math.floor((result.capacity - model.weightGiB - result.runtime) / model.kvGiBAt8K * 8))}K` : "—"}</b><small>at selected quant</small></div>
             </div>
             <div className="risk-note"><span className="risk-bar" /><p><b>{result.risk}</b><br />{mode === "rpc" ? "Validate with the exact llama.cpp build and link before purchasing hardware." : mode === "router" ? "Use this mode for concurrent agents, not a model that exceeds every individual node." : "A matching measured record upgrades this plan from estimate to verified."}</p></div>
             <button className="primary-button" type="button" onClick={() => setShowDetail(true)}>Inspect allocation <span>→</span></button>
@@ -157,9 +176,9 @@ export default function Home() {
         {showDetail && <section className="details-strip" id="evidence" aria-label="Memory allocation details">
           <div className="details-intro"><p className="eyebrow">ALLOCATION RECEIPT</p><h3>Nothing is hidden in the total.</h3><p>Weights, cache, runtime reserve, and node headroom stay separate so an apparent fit can be audited.</p></div>
           <div className="allocation-list">
-            {allocation.map((node) => <div className="allocation-row" key={node.id}><div><b>{node.name}</b><span>{node.chip}</span></div><div className="allocation-bar"><i style={{ width: `${Math.min(100, node.amount / node.usable * 100)}%` }} /></div><strong>{memory(node.amount)} <small>/ {node.usable} GiB</small></strong></div>)}
+            {allocation.map((node) => <div className="allocation-row" key={node.id}><div><b>{node.name}</b><span>{node.chip}</span></div><div className="allocation-bar"><i style={{ width: `${Math.min(100, node.amount / node.usableGiB * 100)}%` }} /></div><strong>{memory(node.amount)} <small>/ {node.usableGiB} GiB</small></strong></div>)}
           </div>
-          <div className="formula"><span>MEMORY RECEIPT</span><b>{memory(model.weights)}</b> weights <i>+</i> <b>{memory(result.cache)}</b> KV cache <i>+</i> <b>{memory(result.runtime)}</b> runtime</div>
+          <div className="formula"><span>MEMORY RECEIPT</span><b>{memory(model.weightGiB)}</b> weights <i>+</i> <b>{memory(result.cache)}</b> KV cache <i>+</i> <b>{memory(result.runtime)}</b> runtime</div>
         </section>}
       </section>
 
@@ -176,6 +195,7 @@ export default function Home() {
         <div><p className="eyebrow">OPEN DATASET · CC0</p><h2>Help turn estimated<br />into verified.</h2></div>
         <div><p>Run a local benchmark, export a sanitized record, and help the next builder make a confident decision.</p><button className="outline-button" type="button" onClick={() => alert("Benchmark contribution workflow ships in the next build.")}>See contribution format <span>↗</span></button></div>
       </section>
+      </>}
     </main>
   );
 }

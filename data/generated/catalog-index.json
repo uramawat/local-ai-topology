@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "catalogVersion": "2026.09.07-seed.1",
+  "generatedAt": "2026-09-07T00:00:00.000Z",
+  "coverage": {
+    "modelArtifacts": 20,
+    "hardwarePresets": 11,
+    "targetModelArtifacts": 200,
+    "status": "seed"
+  },
+  "families": [
+    "DeepSeek",
+    "Google Gemma",
+    "Meta Llama",
+    "Mistral",
+    "OpenAI gpt-oss",
+    "Qwen"
+  ]
+}
