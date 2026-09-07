@@ -55,6 +55,28 @@ export default function Home() {
   const [graphLinksCustomized, setGraphLinksCustomized] = useState(false);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const urlMode = params.get("mode");
+    const urlContext = Number(params.get("context"));
+    const urlNodes = params.get("nodes")?.split(",").filter(Boolean);
+    const urlLinks = params.get("links")?.split(",").filter(Boolean).map((id) => {
+      const [from, to] = id.split("::");
+      return from && to ? makeLink(from, to) : null;
+    }).filter((link): link is GraphLink => Boolean(link));
+    const urlShares = Object.fromEntries((params.get("shares")?.split(",") ?? []).flatMap((entry) => {
+      const [id, value] = entry.split(":");
+      return id && Number.isFinite(Number(value)) ? [[id, Number(value)]] : [];
+    }));
+    if (params.get("model")) setModelId(params.get("model")!);
+    if (urlMode && modes.some((item) => item.id === urlMode)) setMode(urlMode as Mode);
+    if (Number.isFinite(urlContext) && urlContext >= 8192 && urlContext <= 131072) setContext(urlContext);
+    if (urlNodes?.length) setTopologyIds(urlNodes.slice(0, 5));
+    if (params.get("fast") === "0") setHasFastLink(false);
+    if (params.get("allocation") === "manual" && Object.keys(urlShares).length) { setAllocationMode("manual"); setManualShares(urlShares); }
+    if (params.get("linksCustom") === "1") { setGraphLinksCustomized(true); setManualGraphLinks(urlLinks ?? []); }
+  }, []);
+
+  useEffect(() => {
     const controller = new AbortController();
     loadCatalog(controller.signal)
       .then((nextCatalog) => {
@@ -161,6 +183,19 @@ export default function Home() {
       return base.some((item) => item.id === link.id) ? base.filter((item) => item.id !== link.id) : [...base, link];
     });
   };
+  useEffect(() => {
+    if (!catalog || !modelId) return;
+    const params = new URLSearchParams();
+    params.set("model", modelId);
+    params.set("mode", mode);
+    params.set("context", String(context));
+    params.set("nodes", topologyIds.join(","));
+    if (!hasFastLink) params.set("fast", "0");
+    if (allocationMode === "manual") { params.set("allocation", "manual"); params.set("shares", Object.entries(manualShares).map(([id, share]) => `${id}:${Math.round(share)}`).join(",")); }
+    if (graphLinksCustomized) { params.set("linksCustom", "1"); params.set("links", graphLinks.map((link) => link.id).join(",")); }
+    window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}${window.location.hash}`);
+  }, [allocationMode, catalog, context, graphLinks, graphLinksCustomized, hasFastLink, manualShares, mode, modelId, topologyIds]);
+  const copyPlanLink = async () => { await navigator.clipboard.writeText(window.location.href); };
 
   return (
     <main>
@@ -287,6 +322,7 @@ export default function Home() {
             </div>
             <div className="risk-note"><span className="risk-bar" /><p><b>{result.risk}</b><br />{result.compatibility.note}{mode === "rpc" && result.compatibility.supported ? " Validate with the exact llama.cpp build and link before purchasing hardware." : ""}</p></div>
             <button className="primary-button" type="button" onClick={() => setShowDetail(true)}>Inspect & adjust allocation <span>→</span></button>
+            <button className="share-plan-button" type="button" onClick={() => void copyPlanLink()}>Copy this plan link <span>↗</span></button>
           </section>
         </div>
 
