@@ -1,0 +1,363 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-07T00:00:00.000Z",
+  "policyVersion": "2026.09.07.1",
+  "counts": {
+    "approved": 0,
+    "needs_review": 25,
+    "rejected": 0,
+    "deprecated": 0
+  },
+  "queue": [
+    {
+      "artifactId": "gemma3-4b-gguf-q4km",
+      "name": "Gemma 3 4B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/google/gemma-3-4b-it",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "gemma3-12b-gguf-q4km",
+      "name": "Gemma 3 12B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/google/gemma-3-12b-it",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "gemma3-27b-gguf-q4km",
+      "name": "Gemma 3 27B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/google/gemma-3-27b-it",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "gemma3-27b-mlx-4bit",
+      "name": "Gemma 3 27B",
+      "format": "mlx",
+      "sourceUrl": "https://huggingface.co/mlx-community/gemma-3-27b-it-4bit",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "gpt-oss-20b-gguf-mxfp4",
+      "name": "gpt-oss 20B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/openai/gpt-oss-20b",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "gpt-oss-120b-gguf-mxfp4",
+      "name": "gpt-oss 120B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/openai/gpt-oss-120b",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "llama31-8b-gguf-q4km",
+      "name": "Llama 3.1 8B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "llama33-70b-gguf-q4km",
+      "name": "Llama 3.3 70B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "mistral-nemo-12b-gguf-q4km",
+      "name": "Mistral Nemo 12B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "mistral-small-31-24b-gguf-q4km",
+      "name": "Mistral Small 3.1 24B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "ministral-8b-gguf-q4km",
+      "name": "Ministral 8B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "qwen25-coder-7b-gguf-q4km",
+      "name": "Qwen2.5-Coder 7B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "qwen25-coder-14b-gguf-q4km",
+      "name": "Qwen2.5-Coder 14B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "qwen25-coder-32b-gguf-q4km",
+      "name": "Qwen2.5-Coder 32B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "qwen3-4b-gguf-q4km",
+      "name": "Qwen3 4B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-4B",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "qwen3-8b-gguf-q4km",
+      "name": "Qwen3 8B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-8B",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "qwen3-14b-gguf-q4km",
+      "name": "Qwen3 14B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-14B",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "qwen3-32b-gguf-q4km",
+      "name": "Qwen3 32B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-32B",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "qwen3-235b-a22b-gguf-q4km",
+      "name": "Qwen3 235B-A22B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-235B-A22B",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "deepseek-r1-distill-14b-gguf-q4km",
+      "name": "DeepSeek-R1-Distill-Qwen 14B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "deepseek-r1-distill-32b-gguf-q4km",
+      "name": "DeepSeek-R1-Distill-Qwen 32B",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "deepseek-r1-distill-32b-mlx-4bit",
+      "name": "DeepSeek-R1-Distill-Qwen 32B",
+      "format": "mlx",
+      "sourceUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "glm47-flash-gguf-q4k",
+      "name": "GLM-4.7-Flash",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/ggml-org/GLM-4.7-Flash-GGUF/tree/main",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "minimax-m27-gguf-ud-q4km",
+      "name": "MiniMax M2.7",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/unsloth/MiniMax-M2.7-GGUF/tree/main/UD-Q4_K_M",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    },
+    {
+      "artifactId": "kimi-k25-gguf-q4km",
+      "name": "Kimi K2.5",
+      "format": "gguf",
+      "sourceUrl": "https://huggingface.co/unsloth/Kimi-K2.5-GGUF/tree/main/Q4_K_M",
+      "state": "needs_review",
+      "missing": [
+        "review record",
+        "immutable revision",
+        "exact file list",
+        "license decision"
+      ],
+      "reviewedAt": null
+    }
+  ]
+}

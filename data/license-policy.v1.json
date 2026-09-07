@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "policy": {
+    "approvedArtifactRequirements": [
+      "immutable source revision",
+      "exact selected file list with byte sizes",
+      "license identifier or explicit custom-license reference",
+      "review record with date and maintainer reference"
+    ],
+    "allowedReviewStates": ["approved", "needs_review", "rejected", "deprecated"],
+    "publicationRule": "Only approved records can be described as source-locked. The planner does not redistribute weights or replace upstream license terms.",
+    "unknownLicenseRule": "Unknown or custom licenses may be tracked, but cannot be marked reviewed without a source URL and reviewer note."
+  }
+}

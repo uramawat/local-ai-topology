@@ -41,6 +41,8 @@ Use `npm run build` to verify a production build.
 - `app/page.tsx` — interactive planner UI and transparent calculation logic
 - `data/catalog.v1.json` — source-of-truth, versioned catalog data
 - `scripts/build-catalog.mjs` — schema checks and public-catalog generator
+- `data/artifact-reviews.v1.json` — source-lock and license-review records; empty is intentional until an exact artifact is reviewed
+- `data/generated/artifact-review-queue.v1.json` — generated queue of seed artifacts awaiting immutable file, revision, and license review
 - `public/catalog/v1.json` — generated file fetched by the planner at runtime
 - `work/DESIGN_SPEC.md` — product/design decisions
 - `work/IMPLEMENTATION_SPEC.md` — data model and implementation plan
@@ -72,6 +74,11 @@ Use the full field guide in [CONTRIBUTING.md](CONTRIBUTING.md). Before opening a
 ```bash
 npm run build
 ```
+
+Artifact entries start as candidates. They only become source-locked after a
+review records the immutable upstream revision, exact selected files and byte
+sizes, and the upstream license decision. The target of 200 is a candidate
+coverage target, not a promise that 200 artifacts have already been verified.
 
 Code is licensed under [MIT](LICENSE). First-party measurement records are
 dedicated under [CC0](LICENSE-DATA); imported data retains its original license

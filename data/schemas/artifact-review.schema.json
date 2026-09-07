@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local topology planner artifact review",
+  "type": "object",
+  "required": ["schemaVersion", "policyVersion", "reviews"],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "policyVersion": { "type": "string" },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["artifactId", "state", "reviewedAt", "source", "license"],
+        "properties": {
+          "artifactId": { "type": "string" },
+          "state": { "enum": ["approved", "needs_review", "rejected", "deprecated"] },
+          "reviewedAt": { "type": "string", "format": "date-time" },
+          "reviewedBy": { "type": "string" },
+          "notes": { "type": "string" },
+          "source": {
+            "type": "object",
+            "required": ["provider", "repository", "revision", "artifactUrl", "fetchedAt"],
+            "properties": {
+              "provider": { "const": "huggingface" },
+              "repository": { "type": "string" },
+              "revision": { "type": "string", "minLength": 7 },
+              "artifactUrl": { "type": "string", "format": "uri" },
+              "fetchedAt": { "type": "string", "format": "date-time" }
+            }
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["path", "role", "sizeBytes"],
+              "properties": {
+                "path": { "type": "string" },
+                "role": { "enum": ["weights", "tokenizer", "config", "adapter"] },
+                "sizeBytes": { "type": "integer", "minimum": 1 },
+                "sha256": { "type": ["string", "null"] },
+                "lfsOid": { "type": ["string", "null"] }
+              }
+            }
+          },
+          "license": {
+            "type": "object",
+            "required": ["spdx", "sourceUrl", "status"],
+            "properties": {
+              "spdx": { "type": ["string", "null"] },
+              "sourceUrl": { "type": "string", "format": "uri" },
+              "status": { "enum": ["reviewed", "unknown", "custom"] }
+            }
+          }
+        }
+      }
+    }
+  }
+}

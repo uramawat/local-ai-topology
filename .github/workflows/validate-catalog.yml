@@ -4,13 +4,13 @@ on:
   pull_request:
     paths:
       - "data/**"
-      - "scripts/build-catalog.mjs"
+      - "scripts/**"
       - ".github/workflows/validate-catalog.yml"
   push:
     branches: [main]
     paths:
       - "data/**"
-      - "scripts/build-catalog.mjs"
+      - "scripts/**"
 
 jobs:
   catalog:
@@ -20,6 +20,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node scripts/build-catalog.mjs
+      - run: npm run catalog:build
       - run: node scripts/validate-evidence.mjs
-      - run: git diff --exit-code -- public/catalog/v1.json data/generated/catalog-index.json
+      - run: git diff --exit-code -- public/catalog/v1.json data/generated/catalog-index.json data/generated/artifact-review-queue.v1.json
