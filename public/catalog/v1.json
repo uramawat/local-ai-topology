@@ -3,10 +3,10 @@
   "catalogVersion": "2026.09.07-seed.1",
   "generatedAt": "2026-09-07T00:00:00.000Z",
   "coverage": {
-    "modelArtifacts": 25,
-    "hardwarePresets": 23,
+    "modelArtifacts": 26,
+    "hardwarePresets": 28,
     "targetModelArtifacts": 200,
-    "status": "seed"
+    "status": "curation_in_progress"
   },
   "models": [
     {
@@ -285,6 +285,26 @@
       }
     },
     {
+      "id": "qwen3-32b-mlx-4bit",
+      "name": "Qwen3 32B",
+      "family": "Qwen",
+      "artifact": "MLX · 4-bit",
+      "format": "mlx",
+      "quantization": "4-bit",
+      "weightGiB": 16.9,
+      "kvGiBAt8K": 1.4,
+      "confidence": "estimated",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen3-32B-4bit",
+      "provenance": {
+        "state": "approved",
+        "revision": "bcaaf7f538adf166c1080a2befdb4f6019f66639",
+        "artifactUrl": "https://huggingface.co/mlx-community/Qwen3-32B-4bit/tree/bcaaf7f538adf166c1080a2befdb4f6019f66639",
+        "totalSizeBytes": 18429850874,
+        "license": "Apache-2.0",
+        "reviewedAt": "2026-09-08T04:10:00.000Z"
+      }
+    },
+    {
       "id": "qwen3-235b-a22b-gguf-q4km",
       "name": "Qwen3 235B-A22B",
       "family": "Qwen",
@@ -361,7 +381,12 @@
       "confidence": "estimated",
       "sourceUrl": "https://huggingface.co/ggml-org/GLM-4.7-Flash-GGUF/tree/main",
       "provenance": {
-        "state": "needs_review"
+        "state": "approved",
+        "revision": "7559e96b7e324ab405897dc2b91492b0f376ad4a",
+        "artifactUrl": "https://huggingface.co/ggml-org/GLM-4.7-Flash-GGUF/tree/7559e96b7e324ab405897dc2b91492b0f376ad4a",
+        "totalSizeBytes": 18244193920,
+        "license": "MIT",
+        "reviewedAt": "2026-09-08T04:10:00.000Z"
       }
     },
     {
@@ -376,7 +401,12 @@
       "confidence": "estimated",
       "sourceUrl": "https://huggingface.co/unsloth/MiniMax-M2.7-GGUF/tree/main/UD-Q4_K_M",
       "provenance": {
-        "state": "needs_review"
+        "state": "approved",
+        "revision": "d2a05ccf69491b03db0cc40b335aec14bdaf7198",
+        "artifactUrl": "https://huggingface.co/unsloth/MiniMax-M2.7-GGUF/tree/d2a05ccf69491b03db0cc40b335aec14bdaf7198/UD-Q4_K_M",
+        "totalSizeBytes": 140169905504,
+        "license": "LicenseRef-MiniMax-M2.7-Modified-MIT",
+        "reviewedAt": "2026-09-08T04:10:00.000Z"
       }
     },
     {
@@ -625,6 +655,56 @@
       "color": "violet",
       "confidence": "estimated",
       "sourceUrl": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/"
+    },
+    {
+      "id": "rtx-pro-4000-blackwell-24",
+      "name": "RTX PRO workstation",
+      "chip": "RTX PRO 4000 Blackwell · 24 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 21,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-au/products/workstations/professional-desktop-gpus/rtx-pro-4000/"
+    },
+    {
+      "id": "rtx-pro-4500-blackwell-32",
+      "name": "RTX PRO workstation",
+      "chip": "RTX PRO 4500 Blackwell · 32 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 29,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-gb/products/workstations/professional-desktop-gpus/rtx-pro-4500/"
+    },
+    {
+      "id": "rtx-pro-5000-blackwell-48",
+      "name": "RTX PRO workstation",
+      "chip": "RTX PRO 5000 Blackwell · 48 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 44,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-gb/products/workstations/professional-desktop-gpus/rtx-pro-5000/"
+    },
+    {
+      "id": "rtx-pro-5000-72gb-blackwell-72",
+      "name": "RTX PRO workstation",
+      "chip": "RTX PRO 5000 72GB Blackwell · 72 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 66,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-gb/products/workstations/professional-desktop-gpus/rtx-pro-5000/"
+    },
+    {
+      "id": "nvidia-h100-nvl-94",
+      "name": "NVIDIA datacenter GPU",
+      "chip": "H100 NVL · 94 GB",
+      "kind": "NVIDIA CUDA",
+      "usableGiB": 87,
+      "color": "violet",
+      "confidence": "estimated",
+      "sourceUrl": "https://www.nvidia.com/en-us/data-center/h100/"
     }
   ]
 }

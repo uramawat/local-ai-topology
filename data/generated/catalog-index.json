@@ -3,11 +3,11 @@
   "catalogVersion": "2026.09.07-seed.1",
   "generatedAt": "2026-09-07T00:00:00.000Z",
   "coverage": {
-    "modelArtifacts": 25,
-    "hardwarePresets": 23,
+    "modelArtifacts": 26,
+    "hardwarePresets": 28,
     "targetModelArtifacts": 200,
-    "status": "seed",
-    "sourceLockedArtifacts": 2
+    "status": "curation_in_progress",
+    "sourceLockedArtifacts": 5
   },
   "families": [
     "DeepSeek",

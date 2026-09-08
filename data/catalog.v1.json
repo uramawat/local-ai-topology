@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "catalogVersion": "2026.09.07-seed.1",
   "generatedAt": "2026-09-07T00:00:00.000Z",
-  "coverage": { "modelArtifacts": 25, "hardwarePresets": 23, "targetModelArtifacts": 200, "status": "seed" },
+  "coverage": { "modelArtifacts": 26, "hardwarePresets": 28, "targetModelArtifacts": 200, "status": "curation_in_progress" },
   "models": [
     { "id": "gemma3-4b-gguf-q4km", "name": "Gemma 3 4B", "family": "Google Gemma", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 3.1, "kvGiBAt8K": 0.6, "confidence": "estimated", "sourceUrl": "https://huggingface.co/google/gemma-3-4b-it" },
     { "id": "gemma3-12b-gguf-q4km", "name": "Gemma 3 12B", "family": "Google Gemma", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 7.7, "kvGiBAt8K": 1.0, "confidence": "estimated", "sourceUrl": "https://huggingface.co/google/gemma-3-12b-it" },
@@ -22,6 +22,7 @@
     { "id": "qwen3-8b-gguf-q4km", "name": "Qwen3 8B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 5.2, "kvGiBAt8K": 0.8, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen3-8B" },
     { "id": "qwen3-14b-gguf-q4km", "name": "Qwen3 14B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 9.0, "kvGiBAt8K": 1.1, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen3-14B" },
     { "id": "qwen3-32b-gguf-q4km", "name": "Qwen3 32B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 20.3, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen3-32B" },
+    { "id": "qwen3-32b-mlx-4bit", "name": "Qwen3 32B", "family": "Qwen", "artifact": "MLX · 4-bit", "format": "mlx", "quantization": "4-bit", "weightGiB": 16.9, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/mlx-community/Qwen3-32B-4bit" },
     { "id": "qwen3-235b-a22b-gguf-q4km", "name": "Qwen3 235B-A22B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 130.8, "kvGiBAt8K": 2.6, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen3-235B-A22B" },
     { "id": "deepseek-r1-distill-14b-gguf-q4km", "name": "DeepSeek-R1-Distill-Qwen 14B", "family": "DeepSeek", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 9.0, "kvGiBAt8K": 1.1, "confidence": "estimated", "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B" },
     { "id": "deepseek-r1-distill-32b-gguf-q4km", "name": "DeepSeek-R1-Distill-Qwen 32B", "family": "DeepSeek", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 20.3, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B" },
@@ -53,6 +54,11 @@
     { "id": "nvidia-h100-80", "name": "NVIDIA datacenter GPU", "chip": "H100 · 80 GB", "kind": "NVIDIA CUDA", "usableGiB": 74, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/h100/" },
     { "id": "nvidia-h200-141", "name": "NVIDIA datacenter GPU", "chip": "H200 · 141 GB", "kind": "NVIDIA CUDA", "usableGiB": 133, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/h200/" },
     { "id": "nvidia-b200-180", "name": "NVIDIA datacenter GPU", "chip": "B200 · 180 GB", "kind": "NVIDIA CUDA", "usableGiB": 170, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/b200/" },
-    { "id": "dgx-spark-128", "name": "DGX Spark", "chip": "GB10 · 128 GB unified memory", "kind": "NVIDIA CUDA", "usableGiB": 118, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/" }
+    { "id": "dgx-spark-128", "name": "DGX Spark", "chip": "GB10 · 128 GB unified memory", "kind": "NVIDIA CUDA", "usableGiB": 118, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/" },
+    { "id": "rtx-pro-4000-blackwell-24", "name": "RTX PRO workstation", "chip": "RTX PRO 4000 Blackwell · 24 GB", "kind": "NVIDIA CUDA", "usableGiB": 21, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-au/products/workstations/professional-desktop-gpus/rtx-pro-4000/" },
+    { "id": "rtx-pro-4500-blackwell-32", "name": "RTX PRO workstation", "chip": "RTX PRO 4500 Blackwell · 32 GB", "kind": "NVIDIA CUDA", "usableGiB": 29, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-gb/products/workstations/professional-desktop-gpus/rtx-pro-4500/" },
+    { "id": "rtx-pro-5000-blackwell-48", "name": "RTX PRO workstation", "chip": "RTX PRO 5000 Blackwell · 48 GB", "kind": "NVIDIA CUDA", "usableGiB": 44, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-gb/products/workstations/professional-desktop-gpus/rtx-pro-5000/" },
+    { "id": "rtx-pro-5000-72gb-blackwell-72", "name": "RTX PRO workstation", "chip": "RTX PRO 5000 72GB Blackwell · 72 GB", "kind": "NVIDIA CUDA", "usableGiB": 66, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-gb/products/workstations/professional-desktop-gpus/rtx-pro-5000/" },
+    { "id": "nvidia-h100-nvl-94", "name": "NVIDIA datacenter GPU", "chip": "H100 NVL · 94 GB", "kind": "NVIDIA CUDA", "usableGiB": 87, "color": "violet", "confidence": "estimated", "sourceUrl": "https://www.nvidia.com/en-us/data-center/h100/" }
   ]
 }

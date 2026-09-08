@@ -3,8 +3,8 @@
   "generatedAt": "2026-09-07T00:00:00.000Z",
   "policyVersion": "2026.09.07.1",
   "counts": {
-    "approved": 2,
-    "needs_review": 23,
+    "approved": 5,
+    "needs_review": 21,
     "rejected": 0,
     "deprecated": 0
   },
@@ -257,6 +257,15 @@
       "reviewedAt": null
     },
     {
+      "artifactId": "qwen3-32b-mlx-4bit",
+      "name": "Qwen3 32B",
+      "format": "mlx",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen3-32B-4bit",
+      "state": "approved",
+      "missing": [],
+      "reviewedAt": "2026-09-08T04:10:00.000Z"
+    },
+    {
       "artifactId": "qwen3-235b-a22b-gguf-q4km",
       "name": "Qwen3 235B-A22B",
       "format": "gguf",
@@ -312,28 +321,18 @@
       "name": "GLM-4.7-Flash",
       "format": "gguf",
       "sourceUrl": "https://huggingface.co/ggml-org/GLM-4.7-Flash-GGUF/tree/main",
-      "state": "needs_review",
-      "missing": [
-        "review record",
-        "immutable revision",
-        "exact file list",
-        "license decision"
-      ],
-      "reviewedAt": null
+      "state": "approved",
+      "missing": [],
+      "reviewedAt": "2026-09-08T04:10:00.000Z"
     },
     {
       "artifactId": "minimax-m27-gguf-ud-q4km",
       "name": "MiniMax M2.7",
       "format": "gguf",
       "sourceUrl": "https://huggingface.co/unsloth/MiniMax-M2.7-GGUF/tree/main/UD-Q4_K_M",
-      "state": "needs_review",
-      "missing": [
-        "review record",
-        "immutable revision",
-        "exact file list",
-        "license decision"
-      ],
-      "reviewedAt": null
+      "state": "approved",
+      "missing": [],
+      "reviewedAt": "2026-09-08T04:10:00.000Z"
     },
     {
       "artifactId": "kimi-k25-gguf-q4km",

@@ -51,6 +51,37 @@
         "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
         "status": "reviewed"
       }
+    },
+    {
+      "artifactId": "glm47-flash-gguf-q4k", "state": "approved", "reviewedAt": "2026-09-08T04:10:00.000Z", "reviewedBy": "first-party source audit",
+      "notes": "ggml-org GGUF conversion is source-locked; its declared base model GLM-4.7-Flash is MIT. File facts are exact; planning values remain estimates.",
+      "source": { "provider": "huggingface", "repository": "ggml-org/GLM-4.7-Flash-GGUF", "revision": "7559e96b7e324ab405897dc2b91492b0f376ad4a", "artifactUrl": "https://huggingface.co/ggml-org/GLM-4.7-Flash-GGUF/tree/7559e96b7e324ab405897dc2b91492b0f376ad4a", "fetchedAt": "2026-09-08T04:10:00.000Z" },
+      "files": [{ "path": "GLM-4.7-Flash-Q4_K.gguf", "role": "weights", "sizeBytes": 18244193920, "sha256": null, "lfsOid": "b6019edc5fbe37d3660d2e994d16c839a7855a6f03362c5dcf8142ba479cd0d2" }],
+      "license": { "spdx": "MIT", "sourceUrl": "https://huggingface.co/zai-org/GLM-4.7-Flash", "status": "reviewed" }
+    },
+    {
+      "artifactId": "minimax-m27-gguf-ud-q4km", "state": "approved", "reviewedAt": "2026-09-08T04:10:00.000Z", "reviewedBy": "first-party source audit",
+      "notes": "Unsloth GGUF conversion is source-locked and declares MiniMaxAI/MiniMax-M2.7 as base. Upstream publishes Modified MIT; file facts are exact and planning values remain estimates.",
+      "source": { "provider": "huggingface", "repository": "unsloth/MiniMax-M2.7-GGUF", "revision": "d2a05ccf69491b03db0cc40b335aec14bdaf7198", "artifactUrl": "https://huggingface.co/unsloth/MiniMax-M2.7-GGUF/tree/d2a05ccf69491b03db0cc40b335aec14bdaf7198/UD-Q4_K_M", "fetchedAt": "2026-09-08T04:10:00.000Z" },
+      "files": [
+        { "path": "UD-Q4_K_M/MiniMax-M2.7-UD-Q4_K_M-00001-of-00004.gguf", "role": "weights", "sizeBytes": 8237856, "sha256": null, "lfsOid": "92986e39a0c0b5f12c2c9b6a811dad59e3317caaf1b7ad5c7f0d7d12abc4a6e8" },
+        { "path": "UD-Q4_K_M/MiniMax-M2.7-UD-Q4_K_M-00002-of-00004.gguf", "role": "weights", "sizeBytes": 49744949792, "sha256": null, "lfsOid": "425e6827c5c62ff11d56d99dae144524b0bfb655b51d50bac287e4a581518e46" },
+        { "path": "UD-Q4_K_M/MiniMax-M2.7-UD-Q4_K_M-00003-of-00004.gguf", "role": "weights", "sizeBytes": 49993557088, "sha256": null, "lfsOid": "27cfd98b49138aae1f30f4681a0a1123f38150b5d054a2f33fd2c8be85ff1fc5" },
+        { "path": "UD-Q4_K_M/MiniMax-M2.7-UD-Q4_K_M-00004-of-00004.gguf", "role": "weights", "sizeBytes": 40423160768, "sha256": null, "lfsOid": "73882cea9908fb8e84b3dbd5d58c75bdbe187e243aeabc93d2d63fa175322eee" }
+      ],
+      "license": { "spdx": "LicenseRef-MiniMax-M2.7-Modified-MIT", "sourceUrl": "https://github.com/MiniMax-AI/MiniMax-M2.7/blob/main/LICENSE", "status": "reviewed" }
+    },
+    {
+      "artifactId": "qwen3-32b-mlx-4bit", "state": "approved", "reviewedAt": "2026-09-08T04:10:00.000Z", "reviewedBy": "first-party source audit",
+      "notes": "MLX Community conversion from Qwen/Qwen3-32B. Exact files are source-locked; planning values remain estimates.",
+      "source": { "provider": "huggingface", "repository": "mlx-community/Qwen3-32B-4bit", "revision": "bcaaf7f538adf166c1080a2befdb4f6019f66639", "artifactUrl": "https://huggingface.co/mlx-community/Qwen3-32B-4bit/tree/bcaaf7f538adf166c1080a2befdb4f6019f66639", "fetchedAt": "2026-09-08T04:10:00.000Z" },
+      "files": [
+        { "path": "model-00001-of-00004.safetensors", "role": "weights", "sizeBytes": 5366619059, "sha256": null, "lfsOid": "c37d8ac8663e5bcfb7334889dcba56e3c6b3d7a9b8643a62c5f8b6105765aee1" },
+        { "path": "model-00002-of-00004.safetensors", "role": "weights", "sizeBytes": 5346575850, "sha256": null, "lfsOid": "2f8fbccad32a2a2f3072ffb8d6adea2790cc0bd84927cc0c44fbaf1d97912867" },
+        { "path": "model-00003-of-00004.safetensors", "role": "weights", "sizeBytes": 5359025653, "sha256": null, "lfsOid": "4412f7fa42e1419455698d3fe2b3c9557badd36a8a5c3a8d3d2439fc2fa6f0de" },
+        { "path": "model-00004-of-00004.safetensors", "role": "weights", "sizeBytes": 2357630312, "sha256": null, "lfsOid": "5cdadd1a77ec47b3ea7799255efb7d15431765874963f55a33f71f43386eb619" }
+      ],
+      "license": { "spdx": "Apache-2.0", "sourceUrl": "https://huggingface.co/mlx-community/Qwen3-32B-4bit", "status": "reviewed" }
     }
   ]
 }
