@@ -157,18 +157,11 @@ export default function Home() {
             : { supported: false, note: "Remote NVIDIA serving requires a GGUF artifact and an NVIDIA serving node" }
         : { supported: true, note: "Single-node artifact path" };
     const fits = compatibility.supported && required <= capacity;
-    const runtimeName = mode === "mlx" ? "MLX" : mode === "single" && model.format === "mlx" ? "MLX" : "llama.cpp";
-    const activeNodeIds = [...nodes.map((node) => node.id)].sort();
-    const matchingEvidence = evidence?.records.filter((record) => record.artifact.id === model.id && record.artifact.revision === model.provenance?.revision && record.topology.mode === mode && [...record.topology.nodeIds].sort().join(",") === activeNodeIds.join(",") && record.runtime.name === runtimeName && record.workload.parallelRequests === 1) ?? [];
-    const exactEvidence = undefined;
-    const comparableEvidence = matchingEvidence.find((record) => record.workload.contextTokens !== context);
-    const exact = exactEvidence ? "verified" : comparableEvidence ? "inferred" : "estimated";
     const risk = !compatibility.supported ? "Unsupported artifact/topology pair" : mode === "rpc" ? "Experimental runtime path" : mode === "remote" ? "Remote-serving latency" : hasFastLink ? "Low topology risk" : "Network constrained";
     const speedBase = mode === "single" ? 33 : mode === "mlx" ? 46 : mode === "remote" ? 26 : hasFastLink ? 22 : 8;
     const estimatedSpeed = Math.max(3, speedBase - Math.max(0, (model.weightGiB - 20) / 9) - (context / 32768) * 2);
-    const speed = exactEvidence?.metrics.decodeTokensPerSecond ?? estimatedSpeed;
-    return { cache, runtime, required, capacity, fits, exact, risk, speed, selectedNodes, compatibility, exactEvidence, comparableEvidence };
-  }, [context, evidence, hasFastLink, mode, model, nodes]);
+    return { cache, runtime, required, capacity, fits, risk, speed: estimatedSpeed, selectedNodes, compatibility };
+  }, [context, hasFastLink, mode, model, nodes]);
 
   const allocation = useMemo(() => {
     if (!result) return [];
