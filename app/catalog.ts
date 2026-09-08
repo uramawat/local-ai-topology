@@ -62,7 +62,7 @@ const isCatalog = (value: unknown): value is Catalog => {
 
 export async function loadCatalog(signal?: AbortSignal): Promise<Catalog> {
   const url = process.env.NEXT_PUBLIC_CATALOG_URL ?? "/catalog/v1.json";
-  const response = await fetch(url, { cache: "no-store", signal });
+  const response = await fetch(url, { cache: "no-cache", signal });
   if (!response.ok) throw new Error(`Catalog request failed (${response.status})`);
   const catalog: unknown = await response.json();
   if (!isCatalog(catalog)) throw new Error("Catalog response does not match the expected schema");
@@ -70,7 +70,7 @@ export async function loadCatalog(signal?: AbortSignal): Promise<Catalog> {
 }
 
 export async function loadEvidence(signal?: AbortSignal): Promise<EvidenceFeed> {
-  const response = await fetch("/evidence/v1.json", { cache: "no-store", signal });
+  const response = await fetch("/evidence/v1.json", { cache: "no-cache", signal });
   if (!response.ok) throw new Error(`Evidence request failed (${response.status})`);
   const feed: unknown = await response.json();
   if (!feed || typeof feed !== "object" || !Array.isArray((feed as Partial<EvidenceFeed>).records)) throw new Error("Evidence response does not match the expected schema");

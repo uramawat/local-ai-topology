@@ -80,16 +80,29 @@ export default function Home() {
 
   useEffect(() => {
     const controller = new AbortController();
-    Promise.all([loadCatalog(controller.signal), loadEvidence(controller.signal)])
-      .then(([nextCatalog, nextEvidence]) => {
+    let hasCachedCatalog = false;
+    try {
+      const cached = window.sessionStorage.getItem("local-topology:catalog:v1");
+      if (cached) {
+        const parsed = JSON.parse(cached) as Awaited<ReturnType<typeof loadCatalog>>;
+        if (Array.isArray(parsed.models) && Array.isArray(parsed.hardware)) {
+          hasCachedCatalog = true;
+          setCatalog(parsed);
+          setModelId((currentId) => currentId || parsed.models.find((item) => item.id === "gpt-oss-120b-gguf-mxfp4")?.id || parsed.models[0]?.id || "");
+        }
+      }
+    } catch { window.sessionStorage.removeItem("local-topology:catalog:v1"); }
+    loadCatalog(controller.signal)
+      .then((nextCatalog) => {
         setCatalog(nextCatalog);
-        setEvidence(nextEvidence);
+        window.sessionStorage.setItem("local-topology:catalog:v1", JSON.stringify(nextCatalog));
         setModelId((currentId) => currentId || nextCatalog.models.find((item) => item.id === "gpt-oss-120b-gguf-mxfp4")?.id || nextCatalog.models[0]?.id || "");
       })
       .catch((error: unknown) => {
         if (error instanceof DOMException && error.name === "AbortError") return;
-        setCatalogError(error instanceof Error ? error.message : "Catalog could not be loaded");
+        if (!hasCachedCatalog) setCatalogError(error instanceof Error ? error.message : "Catalog could not be loaded");
       });
+    loadEvidence(controller.signal).then(setEvidence).catch(() => undefined);
     return () => controller.abort();
   }, []);
 
@@ -247,7 +260,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-topology" aria-label="Illustrative topology graph">
-          <div className="constellation-line line-a" /><div className="constellation-line line-b" /><div className="constellation-line line-c" />
+          <div className="constellation-line line-a" /><div className="constellation-line line-b" />
           <div className="orb orb-studio"><span>Mac</span><small>192</small></div>
           <div className="orb orb-rtx"><span>RTX</span><small>32</small></div>
           <div className="orb orb-agent"><span>Agent</span><small>×5</small></div>
