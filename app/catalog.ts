@@ -78,7 +78,6 @@ export async function loadEvidence(signal?: AbortSignal): Promise<EvidenceFeed> 
 }
 
 export const starterTopology = (catalog: Catalog): CatalogHardware[] => {
-  const ids = ["mac-studio-m3-ultra-192", "macbook-pro-m4-max-64", "rtx-5090-32"];
-  const selected = ids.map((id) => catalog.hardware.find((item) => item.id === id)).filter((item): item is CatalogHardware => Boolean(item));
-  return selected.length === ids.length ? selected : catalog.hardware.slice(0, 3);
+  const preferred = catalog.hardware.find((item) => item.id === "mac-studio-m3-ultra-192");
+  return preferred ? [preferred] : catalog.hardware.slice(0, 1);
 };

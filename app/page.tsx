@@ -45,13 +45,13 @@ export default function Home() {
   const [catalogError, setCatalogError] = useState<string | null>(null);
   const [evidence, setEvidence] = useState<Awaited<ReturnType<typeof loadEvidence>> | null>(null);
   const [modelId, setModelId] = useState("");
-  const [mode, setMode] = useState<Mode>("rpc");
+  const [mode, setMode] = useState<Mode>("single");
   const [context, setContext] = useState(32768);
   const [hasFastLink, setHasFastLink] = useState(true);
   const [showDetail, setShowDetail] = useState(false);
   const [allocationMode, setAllocationMode] = useState<"auto" | "manual">("auto");
   const [manualShares, setManualShares] = useState<Record<string, number>>({});
-  const [topologyIds, setTopologyIds] = useState(["mac-studio-m3-ultra-192", "macbook-pro-m4-max-64", "rtx-5090-32"]);
+  const [topologyIds, setTopologyIds] = useState(["mac-studio-m3-ultra-192"]);
   const [hardwareToAdd, setHardwareToAdd] = useState("");
   const [artifactFormat, setArtifactFormat] = useState<"all" | "gguf" | "mlx">("all");
   const [modelQuery, setModelQuery] = useState("");
