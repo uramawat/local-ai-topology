@@ -13,13 +13,13 @@ on:
       - "scripts/**"
 
 jobs:
-  catalog:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm run catalog:build
-      - run: node scripts/validate-evidence.mjs
+      - run: npm run lint
+      - run: npm run test
       - run: git diff --exit-code -- public/catalog/v1.json public/evidence/v1.json data/generated/catalog-index.json data/generated/artifact-review-queue.v1.json data/generated/evidence-index.v1.json
