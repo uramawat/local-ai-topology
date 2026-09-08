@@ -374,7 +374,7 @@ export default function Home() {
 
       <section className="footer-callout" id="contribute">
         <div><p className="eyebrow">OPEN DATASET · CC0</p><h2>Help turn estimated<br />into verified.</h2></div>
-        <div><p>Run a local benchmark, start from the sanitized record template, and help the next builder make a confident decision.</p><a className="outline-button" href="/evidence/template.v1.json" download>Download contribution template <span>↓</span></a></div>
+        <div><p>Run a local benchmark, start from the sanitized record template, and help the next builder make a confident decision.</p><div className="footer-actions"><a className="outline-button" href="/evidence/template.v1.json" download>Download contribution template <span>↓</span></a><a className="github-link" href="https://github.com/uramawat/local-ai-topology" target="_blank" rel="noreferrer" aria-label="View the Local topology planner repository on GitHub"><span aria-hidden="true">GH</span></a></div></div>
       </section>
       </>}
     </main>
