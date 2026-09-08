@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.1.0",
+  "records": [
+    {
+      "id": "replace-with-run-id",
+      "artifact": { "id": "catalog-artifact-id", "revision": "immutable-upstream-revision", "fileName": "selected-artifact-file" },
+      "topology": { "nodeIds": ["catalog-hardware-id"], "mode": "single", "links": [], "allocation": "automatic" },
+      "runtime": { "name": "runtime-name", "version": "runtime-version", "backend": "backend", "command": "sanitized command with no paths, credentials, or hostnames" },
+      "workload": { "contextTokens": 32768, "parallelRequests": 1, "warmupRuns": 1, "measuredRuns": 3 },
+      "metrics": { "promptTokensPerSecond": 0, "decodeTokensPerSecond": 0, "timeToFirstTokenMs": 0, "peakMemoryGiBByNode": { "catalog-hardware-id": 0 } },
+      "outcome": "success",
+      "recordedAt": "2026-01-01T00:00:00Z",
+      "provenance": { "license": "CC0-1.0", "attestation": "I ran this sanitized benchmark on the stated configuration." },
+      "review": { "status": "accepted", "reviewedAt": "2026-01-01T00:00:00Z" }
+    }
+  ]
+}

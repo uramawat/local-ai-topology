@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "records": [],
   "notice": "A verified record is added only with reproducible topology, artifact, runtime, context, and throughput data. Empty is intentional until a first record is reviewed."
 }

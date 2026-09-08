@@ -22,4 +22,4 @@ jobs:
           node-version: 22
       - run: npm run catalog:build
       - run: node scripts/validate-evidence.mjs
-      - run: git diff --exit-code -- public/catalog/v1.json data/generated/catalog-index.json data/generated/artifact-review-queue.v1.json
+      - run: git diff --exit-code -- public/catalog/v1.json public/evidence/v1.json data/generated/catalog-index.json data/generated/artifact-review-queue.v1.json data/generated/evidence-index.v1.json

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { loadCatalog, starterTopology } from "./catalog";
+import { loadCatalog, loadEvidence, starterTopology } from "./catalog";
 
 type Mode = "single" | "mlx" | "rpc" | "remote";
 type GraphLink = { id: string; from: string; to: string };
@@ -41,6 +41,7 @@ const fileSize = (bytes: number) => `${(bytes / 1024 ** 3).toFixed(1)} GiB`;
 export default function Home() {
   const [catalog, setCatalog] = useState<Awaited<ReturnType<typeof loadCatalog>> | null>(null);
   const [catalogError, setCatalogError] = useState<string | null>(null);
+  const [evidence, setEvidence] = useState<Awaited<ReturnType<typeof loadEvidence>> | null>(null);
   const [modelId, setModelId] = useState("");
   const [mode, setMode] = useState<Mode>("rpc");
   const [context, setContext] = useState(32768);
@@ -79,9 +80,10 @@ export default function Home() {
 
   useEffect(() => {
     const controller = new AbortController();
-    loadCatalog(controller.signal)
-      .then((nextCatalog) => {
+    Promise.all([loadCatalog(controller.signal), loadEvidence(controller.signal)])
+      .then(([nextCatalog, nextEvidence]) => {
         setCatalog(nextCatalog);
+        setEvidence(nextEvidence);
         setModelId((currentId) => currentId || nextCatalog.models.find((item) => item.id === "gpt-oss-120b-gguf-mxfp4")?.id || nextCatalog.models[0]?.id || "");
       })
       .catch((error: unknown) => {
@@ -140,12 +142,18 @@ export default function Home() {
             : { supported: false, note: "Remote NVIDIA serving requires a GGUF artifact and an NVIDIA serving node" }
         : { supported: true, note: "Single-node artifact path" };
     const fits = compatibility.supported && required <= capacity;
-    const exact = "estimated";
+    const runtimeName = mode === "mlx" ? "MLX" : mode === "single" && model.format === "mlx" ? "MLX" : "llama.cpp";
+    const activeNodeIds = [...nodes.map((node) => node.id)].sort();
+    const matchingEvidence = evidence?.records.filter((record) => record.artifact.id === model.id && record.artifact.revision === model.provenance?.revision && record.topology.mode === mode && [...record.topology.nodeIds].sort().join(",") === activeNodeIds.join(",") && record.runtime.name === runtimeName && record.workload.parallelRequests === 1) ?? [];
+    const exactEvidence = undefined;
+    const comparableEvidence = matchingEvidence.find((record) => record.workload.contextTokens !== context);
+    const exact = exactEvidence ? "verified" : comparableEvidence ? "inferred" : "estimated";
     const risk = !compatibility.supported ? "Unsupported artifact/topology pair" : mode === "rpc" ? "Experimental runtime path" : mode === "remote" ? "Remote-serving latency" : hasFastLink ? "Low topology risk" : "Network constrained";
     const speedBase = mode === "single" ? 33 : mode === "mlx" ? 46 : mode === "remote" ? 26 : hasFastLink ? 22 : 8;
-    const speed = Math.max(3, speedBase - Math.max(0, (model.weightGiB - 20) / 9) - (context / 32768) * 2);
-    return { cache, runtime, required, capacity, fits, exact, risk, speed, selectedNodes, compatibility };
-  }, [context, hasFastLink, mode, model, nodes]);
+    const estimatedSpeed = Math.max(3, speedBase - Math.max(0, (model.weightGiB - 20) / 9) - (context / 32768) * 2);
+    const speed = exactEvidence?.metrics.decodeTokensPerSecond ?? estimatedSpeed;
+    return { cache, runtime, required, capacity, fits, exact, risk, speed, selectedNodes, compatibility, exactEvidence, comparableEvidence };
+  }, [context, evidence, hasFastLink, mode, model, nodes]);
 
   const allocation = useMemo(() => {
     if (!result) return [];
@@ -177,6 +185,16 @@ export default function Home() {
   const possibleGraphLinks = useMemo(() => graphNodes.flatMap((node, index) => graphNodes.slice(index + 1).map((other) => makeLink(node.id, other.id))), [graphNodes]);
   const topologyComplete = result?.compatibility.supported ? isConnected(graphNodes, graphLinks) : false;
   const planFits = Boolean(result?.fits) && allocationFits && topologyComplete;
+  const evidenceMatch = useMemo(() => {
+    if (!result || !model) return { exact: undefined, comparable: undefined };
+    const runtimeName = mode === "mlx" ? "MLX" : mode === "single" && model.format === "mlx" ? "MLX" : "llama.cpp";
+    const nodeIds = [...nodes.map((node) => node.id)].sort().join(",");
+    const links = [...graphLinks.map((link) => link.id)].sort().join(",");
+    const candidates = evidence?.records.filter((record) => record.artifact.id === model.id && record.artifact.revision === model.provenance?.revision && record.topology.mode === mode && [...record.topology.nodeIds].sort().join(",") === nodeIds && record.runtime.name === runtimeName && record.workload.parallelRequests === 1) ?? [];
+    return { exact: candidates.find((record) => record.workload.contextTokens === context && [...record.topology.links].sort().join(",") === links), comparable: candidates.find((record) => record.workload.contextTokens !== context) };
+  }, [context, evidence, graphLinks, mode, model, nodes, result]);
+  const resultConfidence = evidenceMatch.exact ? "verified" : evidenceMatch.comparable ? "inferred" : "estimated";
+  const displayedSpeed = evidenceMatch.exact?.metrics.decodeTokensPerSecond ?? result?.speed ?? 0;
   const toggleGraphLink = (link: GraphLink) => {
     setGraphLinksCustomized(true);
     setManualGraphLinks((current) => {
@@ -313,15 +331,15 @@ export default function Home() {
           </section>
 
           <section className="result-panel" aria-live="polite">
-            <div className="result-header"><span className={`confidence ${result.exact}`}>{result.exact}</span><span>{mode === "rpc" ? "HETEROGENEOUS PLAN" : mode === "mlx" ? "MLX CLUSTER PLAN" : mode === "remote" ? "REMOTE SERVING PLAN" : "SINGLE-NODE PLAN"}</span></div>
+            <div className="result-header"><span className={`confidence ${resultConfidence}`}>{resultConfidence}</span><span>{mode === "rpc" ? "HETEROGENEOUS PLAN" : mode === "mlx" ? "MLX CLUSTER PLAN" : mode === "remote" ? "REMOTE SERVING PLAN" : "SINGLE-NODE PLAN"}</span></div>
             <div className="workload-summary"><span>SELECTED WORKLOAD</span><b>{model.name}</b><small>{model.artifact} · {model.provenance?.state === "approved" ? `source-locked ${fileSize(model.provenance.totalSizeBytes ?? 0)} · ${model.provenance.license ?? "reviewed license"}` : `${model.confidence} artifact estimate`} · <a href={model.provenance?.artifactUrl ?? model.sourceUrl} target="_blank" rel="noreferrer">source ↗</a></small></div>
             <div className="verdict-line"><span className={`verdict-symbol ${planFits ? "yes" : "no"}`}>{planFits ? "✓" : "×"}</span><h3>{planFits ? "This can run" : "This does not fit"}</h3></div>
             <p className="result-copy">{!result.fits ? `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.` : !topologyComplete ? "The memory math fits, but the selected link plan leaves an execution node disconnected." : !allocationFits ? "This custom split overfills at least one node. Adjust the allocation or return to automatic." : `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.`}</p>
             <div className="metric-grid">
-              <div><span>DECODE</span><b>~{result.speed.toFixed(0)} tok/s</b><small>{result.exact === "estimated" ? "topology estimate" : "evidence-adjusted"}</small></div>
+              <div><span>DECODE</span><b>{resultConfidence === "verified" ? "" : "~"}{displayedSpeed.toFixed(0)} tok/s</b><small>{evidenceMatch.exact ? `measured · ${evidenceMatch.exact.workload.measuredRuns} runs` : evidenceMatch.comparable ? `comparable run at ${Math.round(evidenceMatch.comparable.workload.contextTokens / 1024)}K` : "topology estimate"}</small></div>
               <div><span>MAX CONTEXT</span><b>{result.fits ? tokenCount(Math.max(8, Math.floor((result.capacity - model.weightGiB - result.runtime) / model.kvGiBAt8K * 8))) : "—"}</b><small>at selected quant</small></div>
             </div>
-            <div className="risk-note"><span className="risk-bar" /><p><b>{result.risk}</b><br />{result.compatibility.note}{mode === "rpc" && result.compatibility.supported ? " Validate with the exact llama.cpp build and link before purchasing hardware." : ""}</p></div>
+            <div className="risk-note"><span className="risk-bar" /><p><b>{evidenceMatch.exact ? "Measured on this configuration" : evidenceMatch.comparable ? "Comparable benchmark available" : result.risk}</b><br />{evidenceMatch.exact ? `${evidenceMatch.exact.runtime.name} ${evidenceMatch.exact.runtime.version} · recorded ${new Date(evidenceMatch.exact.recordedAt).toLocaleDateString()}.` : evidenceMatch.comparable ? `A reviewed run exists at ${Math.round(evidenceMatch.comparable.workload.contextTokens / 1024)}K; it does not verify this context.` : `${result.compatibility.note}${mode === "rpc" && result.compatibility.supported ? " Validate with the exact llama.cpp build and link before purchasing hardware." : ""}`}</p></div>
             <button className="primary-button" type="button" onClick={() => setShowDetail(true)}>Inspect & adjust allocation <span>→</span></button>
             <button className="share-plan-button" type="button" onClick={() => void copyPlanLink()}>Copy this plan link <span>↗</span></button>
           </section>
@@ -348,7 +366,7 @@ export default function Home() {
 
       <section className="footer-callout" id="contribute">
         <div><p className="eyebrow">OPEN DATASET · CC0</p><h2>Help turn estimated<br />into verified.</h2></div>
-        <div><p>Run a local benchmark, export a sanitized record, and help the next builder make a confident decision.</p><button className="outline-button" type="button" onClick={() => alert("Benchmark contribution workflow ships in the next build.")}>See contribution format <span>↗</span></button></div>
+        <div><p>Run a local benchmark, start from the sanitized record template, and help the next builder make a confident decision.</p><a className="outline-button" href="/evidence/template.v1.json" download>Download contribution template <span>↓</span></a></div>
       </section>
       </>}
     </main>

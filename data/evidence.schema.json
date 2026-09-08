@@ -2,17 +2,27 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Local AI Topology Planner benchmark evidence",
   "type": "object",
-  "required": ["id", "artifactId", "topology", "runtime", "contextTokens", "promptTokensPerSecond", "decodeTokensPerSecond", "recordedAt", "confidence"],
+  "required": ["schemaVersion", "records"],
   "properties": {
-    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-    "artifactId": { "type": "string" },
-    "topology": { "type": "object", "required": ["nodeIds", "mode", "link"], "properties": { "nodeIds": { "type": "array", "minItems": 1, "items": { "type": "string" } }, "mode": { "enum": ["single", "mlx", "rpc", "remote" ] }, "link": { "type": "string" } } },
-    "runtime": { "type": "object", "required": ["name", "version"], "properties": { "name": { "type": "string" }, "version": { "type": "string" }, "command": { "type": "string" } } },
-    "contextTokens": { "type": "integer", "minimum": 1 },
-    "promptTokensPerSecond": { "type": "number", "minimum": 0 },
-    "decodeTokensPerSecond": { "type": "number", "minimum": 0 },
-    "recordedAt": { "type": "string", "format": "date-time" },
-    "confidence": { "const": "verified" },
-    "notes": { "type": "string" }
+    "schemaVersion": { "const": "1.1.0" },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "artifact", "topology", "runtime", "workload", "metrics", "outcome", "recordedAt", "provenance", "review"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "artifact": { "type": "object", "required": ["id", "revision"], "properties": { "id": { "type": "string" }, "revision": { "type": "string" }, "fileName": { "type": "string" }, "sha256": { "type": "string" } } },
+          "topology": { "type": "object", "required": ["nodeIds", "mode", "links", "allocation"], "properties": { "nodeIds": { "type": "array", "minItems": 1, "items": { "type": "string" } }, "mode": { "enum": ["single", "mlx", "rpc", "remote"] }, "links": { "type": "array", "items": { "type": "string" } }, "allocation": { "type": "string" } } },
+          "runtime": { "type": "object", "required": ["name", "version", "backend", "command"], "properties": { "name": { "type": "string" }, "version": { "type": "string" }, "backend": { "type": "string" }, "command": { "type": "string" } } },
+          "workload": { "type": "object", "required": ["contextTokens", "parallelRequests", "warmupRuns", "measuredRuns"], "properties": { "contextTokens": { "type": "integer", "minimum": 1 }, "parallelRequests": { "type": "integer", "minimum": 1 }, "warmupRuns": { "type": "integer", "minimum": 0 }, "measuredRuns": { "type": "integer", "minimum": 1 } } },
+          "metrics": { "type": "object", "required": ["promptTokensPerSecond", "decodeTokensPerSecond"], "properties": { "promptTokensPerSecond": { "type": "number", "minimum": 0 }, "decodeTokensPerSecond": { "type": "number", "minimum": 0 }, "timeToFirstTokenMs": { "type": "number", "minimum": 0 }, "peakMemoryGiBByNode": { "type": "object", "additionalProperties": { "type": "number", "minimum": 0 } } } },
+          "outcome": { "const": "success" },
+          "recordedAt": { "type": "string", "format": "date-time" },
+          "provenance": { "type": "object", "required": ["license", "attestation"], "properties": { "license": { "const": "CC0-1.0" }, "attestation": { "type": "string" } } },
+          "review": { "type": "object", "required": ["status", "reviewedAt"], "properties": { "status": { "const": "accepted" }, "reviewedAt": { "type": "string", "format": "date-time" } } }
+        }
+      }
+    }
   }
 }

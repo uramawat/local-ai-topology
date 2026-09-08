@@ -39,6 +39,21 @@ export type Catalog = {
   hardware: CatalogHardware[];
 };
 
+export type EvidenceRecord = {
+  id: string;
+  artifact: { id: string; revision: string; fileName?: string };
+  topology: { nodeIds: string[]; mode: "single" | "mlx" | "rpc" | "remote"; links: string[]; allocation: string };
+  runtime: { name: string; version: string; backend: string; command: string };
+  workload: { contextTokens: number; parallelRequests: number; warmupRuns: number; measuredRuns: number };
+  metrics: { promptTokensPerSecond: number; decodeTokensPerSecond: number; timeToFirstTokenMs?: number; peakMemoryGiBByNode?: Record<string, number> };
+  outcome: "success";
+  recordedAt: string;
+  provenance: { license: "CC0-1.0"; attestation: string };
+  review: { status: "accepted"; reviewedAt: string };
+};
+
+export type EvidenceFeed = { schemaVersion: string; records: EvidenceRecord[] };
+
 const isCatalog = (value: unknown): value is Catalog => {
   if (!value || typeof value !== "object") return false;
   const catalog = value as Partial<Catalog>;
@@ -52,6 +67,14 @@ export async function loadCatalog(signal?: AbortSignal): Promise<Catalog> {
   const catalog: unknown = await response.json();
   if (!isCatalog(catalog)) throw new Error("Catalog response does not match the expected schema");
   return catalog;
+}
+
+export async function loadEvidence(signal?: AbortSignal): Promise<EvidenceFeed> {
+  const response = await fetch("/evidence/v1.json", { cache: "no-store", signal });
+  if (!response.ok) throw new Error(`Evidence request failed (${response.status})`);
+  const feed: unknown = await response.json();
+  if (!feed || typeof feed !== "object" || !Array.isArray((feed as Partial<EvidenceFeed>).records)) throw new Error("Evidence response does not match the expected schema");
+  return feed as EvidenceFeed;
 }
 
 export const starterTopology = (catalog: Catalog): CatalogHardware[] => {

@@ -44,6 +44,8 @@ Use `npm run build` to verify a production build.
 - `data/artifact-reviews.v1.json` — source-lock and license-review records; empty is intentional until an exact artifact is reviewed
 - `data/generated/artifact-review-queue.v1.json` — generated queue of seed artifacts awaiting immutable file, revision, and license review
 - `public/catalog/v1.json` — generated file fetched by the planner at runtime
+- `data/evidence.v1.json` — reviewed, reproducible benchmark records
+- `public/evidence/v1.json` — generated public evidence feed used by the planner
 - `work/DESIGN_SPEC.md` — product/design decisions
 - `work/IMPLEMENTATION_SPEC.md` — data model and implementation plan
 
@@ -79,6 +81,11 @@ Artifact entries start as candidates. They only become source-locked after a
 review records the immutable upstream revision, exact selected files and byte
 sizes, and the upstream license decision. The target of 200 is a candidate
 coverage target, not a promise that 200 artifacts have already been verified.
+
+Benchmark records are deliberately stricter: a `verified` result requires the
+same approved artifact revision, mode, hardware IDs, execution links, runtime,
+and context target. A related run at another context is labelled `inferred`;
+without a match, performance remains an estimate.
 
 Code is licensed under [MIT](LICENSE). First-party measurement records are
 dedicated under [CC0](LICENSE-DATA); imported data retains its original license
