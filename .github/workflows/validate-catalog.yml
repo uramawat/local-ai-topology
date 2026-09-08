@@ -3,15 +3,8 @@ name: Validate catalog
 on:
   workflow_dispatch:
   pull_request:
-    paths:
-      - "data/**"
-      - "scripts/**"
-      - ".github/workflows/validate-catalog.yml"
   push:
     branches: [main]
-    paths:
-      - "data/**"
-      - "scripts/**"
 
 jobs:
   verify:
