@@ -1,7 +1,13 @@
-name: Refresh source metadata
+name: Refresh source metadata and discovery queue
 
 on:
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Run outside the scheduled biweekly window"
+        required: false
+        default: false
+        type: boolean
   schedule:
     - cron: "17 4 * * 1"
 
@@ -16,10 +22,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node scripts/refresh-hf-metadata.mjs
+      - run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            node scripts/refresh-hf-metadata.mjs --due-only
+          else
+            CATALOG_REFRESH_FORCE=1 node scripts/refresh-hf-metadata.mjs
+          fi
       - uses: peter-evans/create-pull-request@v7
         with:
-          commit-message: "Refresh source metadata"
-          title: "Refresh source metadata"
-          body: "Automated metadata refresh. Review revisions, licenses, and source changes before merging."
+          commit-message: "Refresh source metadata and discovery queue"
+          title: "Refresh source metadata and discovery queue"
+          body: "Automated biweekly discovery. New rows are candidates only; review immutable revisions, files, and licenses before adding any artifact to the planner."
           branch: automation/refresh-source-metadata

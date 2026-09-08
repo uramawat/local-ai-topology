@@ -12,6 +12,7 @@
     "catalog:provenance": "node scripts/build-artifact-review-queue.mjs",
     "evidence:validate": "node scripts/validate-evidence.mjs",
     "catalog:refresh-metadata": "node scripts/refresh-hf-metadata.mjs",
+    "catalog:refresh-due": "node scripts/refresh-hf-metadata.mjs --due-only",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",

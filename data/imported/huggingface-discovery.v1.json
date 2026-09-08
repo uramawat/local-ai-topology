@@ -1,0 +1,3257 @@
+{
+  "schemaVersion": "1.0.0",
+  "fetchedAt": "2026-09-08T05:18:52.832Z",
+  "policy": "Discovery creates review candidates only. It never adds a planner artifact, establishes a license decision, or claims a model can run.",
+  "candidates": [
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-Math-V2",
+      "revision": null,
+      "lastModified": "2025-11-27T10:35:52.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-Math-V2"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-OCR",
+      "revision": null,
+      "lastModified": "2025-11-04T02:36:12.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-OCR"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-OCR-2",
+      "revision": null,
+      "lastModified": "2026-02-03T00:33:19.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-OCR-2"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-Prover-V2-671B",
+      "revision": null,
+      "lastModified": "2025-04-30T15:57:41.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-Prover-V2-671B"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-Prover-V2-7B",
+      "revision": null,
+      "lastModified": "2025-04-30T14:50:36.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-Prover-V2-7B"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-R1",
+      "revision": null,
+      "lastModified": "2025-03-27T04:01:59.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-R1-0528",
+      "revision": null,
+      "lastModified": "2025-05-29T11:37:44.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+      "revision": null,
+      "lastModified": "2025-02-24T03:31:15.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+      "revision": null,
+      "lastModified": "2025-02-24T03:32:07.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-R1-Zero",
+      "revision": null,
+      "lastModified": "2025-03-27T04:02:04.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Zero"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V3",
+      "revision": null,
+      "lastModified": "2025-03-27T04:01:45.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V3-0324",
+      "revision": null,
+      "lastModified": "2025-03-27T04:01:53.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3-0324"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V3-Base",
+      "revision": null,
+      "lastModified": "2025-03-27T04:00:09.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3-Base"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V3.1",
+      "revision": null,
+      "lastModified": "2025-09-05T11:30:15.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V3.1-Base",
+      "revision": null,
+      "lastModified": "2025-08-26T08:15:20.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1-Base"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V3.1-Terminus",
+      "revision": null,
+      "lastModified": "2025-09-29T01:52:07.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1-Terminus"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V3.2",
+      "revision": null,
+      "lastModified": "2025-12-01T11:04:59.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V3.2-Exp",
+      "revision": null,
+      "lastModified": "2025-11-18T02:39:54.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Exp"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V3.2-Exp-Base",
+      "revision": null,
+      "lastModified": "2025-10-09T02:09:46.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Exp-Base"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V3.2-Speciale",
+      "revision": null,
+      "lastModified": "2025-12-01T11:06:03.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V4-Flash",
+      "revision": null,
+      "lastModified": "2026-06-22T12:12:13.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "revision": null,
+      "lastModified": "2026-08-01T03:07:41.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V4-Flash-Base",
+      "revision": null,
+      "lastModified": "2026-04-27T06:51:43.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Base"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "revision": null,
+      "lastModified": "2026-07-04T03:15:12.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+      "revision": null,
+      "lastModified": "2026-09-01T09:22:10.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V4-Pro",
+      "revision": null,
+      "lastModified": "2026-06-22T12:12:50.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V4-Pro-0813",
+      "revision": null,
+      "lastModified": "2026-08-13T16:28:28.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V4-Pro-Base",
+      "revision": null,
+      "lastModified": "2026-04-27T06:51:19.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-Base"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/DeepSeek-V4-Pro-DSpark",
+      "revision": null,
+      "lastModified": "2026-07-04T03:14:46.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-DSpark"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/dflash_gemma4_12b_block7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:34:57.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/dflash_gemma4_12b_block7"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/dspark_gemma4_12b_block7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:29:10.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/dspark_gemma4_12b_block7"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/eagle3_gemma4_12b_ttt7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:38:12.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/eagle3_gemma4_12b_ttt7"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/Janus-1.3B",
+      "revision": null,
+      "lastModified": "2025-01-27T13:31:24.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/Janus-1.3B"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/Janus-Pro-1B",
+      "revision": null,
+      "lastModified": "2025-02-01T08:00:32.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/Janus-Pro-1B"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/Janus-Pro-7B",
+      "revision": null,
+      "lastModified": "2025-02-01T08:00:16.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/Janus-Pro-7B"
+    },
+    {
+      "family": "DeepSeek",
+      "repositoryId": "deepseek-ai/JanusFlow-1.3B",
+      "revision": null,
+      "lastModified": "2025-01-27T13:32:44.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/JanusFlow-1.3B"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-12B",
+      "revision": null,
+      "lastModified": "2026-07-15T16:40:57.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-12B"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-12B-it",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:08.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-12B-it"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-12B-it-assistant",
+      "revision": null,
+      "lastModified": "2026-08-20T21:49:20.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-12B-it-assistant"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-12B-it-qat-q4_0-gguf",
+      "revision": null,
+      "lastModified": "2026-07-17T21:24:41.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-12B-it-qat-q4_0-gguf"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-12B-it-qat-q4_0-unquantized",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:41.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-12B-it-qat-q4_0-unquantized"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-12B-it-qat-q4_0-unquantized-assistant",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:01.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-12B-it-qat-q4_0-unquantized-assistant"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-12B-it-qat-w4a16-ct",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:34.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-12B-it-qat-w4a16-ct"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-26B-A4B",
+      "revision": null,
+      "lastModified": "2026-07-15T16:41:43.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-26B-A4B"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-26B-A4B-it",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:12.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-26B-A4B-it"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-26B-A4B-it-assistant",
+      "revision": null,
+      "lastModified": "2026-07-15T16:41:53.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-26B-A4B-it-assistant"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-26B-A4B-it-qat-q4_0-gguf",
+      "revision": null,
+      "lastModified": "2026-07-17T21:25:44.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-26B-A4B-it-qat-q4_0-gguf"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-26B-A4B-it-qat-q4_0-unquantized",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:45.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-26B-A4B-it-qat-q4_0-unquantized"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-26B-A4B-it-qat-q4_0-unquantized-assistant",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:06.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-26B-A4B-it-qat-q4_0-unquantized-assistant"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-31B",
+      "revision": null,
+      "lastModified": "2026-07-15T16:42:14.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-31B"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-31B-it",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:18.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-31B-it"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-31B-it-assistant",
+      "revision": null,
+      "lastModified": "2026-07-15T16:42:27.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-31B-it-assistant"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-31B-it-qat-q4_0-gguf",
+      "revision": null,
+      "lastModified": "2026-07-17T21:26:48.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-31B-it-qat-q4_0-gguf"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-31B-it-qat-q4_0-unquantized",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:49.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-31B-it-qat-q4_0-unquantized"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-31B-it-qat-q4_0-unquantized-assistant",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:10.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-31B-it-qat-q4_0-unquantized-assistant"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-31B-it-qat-w4a16-ct",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:40.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-31B-it-qat-w4a16-ct"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E2B-it",
+      "revision": null,
+      "lastModified": "2026-07-20T16:41:56.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E2B-it"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E2B-it-qat-mobile-ct",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:53.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E2B-it-qat-mobile-ct"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E2B-it-qat-mobile-transformers",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:45.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E2B-it-qat-mobile-transformers"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E2B-it-qat-q4_0-gguf",
+      "revision": null,
+      "lastModified": "2026-07-17T21:23:24.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-gguf"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E2B-it-qat-q4_0-unquantized",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:28.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-unquantized"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E2B-it-qat-q4_0-unquantized-assistant",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:53.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-unquantized-assistant"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E2B-it-qat-w4a16-ct",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:14.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E2B-it-qat-w4a16-ct"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E4B-it",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:03.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E4B-it"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E4B-it-qat-mobile-ct",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:58.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E4B-it-qat-mobile-ct"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E4B-it-qat-mobile-transformers",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:49.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E4B-it-qat-mobile-transformers"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E4B-it-qat-q4_0-gguf",
+      "revision": null,
+      "lastModified": "2026-07-17T21:23:49.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E4B-it-qat-q4_0-gguf"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E4B-it-qat-q4_0-unquantized",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:36.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E4B-it-qat-q4_0-unquantized"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E4B-it-qat-q4_0-unquantized-assistant",
+      "revision": null,
+      "lastModified": "2026-07-20T16:42:57.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E4B-it-qat-q4_0-unquantized-assistant"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "google/gemma-4-E4B-it-qat-w4a16-ct",
+      "revision": null,
+      "lastModified": "2026-07-20T16:43:23.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/google/gemma-4-E4B-it-qat-w4a16-ct"
+    },
+    {
+      "family": "Gemma",
+      "repositoryId": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit-REAP-14B",
+      "revision": null,
+      "lastModified": "2026-08-28T08:18:44.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit-REAP-14B"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "mlx-community/GLM-5.3-4bit",
+      "revision": null,
+      "lastModified": "2026-09-02T09:40:08.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/GLM-5.3-4bit"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "mlx-community/GLM-5.3-mixed-4_5bit",
+      "revision": null,
+      "lastModified": "2026-09-02T09:38:46.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/GLM-5.3-mixed-4_5bit"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/androidgen-glm-4-9b",
+      "revision": null,
+      "lastModified": "2025-05-29T10:09:30.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/androidgen-glm-4-9b"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/AutoGLM-Phone-9B",
+      "revision": null,
+      "lastModified": "2026-01-07T10:13:37.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/AutoGLM-Phone-9B"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/AutoGLM-Phone-9B-Multilingual",
+      "revision": null,
+      "lastModified": "2026-01-07T10:14:13.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/AutoGLM-Phone-9B-Multilingual"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4-32B-0414",
+      "revision": null,
+      "lastModified": "2025-05-01T15:42:37.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4-32B-0414"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/glm-4-9b-chat-1m",
+      "revision": null,
+      "lastModified": "2025-07-10T14:08:39.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/glm-4-9b-chat-1m"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.1V-9B-Base",
+      "revision": null,
+      "lastModified": "2025-10-25T12:54:27.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.1V-9B-Base"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.1V-9B-Thinking",
+      "revision": null,
+      "lastModified": "2026-07-22T11:38:50.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.1V-9B-Thinking"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.5",
+      "revision": null,
+      "lastModified": "2025-08-11T13:27:03.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.5"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.5-Air",
+      "revision": null,
+      "lastModified": "2025-08-11T13:25:37.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.5-Air"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.5-Air-Base",
+      "revision": null,
+      "lastModified": "2025-08-11T04:48:35.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.5-Air-Base"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.5-Air-FP8",
+      "revision": null,
+      "lastModified": "2025-08-12T03:09:38.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.5-Air-FP8"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.5-Base",
+      "revision": null,
+      "lastModified": "2025-08-11T04:47:34.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.5-Base"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.5-FP8",
+      "revision": null,
+      "lastModified": "2025-08-12T03:09:21.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.5-FP8"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.5V",
+      "revision": null,
+      "lastModified": "2025-10-25T13:20:10.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.5V"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.5V-FP8",
+      "revision": null,
+      "lastModified": "2025-10-25T13:20:44.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.5V-FP8"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.6",
+      "revision": null,
+      "lastModified": "2025-09-30T10:17:45.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.6"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.6-FP8",
+      "revision": null,
+      "lastModified": "2025-10-16T08:18:16.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.6-FP8"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.6V",
+      "revision": null,
+      "lastModified": "2025-12-09T05:34:59.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.6V"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.6V-Flash",
+      "revision": null,
+      "lastModified": "2025-12-09T18:06:43.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.6V-Flash"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.6V-FP8",
+      "revision": null,
+      "lastModified": "2025-12-09T06:21:38.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.6V-FP8"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.7",
+      "revision": null,
+      "lastModified": "2026-01-29T08:05:58.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.7"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.7-Flash",
+      "revision": null,
+      "lastModified": "2026-01-29T08:06:19.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.7-Flash"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-4.7-FP8",
+      "revision": null,
+      "lastModified": "2025-12-23T09:37:27.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-4.7-FP8"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-5",
+      "revision": null,
+      "lastModified": "2026-08-11T07:36:34.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-5"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-5-FP8",
+      "revision": null,
+      "lastModified": "2026-04-05T07:51:12.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-5-FP8"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-5.1",
+      "revision": null,
+      "lastModified": "2026-05-13T08:10:58.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-5.1"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-5.1-FP8",
+      "revision": null,
+      "lastModified": "2026-04-16T06:12:42.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-5.1-FP8"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-5.2",
+      "revision": null,
+      "lastModified": "2026-09-01T11:36:01.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-5.2"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-5.2-FP8",
+      "revision": null,
+      "lastModified": "2026-09-01T11:36:25.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-5.2-FP8"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-5.3",
+      "revision": null,
+      "lastModified": "2026-09-04T06:41:23.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-5.3"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-5.3-BF16",
+      "revision": null,
+      "lastModified": "2026-09-04T06:38:42.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-5.3-BF16"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-5.3-Flash",
+      "revision": null,
+      "lastModified": "2026-09-07T12:13:47.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-5.3-Flash"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-5.3-Flash-BF16",
+      "revision": null,
+      "lastModified": "2026-09-04T06:45:54.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-5.3-Flash-BF16"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-ASR-Nano-2512",
+      "revision": null,
+      "lastModified": "2026-04-07T12:55:32.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-ASR-Nano-2512"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-Image",
+      "revision": null,
+      "lastModified": "2026-01-15T09:55:29.000Z",
+      "libraryName": "diffusers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-Image"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-OCR",
+      "revision": null,
+      "lastModified": "2026-05-19T12:28:43.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-OCR"
+    },
+    {
+      "family": "GLM",
+      "repositoryId": "zai-org/GLM-TTS",
+      "revision": null,
+      "lastModified": "2026-01-12T17:15:47.000Z",
+      "libraryName": "glm-tts",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/GLM-TTS"
+    },
+    {
+      "family": "gpt-oss",
+      "repositoryId": "mlx-community/gpt-oss-20b-OptiQ-4bit",
+      "revision": null,
+      "lastModified": "2026-08-29T15:40:42.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/gpt-oss-20b-OptiQ-4bit"
+    },
+    {
+      "family": "gpt-oss",
+      "repositoryId": "openai/gpt-oss-120b",
+      "revision": null,
+      "lastModified": "2025-08-26T17:25:03.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/openai/gpt-oss-120b"
+    },
+    {
+      "family": "gpt-oss",
+      "repositoryId": "openai/gpt-oss-20b",
+      "revision": null,
+      "lastModified": "2025-08-26T17:25:47.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/openai/gpt-oss-20b"
+    },
+    {
+      "family": "gpt-oss",
+      "repositoryId": "openai/gpt-oss-safeguard-120b",
+      "revision": null,
+      "lastModified": "2025-10-29T11:13:59.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/openai/gpt-oss-safeguard-120b"
+    },
+    {
+      "family": "gpt-oss",
+      "repositoryId": "openai/gpt-oss-safeguard-20b",
+      "revision": null,
+      "lastModified": "2026-01-14T18:38:05.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/openai/gpt-oss-safeguard-20b"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-Audio-7B",
+      "revision": null,
+      "lastModified": "2025-05-29T03:01:50.000Z",
+      "libraryName": "kimi-audio",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-Audio-7B"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-Audio-7B-Instruct",
+      "revision": null,
+      "lastModified": "2025-05-29T03:01:58.000Z",
+      "libraryName": "kimi-audio",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-Audio-7B-Instruct"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-Dev-72B",
+      "revision": null,
+      "lastModified": "2025-06-17T06:27:40.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-Dev-72B"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-K2-Base",
+      "revision": null,
+      "lastModified": "2026-01-30T04:52:05.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-K2-Instruct",
+      "revision": null,
+      "lastModified": "2026-04-23T02:08:36.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-K2-Instruct-0905",
+      "revision": null,
+      "lastModified": "2026-01-30T04:50:25.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-K2-Instruct-0905"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-K2-Thinking",
+      "revision": null,
+      "lastModified": "2026-01-30T04:49:39.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-K2-Thinking"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-K2.5",
+      "revision": null,
+      "lastModified": "2026-04-30T03:56:40.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-K2.5"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-K2.6",
+      "revision": null,
+      "lastModified": "2026-05-19T09:01:54.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-K2.6"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-K2.7-Code",
+      "revision": null,
+      "lastModified": "2026-06-15T07:49:29.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-K3",
+      "revision": null,
+      "lastModified": "2026-09-02T02:22:41.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-K3"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-Linear-48B-A3B-Base",
+      "revision": null,
+      "lastModified": "2026-01-30T04:50:42.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-Linear-48B-A3B-Base"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+      "revision": null,
+      "lastModified": "2025-12-16T14:50:08.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-Linear-48B-A3B-Instruct"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-VL-A3B-Instruct",
+      "revision": null,
+      "lastModified": "2026-01-30T04:51:04.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-VL-A3B-Instruct"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-VL-A3B-Thinking",
+      "revision": null,
+      "lastModified": "2026-01-30T04:52:57.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-VL-A3B-Thinking"
+    },
+    {
+      "family": "Kimi",
+      "repositoryId": "moonshotai/Kimi-VL-A3B-Thinking-2506",
+      "revision": null,
+      "lastModified": "2026-01-30T04:53:11.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/moonshotai/Kimi-VL-A3B-Thinking-2506"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-2-13b-chat-hf",
+      "revision": null,
+      "lastModified": "2024-04-17T08:40:58.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-2-13b-chat-hf"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-2-70b-chat-hf",
+      "revision": null,
+      "lastModified": "2024-04-17T08:41:06.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-2-70b-chat-hf"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-2-70b-hf",
+      "revision": null,
+      "lastModified": "2024-04-17T08:40:41.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-2-70b-hf"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-2-7b-chat-hf",
+      "revision": null,
+      "lastModified": "2024-04-17T08:40:48.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-2-7b-chat-hf"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.1-405B",
+      "revision": null,
+      "lastModified": "2024-09-25T17:01:49.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-405B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.1-405B-FP8",
+      "revision": null,
+      "lastModified": "2024-12-06T19:41:17.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-405B-FP8"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.1-405B-Instruct",
+      "revision": null,
+      "lastModified": "2024-09-25T17:02:11.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.1-405B-Instruct-FP8",
+      "revision": null,
+      "lastModified": "2024-09-25T17:02:45.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct-FP8"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.1-70B",
+      "revision": null,
+      "lastModified": "2024-09-25T17:01:13.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-70B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.1-70B-Instruct",
+      "revision": null,
+      "lastModified": "2024-12-15T01:55:33.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.1-8B",
+      "revision": null,
+      "lastModified": "2024-10-16T22:00:37.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-8B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.1-8B-Instruct",
+      "revision": null,
+      "lastModified": "2024-09-25T17:00:57.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-11B-Vision",
+      "revision": null,
+      "lastModified": "2024-09-27T00:19:41.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-11B-Vision-Instruct",
+      "revision": null,
+      "lastModified": "2024-12-04T01:35:48.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-1B",
+      "revision": null,
+      "lastModified": "2024-10-24T15:08:03.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-1B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-1B-Instruct",
+      "revision": null,
+      "lastModified": "2024-10-24T15:07:51.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-1B-Instruct-QLORA_INT4_EO8",
+      "revision": null,
+      "lastModified": "2024-11-18T20:29:29.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct-QLORA_INT4_EO8"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-1B-Instruct-SpinQuant_INT4_EO8",
+      "revision": null,
+      "lastModified": "2024-11-18T20:32:39.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct-SpinQuant_INT4_EO8"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-3B",
+      "revision": null,
+      "lastModified": "2024-10-24T15:07:40.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-3B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-3B-Instruct",
+      "revision": null,
+      "lastModified": "2024-10-24T15:07:29.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-3B-Instruct-QLORA_INT4_EO8",
+      "revision": null,
+      "lastModified": "2024-11-18T20:32:57.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct-QLORA_INT4_EO8"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-3B-Instruct-SpinQuant_INT4_EO8",
+      "revision": null,
+      "lastModified": "2024-11-18T20:32:49.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct-SpinQuant_INT4_EO8"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-90B-Vision",
+      "revision": null,
+      "lastModified": "2024-09-27T00:20:47.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-90B-Vision"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.2-90B-Vision-Instruct",
+      "revision": null,
+      "lastModified": "2025-03-04T17:28:46.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-3.3-70B-Instruct",
+      "revision": null,
+      "lastModified": "2024-12-21T18:28:01.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-4-Maverick-17B-128E",
+      "revision": null,
+      "lastModified": "2025-04-09T10:41:47.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+      "revision": null,
+      "lastModified": "2025-05-22T23:46:12.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+      "revision": null,
+      "lastModified": "2025-05-22T23:46:03.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-Original",
+      "revision": null,
+      "lastModified": "2025-04-05T22:34:47.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-Original"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-Original",
+      "revision": null,
+      "lastModified": "2025-05-10T15:08:32.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-Original"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-4-Maverick-17B-128E-Original",
+      "revision": null,
+      "lastModified": "2025-04-05T22:36:07.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Original"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-4-Scout-17B-16E",
+      "revision": null,
+      "lastModified": "2025-04-09T10:41:20.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "revision": null,
+      "lastModified": "2025-05-22T23:44:50.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-4-Scout-17B-16E-Instruct-Original",
+      "revision": null,
+      "lastModified": "2025-04-05T22:34:23.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct-Original"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-4-Scout-17B-16E-Original",
+      "revision": null,
+      "lastModified": "2025-04-05T22:35:07.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Original"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-Guard-3-11B-Vision",
+      "revision": null,
+      "lastModified": "2024-11-18T15:36:42.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-Guard-3-11B-Vision"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-Guard-3-1B",
+      "revision": null,
+      "lastModified": "2024-09-26T21:23:14.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-Guard-3-1B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-Guard-3-1B-INT4",
+      "revision": null,
+      "lastModified": "2024-09-25T21:11:51.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-Guard-3-1B-INT4"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-Guard-3-8B",
+      "revision": null,
+      "lastModified": "2024-10-11T14:52:47.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-Guard-3-8B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-Guard-3-8B-INT8",
+      "revision": null,
+      "lastModified": "2024-08-07T14:32:32.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-Guard-3-8B-INT8"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-Guard-4-12B",
+      "revision": null,
+      "lastModified": "2025-04-29T18:14:44.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-Guard-4-12B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-Prompt-Guard-2-22M",
+      "revision": null,
+      "lastModified": "2025-04-29T15:47:24.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-22M"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Llama-Prompt-Guard-2-86M",
+      "revision": null,
+      "lastModified": "2025-04-29T15:59:55.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/LlamaGuard-7b",
+      "revision": null,
+      "lastModified": "2024-04-17T08:41:14.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/LlamaGuard-7b"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Meta-Llama-3-70B",
+      "revision": null,
+      "lastModified": "2024-09-27T15:52:49.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Meta-Llama-3-70B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Meta-Llama-3-70B-Instruct",
+      "revision": null,
+      "lastModified": "2025-06-18T23:49:26.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Meta-Llama-3-8B",
+      "revision": null,
+      "lastModified": "2024-09-27T15:52:33.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Meta-Llama-3-8B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "revision": null,
+      "lastModified": "2025-06-18T23:49:51.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Meta-Llama-Guard-2-8B",
+      "revision": null,
+      "lastModified": "2024-05-13T09:36:04.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Meta-Llama-Guard-2-8B"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "meta-llama/Prompt-Guard-86M",
+      "revision": null,
+      "lastModified": "2025-11-12T21:27:00.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/meta-llama/Prompt-Guard-86M"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "zai-org/androidgen-llama-3-70b",
+      "revision": null,
+      "lastModified": "2025-05-29T10:21:48.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/androidgen-llama-3-70b"
+    },
+    {
+      "family": "Llama",
+      "repositoryId": "zai-org/cogvlm2-llama3-caption",
+      "revision": null,
+      "lastModified": "2025-05-14T04:42:57.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/zai-org/cogvlm2-llama3-caption"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-H3",
+      "revision": null,
+      "lastModified": "2026-08-13T01:46:29.000Z",
+      "libraryName": "minimax-h3",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-H3"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-M1-40k",
+      "revision": null,
+      "lastModified": "2025-07-07T07:50:30.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M1-40k"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-M1-40k-hf",
+      "revision": null,
+      "lastModified": "2025-07-11T02:07:58.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M1-40k-hf"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-M1-80k",
+      "revision": null,
+      "lastModified": "2025-07-07T07:51:42.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M1-80k"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-M1-80k-hf",
+      "revision": null,
+      "lastModified": "2025-07-09T07:37:23.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M1-80k-hf"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-M2",
+      "revision": null,
+      "lastModified": "2025-12-23T08:37:43.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M2"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-M2.1",
+      "revision": null,
+      "lastModified": "2026-02-13T09:24:21.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M2.1"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-M2.5",
+      "revision": null,
+      "lastModified": "2026-03-10T13:42:23.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M2.5"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-M2.7",
+      "revision": null,
+      "lastModified": "2026-04-20T04:28:14.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M2.7"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-M3",
+      "revision": null,
+      "lastModified": "2026-07-23T04:25:20.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M3"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-M3-MXFP8",
+      "revision": null,
+      "lastModified": "2026-07-11T09:09:23.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-M3-MXFP8"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-Music3",
+      "revision": null,
+      "lastModified": "2026-08-14T10:51:40.000Z",
+      "libraryName": "diffusers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-Music3"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-Text-01",
+      "revision": null,
+      "lastModified": "2025-07-03T05:13:03.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-Text-01"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-Text-01-hf",
+      "revision": null,
+      "lastModified": "2025-07-09T07:38:12.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-Text-01-hf"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/MiniMax-VL-01",
+      "revision": null,
+      "lastModified": "2025-07-03T05:11:03.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-VL-01"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/SynLogic-32B",
+      "revision": null,
+      "lastModified": "2025-06-10T02:57:20.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/SynLogic-32B"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/SynLogic-7B",
+      "revision": null,
+      "lastModified": "2025-06-10T02:56:30.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/SynLogic-7B"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/SynLogic-Mix-3-32B",
+      "revision": null,
+      "lastModified": "2025-06-10T02:53:28.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/SynLogic-Mix-3-32B"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/VTP-Base-f16d64",
+      "revision": null,
+      "lastModified": "2025-12-16T09:23:12.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/VTP-Base-f16d64"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/VTP-Large-f16d64",
+      "revision": null,
+      "lastModified": "2025-12-16T09:23:36.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/VTP-Large-f16d64"
+    },
+    {
+      "family": "MiniMax",
+      "repositoryId": "MiniMaxAI/VTP-Small-f16d64",
+      "revision": null,
+      "lastModified": "2025-12-16T09:22:49.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/MiniMaxAI/VTP-Small-f16d64"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Devstral-2-123B-Instruct-2512",
+      "revision": null,
+      "lastModified": "2026-07-15T12:19:49.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Devstral-2-123B-Instruct-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Devstral-Small-2-24B-Instruct-2512",
+      "revision": null,
+      "lastModified": "2026-07-15T12:20:36.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Devstral-Small-2-24B-Instruct-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Devstral-Small-2505",
+      "revision": null,
+      "lastModified": "2025-08-18T08:17:15.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Devstral-Small-2505"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Devstral-Small-2507",
+      "revision": null,
+      "lastModified": "2025-08-18T08:14:29.000Z",
+      "libraryName": "mistral-common",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Devstral-Small-2507"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Leanstral-1.5-119B-A6B",
+      "revision": null,
+      "lastModified": "2026-07-15T12:24:10.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Leanstral-1.5-119B-A6B"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Leanstral-2603",
+      "revision": null,
+      "lastModified": "2026-07-15T12:20:49.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Leanstral-2603"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Magistral-Small-2506",
+      "revision": null,
+      "lastModified": "2025-07-28T17:28:05.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Magistral-Small-2506"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Magistral-Small-2507",
+      "revision": null,
+      "lastModified": "2025-12-22T10:24:16.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Magistral-Small-2507"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Magistral-Small-2509",
+      "revision": null,
+      "lastModified": "2026-02-23T18:04:17.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Magistral-Small-2509"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Magistral-Small-2509-GGUF",
+      "revision": null,
+      "lastModified": "2025-09-18T15:21:05.000Z",
+      "libraryName": "llama.cpp",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Magistral-Small-2509-GGUF"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-14B-Base-2512",
+      "revision": null,
+      "lastModified": "2026-01-15T11:16:43.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-14B-Base-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-14B-Instruct-2512",
+      "revision": null,
+      "lastModified": "2026-07-15T12:20:59.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
+      "revision": null,
+      "lastModified": "2026-07-15T12:21:11.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512-BF16"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-14B-Instruct-2512-GGUF",
+      "revision": null,
+      "lastModified": "2026-01-15T11:17:42.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512-GGUF"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-14B-Reasoning-2512",
+      "revision": null,
+      "lastModified": "2026-07-15T12:21:23.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-14B-Reasoning-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-14B-Reasoning-2512-GGUF",
+      "revision": null,
+      "lastModified": "2026-01-15T11:18:42.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-14B-Reasoning-2512-GGUF"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-3B-Base-2512",
+      "revision": null,
+      "lastModified": "2026-01-15T11:17:21.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-3B-Base-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-3B-Instruct-2512",
+      "revision": null,
+      "lastModified": "2026-07-15T12:21:35.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
+      "revision": null,
+      "lastModified": "2026-07-15T12:21:45.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512-BF16"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-3B-Instruct-2512-GGUF",
+      "revision": null,
+      "lastModified": "2026-01-15T11:18:21.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512-GGUF"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-3B-Instruct-2512-ONNX",
+      "revision": null,
+      "lastModified": "2026-01-15T11:19:37.000Z",
+      "libraryName": "transformers.js",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512-ONNX"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-3B-Reasoning-2512",
+      "revision": null,
+      "lastModified": "2026-07-15T12:21:57.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-3B-Reasoning-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-3B-Reasoning-2512-GGUF",
+      "revision": null,
+      "lastModified": "2026-01-15T11:19:18.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-3B-Reasoning-2512-GGUF"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-8B-Base-2512",
+      "revision": null,
+      "lastModified": "2026-01-15T11:17:01.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-8B-Base-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-8B-Instruct-2512",
+      "revision": null,
+      "lastModified": "2026-07-15T12:22:08.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+      "revision": null,
+      "lastModified": "2026-07-15T12:22:19.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512-BF16"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-8B-Instruct-2512-GGUF",
+      "revision": null,
+      "lastModified": "2026-01-15T11:18:05.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512-GGUF"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-8B-Reasoning-2512",
+      "revision": null,
+      "lastModified": "2026-07-15T12:22:30.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-8B-Reasoning-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-3-8B-Reasoning-2512-GGUF",
+      "revision": null,
+      "lastModified": "2026-01-15T11:19:00.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-3-8B-Reasoning-2512-GGUF"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Ministral-8B-Instruct-2410",
+      "revision": null,
+      "lastModified": "2025-07-31T10:39:07.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-7B-Instruct-v0.3",
+      "revision": null,
+      "lastModified": "2025-12-03T12:13:48.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Large-3-675B-Base-2512",
+      "revision": null,
+      "lastModified": "2025-12-03T12:46:25.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Large-3-675B-Base-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Large-3-675B-Instruct-2512",
+      "revision": null,
+      "lastModified": "2026-07-15T12:22:43.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Large-3-675B-Instruct-2512-BF16",
+      "revision": null,
+      "lastModified": "2025-12-19T16:44:12.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512-BF16"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Large-3-675B-Instruct-2512-Eagle",
+      "revision": null,
+      "lastModified": "2026-07-15T12:22:54.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512-Eagle"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Large-3-675B-Instruct-2512-NVFP4",
+      "revision": null,
+      "lastModified": "2026-07-15T12:23:06.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512-NVFP4"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Medium-3.5-128B",
+      "revision": null,
+      "lastModified": "2026-07-15T12:23:17.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Medium-3.5-128B-EAGLE",
+      "revision": null,
+      "lastModified": "2026-04-30T06:32:10.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B-EAGLE"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Nemo-Instruct-FP8-2407",
+      "revision": null,
+      "lastModified": "2025-07-28T17:26:56.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-FP8-2407"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "revision": null,
+      "lastModified": "2025-12-22T10:15:41.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+      "revision": null,
+      "lastModified": "2025-12-22T10:16:55.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Small-4-119B-2603",
+      "revision": null,
+      "lastModified": "2026-07-15T12:23:29.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Small-4-119B-2603-eagle",
+      "revision": null,
+      "lastModified": "2026-07-15T12:23:57.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603-eagle"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Mistral-Small-4-119B-2603-NVFP4",
+      "revision": null,
+      "lastModified": "2026-09-07T07:28:06.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603-NVFP4"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Pixtral-12B-2409",
+      "revision": null,
+      "lastModified": "2026-06-02T04:44:58.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Pixtral-12B-2409"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Pixtral-Large-Instruct-2411",
+      "revision": null,
+      "lastModified": "2026-06-02T04:46:39.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Pixtral-Large-Instruct-2411"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Shieldstral-1.0-3B",
+      "revision": null,
+      "lastModified": "2026-08-05T10:06:52.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Shieldstral-1.0-3B"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Voxtral-4B-TTS-2603",
+      "revision": null,
+      "lastModified": "2026-03-31T13:43:59.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Voxtral-4B-TTS-2603"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Voxtral-Mini-4B-Realtime-2602",
+      "revision": null,
+      "lastModified": "2026-03-11T15:04:02.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602"
+    },
+    {
+      "family": "Mistral",
+      "repositoryId": "mistralai/Voxtral-Small-24B-2507",
+      "revision": null,
+      "lastModified": "2025-12-20T23:34:49.000Z",
+      "libraryName": "vllm",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/mistralai/Voxtral-Small-24B-2507"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+      "revision": null,
+      "lastModified": "2025-05-29T13:13:34.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528-Qwen3-8B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "revision": null,
+      "lastModified": "2025-02-24T03:32:35.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+      "revision": null,
+      "lastModified": "2025-02-24T03:31:45.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "revision": null,
+      "lastModified": "2025-02-24T03:31:29.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+      "revision": null,
+      "lastModified": "2025-02-24T03:32:20.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/dflash_qwen3_14b_block7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:33:22.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/dflash_qwen3_14b_block7"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/dflash_qwen3_4b_block7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:30:04.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/dflash_qwen3_4b_block7"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/dflash_qwen3_8b_block7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:31:28.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/dflash_qwen3_8b_block7"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/dspark_qwen3_14b_block7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:27:34.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/dspark_qwen3_14b_block7"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/dspark_qwen3_4b_block7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:24:05.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/dspark_qwen3_4b_block7"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/dspark_qwen3_8b_block7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:25:30.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/dspark_qwen3_8b_block7"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/eagle3_qwen3_14b_ttt7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:37:15.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/eagle3_qwen3_14b_ttt7"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/eagle3_qwen3_4b_ttt7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:35:27.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/eagle3_qwen3_4b_ttt7"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "deepseek-ai/eagle3_qwen3_8b_ttt7",
+      "revision": null,
+      "lastModified": "2026-06-28T12:36:18.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/deepseek-ai/eagle3_qwen3_8b_ttt7"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "mlx-community/Qwen3.5-122B-A10B-OptiQ-2bit-REAP-63B",
+      "revision": null,
+      "lastModified": "2026-08-29T02:10:54.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen3.5-122B-A10B-OptiQ-2bit-REAP-63B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "mlx-community/Qwen3.5-35B-A3B-OptiQ-4bit-REAP-19B",
+      "revision": null,
+      "lastModified": "2026-08-28T06:58:12.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen3.5-35B-A3B-OptiQ-4bit-REAP-19B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "mlx-community/Qwen3.6-35B-A3B-OptiQ-4bit-REAP-19B",
+      "revision": null,
+      "lastModified": "2026-08-28T02:27:34.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen3.6-35B-A3B-OptiQ-4bit-REAP-19B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "mlx-community/Qwen3.8-27B-OBLITERATED-OptiQ-4bit",
+      "revision": null,
+      "lastModified": "2026-08-25T12:32:19.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen3.8-27B-OBLITERATED-OptiQ-4bit"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "mlx-community/Qwen3.8-Flash-Next-4bit",
+      "revision": null,
+      "lastModified": "2026-09-02T12:24:16.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen3.8-Flash-Next-4bit"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "mlx-community/Qwen3.8-Flash-Next-oQ6e-mtp",
+      "revision": null,
+      "lastModified": "2026-08-31T21:42:11.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen3.8-Flash-Next-oQ6e-mtp"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "mlx-community/Qwen3.8-Flash-Next-oQ8e-mtp",
+      "revision": null,
+      "lastModified": "2026-08-31T21:42:13.000Z",
+      "libraryName": "mlx",
+      "license": null,
+      "artifactType": "conversion_candidate",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen3.8-Flash-Next-oQ8e-mtp"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen-AgentWorld-35B-A3B",
+      "revision": null,
+      "lastModified": "2026-06-25T07:24:16.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen-Drive-1.0-4B",
+      "revision": null,
+      "lastModified": "2026-09-02T06:31:52.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen-Drive-1.0-4B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen-Image-Bench",
+      "revision": null,
+      "lastModified": "2026-05-28T08:07:27.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen-Image-Bench"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3-ASR-0.6B-hf",
+      "revision": null,
+      "lastModified": "2026-07-22T11:58:47.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-ASR-0.6B-hf"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3-ASR-1.7B-hf",
+      "revision": null,
+      "lastModified": "2026-07-22T11:58:31.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B-hf"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3-ForcedAligner-0.6B-hf",
+      "revision": null,
+      "lastModified": "2026-06-26T08:42:38.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-ForcedAligner-0.6B-hf"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-0.8B-Base",
+      "revision": null,
+      "lastModified": "2026-04-23T11:14:09.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-0.8B-Base"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-122B-A10B",
+      "revision": null,
+      "lastModified": "2026-04-24T03:55:23.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-122B-A10B-FP8",
+      "revision": null,
+      "lastModified": "2026-04-24T05:56:01.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B-FP8"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-122B-A10B-GPTQ-Int4",
+      "revision": null,
+      "lastModified": "2026-04-24T05:56:30.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B-GPTQ-Int4"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-27B",
+      "revision": null,
+      "lastModified": "2026-04-24T02:54:49.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-27B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-27B-FP8",
+      "revision": null,
+      "lastModified": "2026-04-24T02:38:46.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-27B-FP8"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-27B-GPTQ-Int4",
+      "revision": null,
+      "lastModified": "2026-04-24T02:38:57.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-27B-GPTQ-Int4"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-2B-Base",
+      "revision": null,
+      "lastModified": "2026-04-23T11:13:46.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-2B-Base"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-35B-A3B",
+      "revision": null,
+      "lastModified": "2026-04-24T02:38:38.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-35B-A3B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-35B-A3B-Base",
+      "revision": null,
+      "lastModified": "2026-04-23T11:21:45.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-35B-A3B-Base"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-35B-A3B-FP8",
+      "revision": null,
+      "lastModified": "2026-04-24T02:38:49.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-35B-A3B-FP8"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-35B-A3B-GPTQ-Int4",
+      "revision": null,
+      "lastModified": "2026-04-24T02:38:59.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-35B-A3B-GPTQ-Int4"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-397B-A17B",
+      "revision": null,
+      "lastModified": "2026-04-24T05:51:23.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-397B-A17B-FP8",
+      "revision": null,
+      "lastModified": "2026-04-24T05:50:39.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B-FP8"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-397B-A17B-GPTQ-Int4",
+      "revision": null,
+      "lastModified": "2026-04-24T05:52:53.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B-GPTQ-Int4"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-4B-Base",
+      "revision": null,
+      "lastModified": "2026-04-23T11:13:30.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-4B-Base"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.5-9B-Base",
+      "revision": null,
+      "lastModified": "2026-04-23T12:04:39.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.5-9B-Base"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.6-27B",
+      "revision": null,
+      "lastModified": "2026-04-24T02:39:16.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.6-27B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.6-27B-FP8",
+      "revision": null,
+      "lastModified": "2026-04-24T02:39:18.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.6-27B-FP8"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.6-35B-A3B",
+      "revision": null,
+      "lastModified": "2026-04-24T02:53:42.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "revision": null,
+      "lastModified": "2026-04-24T02:39:23.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B-FP8"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.8-2.4T-A95B",
+      "revision": null,
+      "lastModified": "2026-08-12T10:24:04.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.8-2.4T-A95B-FP8",
+      "revision": null,
+      "lastModified": "2026-08-12T10:23:42.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B-FP8"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.8-27B",
+      "revision": null,
+      "lastModified": "2026-08-14T15:00:01.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.8-27B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.8-27B-FP8",
+      "revision": null,
+      "lastModified": "2026-08-14T14:44:41.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.8-Flash-Next",
+      "revision": null,
+      "lastModified": "2026-08-27T05:03:36.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/Qwen3.8-Flash-Next-FP8",
+      "revision": null,
+      "lastModified": "2026-08-31T08:19:15.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next-FP8"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3-1.7B-Base-W32K-L0_100",
+      "revision": null,
+      "lastModified": "2026-05-13T12:18:47.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3-1.7B-Base-W32K-L0_100"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3-1.7B-Base-W32K-L0_50",
+      "revision": null,
+      "lastModified": "2026-05-13T12:18:50.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3-1.7B-Base-W32K-L0_50"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3-30B-A3B-Base-W128K-L0_100",
+      "revision": null,
+      "lastModified": "2026-05-13T12:18:52.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3-30B-A3B-Base-W128K-L0_100"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3-30B-A3B-Base-W32K-L0_50",
+      "revision": null,
+      "lastModified": "2026-05-13T12:18:56.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3-30B-A3B-Base-W32K-L0_50"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3-8B-Base-W64K-L0_100",
+      "revision": null,
+      "lastModified": "2026-05-13T12:19:23.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3-8B-Base-W64K-L0_100"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3-8B-Base-W64K-L0_50",
+      "revision": null,
+      "lastModified": "2026-05-13T12:19:26.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3-8B-Base-W64K-L0_50"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3.5-27B-W80K-L0_100",
+      "revision": null,
+      "lastModified": "2026-05-13T09:44:26.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3.5-27B-W80K-L0_100"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3.5-27B-W80K-L0_50",
+      "revision": null,
+      "lastModified": "2026-05-13T12:19:02.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3.5-27B-W80K-L0_50"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3.5-2B-Base-W32K-L0_100",
+      "revision": null,
+      "lastModified": "2026-05-13T12:19:05.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3.5-2B-Base-W32K-L0_100"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3.5-2B-Base-W32K-L0_50",
+      "revision": null,
+      "lastModified": "2026-05-13T12:19:08.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3.5-2B-Base-W32K-L0_50"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3.5-35B-A3B-Base-W128K-L0_100",
+      "revision": null,
+      "lastModified": "2026-05-13T09:43:12.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3.5-35B-A3B-Base-W128K-L0_100"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3.5-35B-A3B-Base-W32K-L0_50",
+      "revision": null,
+      "lastModified": "2026-05-13T12:19:14.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3.5-35B-A3B-Base-W32K-L0_50"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3.5-9B-Base-W64K-L0_100",
+      "revision": null,
+      "lastModified": "2026-05-13T12:19:17.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3.5-9B-Base-W64K-L0_100"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/SAE-Res-Qwen3.5-9B-Base-W64K-L0_50",
+      "revision": null,
+      "lastModified": "2026-05-13T12:19:20.000Z",
+      "libraryName": null,
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/SAE-Res-Qwen3.5-9B-Base-W64K-L0_50"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/WebWorld-14B",
+      "revision": null,
+      "lastModified": "2026-05-08T12:11:59.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/WebWorld-14B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/WebWorld-32B",
+      "revision": null,
+      "lastModified": "2026-05-08T12:11:35.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/WebWorld-32B"
+    },
+    {
+      "family": "Qwen",
+      "repositoryId": "Qwen/WebWorld-8B",
+      "revision": null,
+      "lastModified": "2026-05-08T12:10:29.000Z",
+      "libraryName": "transformers",
+      "license": null,
+      "artifactType": "upstream_candidate",
+      "sourceUrl": "https://huggingface.co/Qwen/WebWorld-8B"
+    }
+  ]
+}

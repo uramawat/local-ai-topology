@@ -7,7 +7,7 @@
       "lastModified": "2025-03-21T20:20:53.000Z",
       "libraryName": "transformers",
       "license": "gemma",
-      "fetchedAt": "2026-09-08T03:39:39.500Z"
+      "fetchedAt": "2026-09-08T05:18:52.666Z"
     },
     {
       "repositoryId": "google/gemma-3-12b-it",
@@ -15,7 +15,7 @@
       "lastModified": "2025-03-21T20:28:56.000Z",
       "libraryName": "transformers",
       "license": "gemma",
-      "fetchedAt": "2026-09-08T03:39:39.504Z"
+      "fetchedAt": "2026-09-08T05:18:52.666Z"
     },
     {
       "repositoryId": "google/gemma-3-27b-it",
@@ -23,7 +23,7 @@
       "lastModified": "2025-03-21T20:29:02.000Z",
       "libraryName": "transformers",
       "license": "gemma",
-      "fetchedAt": "2026-09-08T03:39:39.504Z"
+      "fetchedAt": "2026-09-08T05:18:52.663Z"
     },
     {
       "repositoryId": "mlx-community/gemma-3-27b-it-4bit",
@@ -31,7 +31,7 @@
       "lastModified": "2025-03-19T12:08:37.000Z",
       "libraryName": "transformers",
       "license": "gemma",
-      "fetchedAt": "2026-09-08T03:39:39.501Z"
+      "fetchedAt": "2026-09-08T05:18:52.661Z"
     },
     {
       "repositoryId": "openai/gpt-oss-20b",
@@ -39,7 +39,7 @@
       "lastModified": "2025-08-26T17:25:47.000Z",
       "libraryName": "transformers",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.501Z"
+      "fetchedAt": "2026-09-08T05:18:52.675Z"
     },
     {
       "repositoryId": "openai/gpt-oss-120b",
@@ -47,7 +47,7 @@
       "lastModified": "2025-08-26T17:25:03.000Z",
       "libraryName": "transformers",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.507Z"
+      "fetchedAt": "2026-09-08T05:18:52.667Z"
     },
     {
       "repositoryId": "meta-llama/Llama-3.1-8B-Instruct",
@@ -55,7 +55,7 @@
       "lastModified": "2024-09-25T17:00:57.000Z",
       "libraryName": "transformers",
       "license": "llama3.1",
-      "fetchedAt": "2026-09-08T03:39:39.519Z"
+      "fetchedAt": "2026-09-08T05:18:52.668Z"
     },
     {
       "repositoryId": "meta-llama/Llama-3.3-70B-Instruct",
@@ -63,7 +63,7 @@
       "lastModified": "2024-12-21T18:28:01.000Z",
       "libraryName": "transformers",
       "license": "llama3.3",
-      "fetchedAt": "2026-09-08T03:39:39.511Z"
+      "fetchedAt": "2026-09-08T05:18:52.669Z"
     },
     {
       "repositoryId": "mistralai/Mistral-Nemo-Instruct-2407",
@@ -71,7 +71,7 @@
       "lastModified": "2025-07-28T17:16:02.000Z",
       "libraryName": "vllm",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.519Z"
+      "fetchedAt": "2026-09-08T05:18:52.673Z"
     },
     {
       "repositoryId": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
@@ -79,7 +79,7 @@
       "lastModified": "2025-12-22T10:15:41.000Z",
       "libraryName": "vllm",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.519Z"
+      "fetchedAt": "2026-09-08T05:18:52.667Z"
     },
     {
       "repositoryId": "mistralai/Ministral-8B-Instruct-2410",
@@ -87,7 +87,7 @@
       "lastModified": "2025-07-31T10:39:07.000Z",
       "libraryName": "vllm",
       "license": "other",
-      "fetchedAt": "2026-09-08T03:39:39.517Z"
+      "fetchedAt": "2026-09-08T05:18:52.675Z"
     },
     {
       "repositoryId": "Qwen/Qwen2.5-Coder-7B-Instruct",
@@ -95,7 +95,7 @@
       "lastModified": "2025-01-12T02:03:41.000Z",
       "libraryName": "transformers",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.519Z"
+      "fetchedAt": "2026-09-08T05:18:52.675Z"
     },
     {
       "repositoryId": "Qwen/Qwen2.5-Coder-14B-Instruct",
@@ -103,7 +103,7 @@
       "lastModified": "2025-01-12T02:02:59.000Z",
       "libraryName": "transformers",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.519Z"
+      "fetchedAt": "2026-09-08T05:18:52.668Z"
     },
     {
       "repositoryId": "Qwen/Qwen2.5-Coder-32B-Instruct",
@@ -111,7 +111,15 @@
       "lastModified": "2025-01-12T02:02:22.000Z",
       "libraryName": "transformers",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.526Z"
+      "fetchedAt": "2026-09-08T05:18:52.675Z"
+    },
+    {
+      "repositoryId": "mlx-community/Qwen2.5-Coder-32B-4bit",
+      "sha": "95a94c79c01609c0ebd6eebab4164a65d2a690b8",
+      "lastModified": "2024-11-12T02:33:38.000Z",
+      "libraryName": "transformers",
+      "license": "apache-2.0",
+      "fetchedAt": "2026-09-08T05:18:52.675Z"
     },
     {
       "repositoryId": "Qwen/Qwen3-4B",
@@ -119,7 +127,7 @@
       "lastModified": "2025-07-26T03:46:39.000Z",
       "libraryName": "transformers",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.520Z"
+      "fetchedAt": "2026-09-08T05:18:52.673Z"
     },
     {
       "repositoryId": "Qwen/Qwen3-8B",
@@ -127,7 +135,7 @@
       "lastModified": "2025-07-26T03:49:13.000Z",
       "libraryName": "transformers",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.519Z"
+      "fetchedAt": "2026-09-08T05:18:52.678Z"
     },
     {
       "repositoryId": "Qwen/Qwen3-14B",
@@ -135,7 +143,7 @@
       "lastModified": "2025-07-26T03:49:23.000Z",
       "libraryName": "transformers",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.519Z"
+      "fetchedAt": "2026-09-08T05:18:52.669Z"
     },
     {
       "repositoryId": "Qwen/Qwen3-32B",
@@ -143,7 +151,15 @@
       "lastModified": "2025-07-26T03:45:22.000Z",
       "libraryName": "transformers",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.519Z"
+      "fetchedAt": "2026-09-08T05:18:52.681Z"
+    },
+    {
+      "repositoryId": "mlx-community/Qwen3-32B-4bit",
+      "sha": "bcaaf7f538adf166c1080a2befdb4f6019f66639",
+      "lastModified": "2025-04-29T02:52:43.000Z",
+      "libraryName": "mlx",
+      "license": "apache-2.0",
+      "fetchedAt": "2026-09-08T05:18:52.677Z"
     },
     {
       "repositoryId": "Qwen/Qwen3-235B-A22B",
@@ -151,7 +167,7 @@
       "lastModified": "2025-07-26T03:45:13.000Z",
       "libraryName": "transformers",
       "license": "apache-2.0",
-      "fetchedAt": "2026-09-08T03:39:39.518Z"
+      "fetchedAt": "2026-09-08T05:18:52.678Z"
     },
     {
       "repositoryId": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
@@ -159,7 +175,7 @@
       "lastModified": "2025-02-24T03:31:45.000Z",
       "libraryName": "transformers",
       "license": "mit",
-      "fetchedAt": "2026-09-08T03:39:39.519Z"
+      "fetchedAt": "2026-09-08T05:18:52.674Z"
     },
     {
       "repositoryId": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
@@ -167,7 +183,7 @@
       "lastModified": "2025-02-24T03:31:29.000Z",
       "libraryName": "transformers",
       "license": "mit",
-      "fetchedAt": "2026-09-08T03:39:39.521Z"
+      "fetchedAt": "2026-09-08T05:18:52.721Z"
     },
     {
       "repositoryId": "mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit",
@@ -175,7 +191,7 @@
       "lastModified": "2025-02-26T17:45:56.000Z",
       "libraryName": "mlx",
       "license": null,
-      "fetchedAt": "2026-09-08T03:39:39.523Z"
+      "fetchedAt": "2026-09-08T05:18:52.708Z"
     },
     {
       "repositoryId": "ggml-org/GLM-4.7-Flash-GGUF",
@@ -183,7 +199,7 @@
       "lastModified": "2026-01-23T08:44:26.000Z",
       "libraryName": null,
       "license": null,
-      "fetchedAt": "2026-09-08T03:39:39.520Z"
+      "fetchedAt": "2026-09-08T05:18:52.684Z"
     },
     {
       "repositoryId": "unsloth/MiniMax-M2.7-GGUF",
@@ -191,7 +207,7 @@
       "lastModified": "2026-04-14T16:48:17.000Z",
       "libraryName": null,
       "license": "other",
-      "fetchedAt": "2026-09-08T03:39:39.521Z"
+      "fetchedAt": "2026-09-08T05:18:52.691Z"
     },
     {
       "repositoryId": "unsloth/Kimi-K2.5-GGUF",
@@ -199,7 +215,7 @@
       "lastModified": "2026-01-28T23:05:21.000Z",
       "libraryName": "transformers",
       "license": "other",
-      "fetchedAt": "2026-09-08T03:39:39.525Z"
+      "fetchedAt": "2026-09-08T05:18:52.695Z"
     }
   ]
 }

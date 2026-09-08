@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "policy": "Discovery creates review candidates only. It never adds a planner artifact, establishes a license decision, or claims a model can run.",
+  "families": [
+    { "family": "GLM", "upstreamOwners": ["zai-org"], "match": "GLM" },
+    { "family": "MiniMax", "upstreamOwners": ["MiniMaxAI"], "match": "MiniMax" },
+    { "family": "Kimi", "upstreamOwners": ["moonshotai"], "match": "Kimi" },
+    { "family": "Qwen", "upstreamOwners": ["Qwen"], "match": "Qwen" },
+    { "family": "DeepSeek", "upstreamOwners": ["deepseek-ai"], "match": "DeepSeek" },
+    { "family": "Llama", "upstreamOwners": ["meta-llama"], "match": "Llama" },
+    { "family": "Mistral", "upstreamOwners": ["mistralai"], "match": "Mistral" },
+    { "family": "Gemma", "upstreamOwners": ["google"], "match": "Gemma" },
+    { "family": "gpt-oss", "upstreamOwners": ["openai"], "match": "gpt-oss" }
+  ],
+  "conversionOwners": ["mlx-community"],
+  "perOwnerLimit": 50
+}

@@ -87,6 +87,17 @@ same approved artifact revision, mode, hardware IDs, execution links, runtime,
 and context target. A related run at another context is labelled `inferred`;
 without a match, performance remains an estimate.
 
+## Refresh and discovery
+
+GitHub Actions checks Hugging Face every two weeks and opens a review PR. It
+refreshes metadata for known artifact sources and searches a maintained
+watchlist for releases from GLM, MiniMax, Kimi, Qwen, DeepSeek, Llama, Mistral,
+Gemma, and gpt-oss, plus matching MLX Community conversions. Discovery is not
+auto-publish: a new release is a candidate until someone reviews its immutable
+revision, exact files, license, and planner assumptions. The curation target is
+balanced at 100 GGUF and 100 MLX artifacts; the current seed is not yet at that
+target.
+
 Code is licensed under [MIT](LICENSE). First-party measurement records are
 dedicated under [CC0](LICENSE-DATA); imported data retains its original license
 and attribution.
