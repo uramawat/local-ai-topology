@@ -3,8 +3,8 @@
   "generatedAt": "2026-09-07T00:00:00.000Z",
   "policyVersion": "2026.09.07.1",
   "counts": {
-    "approved": 6,
-    "needs_review": 21,
+    "approved": 7,
+    "needs_review": 20,
     "rejected": 0,
     "deprecated": 0
   },
@@ -348,14 +348,9 @@
       "name": "Kimi K2.5",
       "format": "gguf",
       "sourceUrl": "https://huggingface.co/unsloth/Kimi-K2.5-GGUF/tree/main/Q4_K_M",
-      "state": "needs_review",
-      "missing": [
-        "review record",
-        "immutable revision",
-        "exact file list",
-        "license decision"
-      ],
-      "reviewedAt": null
+      "state": "approved",
+      "missing": [],
+      "reviewedAt": "2026-09-08T04:10:00.000Z"
     }
   ]
 }

@@ -94,6 +94,27 @@
         { "path": "model-00004-of-00004.safetensors", "role": "weights", "sizeBytes": 2362540888, "sha256": null, "lfsOid": "1c5e6f4f9a5d04061567279711e37f5916e697cd76855a28b6af57715fdf0e0e" }
       ],
       "license": { "spdx": "Apache-2.0", "sourceUrl": "https://huggingface.co/mlx-community/Qwen2.5-Coder-32B-4bit", "status": "reviewed" }
+    },
+    {
+      "artifactId": "kimi-k25-gguf-q4km", "state": "approved", "reviewedAt": "2026-09-08T04:10:00.000Z", "reviewedBy": "first-party source audit",
+      "notes": "Unsloth GGUF conversion is source-locked and declares moonshotai/Kimi-K2.5 as its base model. Upstream releases the weights under Modified MIT; file facts are exact and planning values remain estimates.",
+      "source": { "provider": "huggingface", "repository": "unsloth/Kimi-K2.5-GGUF", "revision": "386fed8b054275941d6a495a9a7010fbf31b560d", "artifactUrl": "https://huggingface.co/unsloth/Kimi-K2.5-GGUF/tree/386fed8b054275941d6a495a9a7010fbf31b560d/Q4_K_M", "fetchedAt": "2026-09-08T04:10:00.000Z" },
+      "files": [
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00001-of-00013.gguf", "role": "weights", "sizeBytes": 46304137792, "sha256": null, "lfsOid": "b477ea345b3358daddd6d817b84edb79e3ebf616db4b7b1ebe1086b12271da65" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00002-of-00013.gguf", "role": "weights", "sizeBytes": 49211448320, "sha256": null, "lfsOid": "8099e9c582d6a3baafc654e36bf07a0e7d94bc76862b4101b603a395a08b9b79" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00003-of-00013.gguf", "role": "weights", "sizeBytes": 49548961120, "sha256": null, "lfsOid": "b48f297e101a3bcfc2812fca634e7d430f1ba2670fd1c141d6cbbe006cfd3b86" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00004-of-00013.gguf", "role": "weights", "sizeBytes": 47810262080, "sha256": null, "lfsOid": "3f3e2cdb6af3084ea51402af0d141a419e8bb038034f2037e2c65ebeababfb88" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00005-of-00013.gguf", "role": "weights", "sizeBytes": 46366024896, "sha256": null, "lfsOid": "c5ebc19958113f3c711a58d1f06efe3a7ba83395f07e0213192234f7db1c73e5" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00006-of-00013.gguf", "role": "weights", "sizeBytes": 47758122080, "sha256": null, "lfsOid": "ff315485d6111b2c13cfc78ad411955d94c836caa6ca61c78802b0b71bc35161" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00007-of-00013.gguf", "role": "weights", "sizeBytes": 47810262080, "sha256": null, "lfsOid": "2e586ab5e67deaa9be2c4cde320cc947da3ce9ec359315dcd717e0499b2748df" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00008-of-00013.gguf", "role": "weights", "sizeBytes": 49548961120, "sha256": null, "lfsOid": "9733d55d76b137156dcf577bc6180ad984d3eafa6a8d1b0481bd02ea900fe720" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00009-of-00013.gguf", "role": "weights", "sizeBytes": 47819351232, "sha256": null, "lfsOid": "971d4af5c5540b75d09de8b9b70f566af190fa99e9af1f8549acfd3d710e4b77" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00010-of-00013.gguf", "role": "weights", "sizeBytes": 49548961120, "sha256": null, "lfsOid": "2d9663b2d86a8226e71d03b490de0c241530e5f883d46f127b345e80eb745a4e" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00011-of-00013.gguf", "role": "weights", "sizeBytes": 47758122080, "sha256": null, "lfsOid": "2d69e27601f6a3d5dd934421fc37bbf7a9dd77b9496917015e88b7dd581ef4b9" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00012-of-00013.gguf", "role": "weights", "sizeBytes": 47533978560, "sha256": null, "lfsOid": "c47c001b0e367f8379ed4a4495e34665c3856291c4669fecf9eb4172b46a2369" },
+        { "path": "Q4_K_M/Kimi-K2.5-Q4_K_M-00013-of-00013.gguf", "role": "weights", "sizeBytes": 44226634336, "sha256": null, "lfsOid": "cb9552c476c0982ec0ad722cb5652411649f003f9d24bd77eb648ca9cb52dfa6" }
+      ],
+      "license": { "spdx": "LicenseRef-Kimi-K2.5-Modified-MIT", "sourceUrl": "https://huggingface.co/moonshotai/Kimi-K2.5/blob/main/LICENSE", "status": "reviewed" }
     }
   ]
 }

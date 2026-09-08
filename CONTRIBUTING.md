@@ -46,6 +46,15 @@ npm run build
 The catalog workflow runs the same checks in CI. If `catalog:build` changes a
 generated file, include that file in your pull request.
 
+## Benchmark evidence
+
+Start from `public/evidence/template.v1.json`. Accepted records must name a
+source-locked artifact revision, catalog hardware IDs, topology links, exact
+runtime/backend, one-request workload, and measured prompt/decode throughput.
+The validator rejects private paths and credential-like text in commands. A
+measurement only verifies the exact artifact, topology links, runtime, and
+context it records; a different context remains an inference.
+
 ## Licensing
 
 Project code is intended for MIT licensing. First-party measurement records are

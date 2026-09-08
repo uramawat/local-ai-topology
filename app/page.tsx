@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable react-hooks/set-state-in-effect -- This component intentionally hydrates URL and session state once on mount. */
+
 import { useEffect, useMemo, useState } from "react";
 import { loadCatalog, loadEvidence, starterTopology } from "./catalog";
 
@@ -182,7 +184,7 @@ export default function Home() {
     setManualShares(Object.fromEntries(allocation.map((node) => [node.id, node.share])));
     setAllocationMode("manual");
   };
-  const graphNodes = mode === "remote" ? nodes : result?.selectedNodes ?? [];
+  const graphNodes = useMemo(() => mode === "remote" ? nodes : result?.selectedNodes ?? [], [mode, nodes, result?.selectedNodes]);
   const defaultGraphLinks = useMemo(() => {
     if (!result?.compatibility.supported || graphNodes.length < 2 || mode === "single") return [];
     const macs = graphNodes.filter((node) => node.kind === "Apple Silicon");

@@ -7,7 +7,7 @@
     "hardwarePresets": 28,
     "targetModelArtifacts": 200,
     "status": "curation_in_progress",
-    "sourceLockedArtifacts": 6
+    "sourceLockedArtifacts": 7
   },
   "families": [
     "DeepSeek",

@@ -441,7 +441,12 @@
       "confidence": "estimated",
       "sourceUrl": "https://huggingface.co/unsloth/Kimi-K2.5-GGUF/tree/main/Q4_K_M",
       "provenance": {
-        "state": "needs_review"
+        "state": "approved",
+        "revision": "386fed8b054275941d6a495a9a7010fbf31b560d",
+        "artifactUrl": "https://huggingface.co/unsloth/Kimi-K2.5-GGUF/tree/386fed8b054275941d6a495a9a7010fbf31b560d/Q4_K_M",
+        "totalSizeBytes": 621245226816,
+        "license": "LicenseRef-Kimi-K2.5-Modified-MIT",
+        "reviewedAt": "2026-09-08T04:10:00.000Z"
       }
     }
   ],
