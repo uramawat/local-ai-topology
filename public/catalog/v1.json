@@ -341,7 +341,12 @@
       "confidence": "estimated",
       "sourceUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit",
       "provenance": {
-        "state": "needs_review"
+        "state": "approved",
+        "revision": "95e61aa08da488d7309784f9b0d70c1bee32edbe",
+        "artifactUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit/tree/95e61aa08da488d7309784f9b0d70c1bee32edbe",
+        "totalSizeBytes": 18431478457,
+        "license": "MIT",
+        "reviewedAt": "2026-09-08T03:52:00.000Z"
       }
     },
     {

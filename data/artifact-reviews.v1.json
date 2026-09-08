@@ -26,6 +26,31 @@
         "sourceUrl": "https://ai.google.dev/gemma/terms",
         "status": "reviewed"
       }
+    },
+    {
+      "artifactId": "deepseek-r1-distill-32b-mlx-4bit",
+      "state": "approved",
+      "reviewedAt": "2026-09-08T03:52:00.000Z",
+      "reviewedBy": "first-party source audit",
+      "notes": "The four MLX safetensor shards are source-locked at the converter repository revision. The converted artifact model card names the DeepSeek upstream base model; upstream declares MIT. File facts are exact; planner weights, KV cache, and runtime reserve remain estimates.",
+      "source": {
+        "provider": "huggingface",
+        "repository": "mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit",
+        "revision": "95e61aa08da488d7309784f9b0d70c1bee32edbe",
+        "artifactUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit/tree/95e61aa08da488d7309784f9b0d70c1bee32edbe",
+        "fetchedAt": "2026-09-08T03:52:00.000Z"
+      },
+      "files": [
+        { "path": "model-00001-of-00004.safetensors", "role": "weights", "sizeBytes": 5366582717, "sha256": null, "lfsOid": "b152d90eb4f3439375b83da342647c065ab5619d2eded96768ec78736ea3f2d8" },
+        { "path": "model-00002-of-00004.safetensors", "role": "weights", "sizeBytes": 5335712972, "sha256": null, "lfsOid": "ef98d21f284cf8e4fcc60fd4b28ddca6da01d9bc153cdf699795ad6402b76d6d" },
+        { "path": "model-00003-of-00004.safetensors", "role": "weights", "sizeBytes": 5366641944, "sha256": null, "lfsOid": "b0bdb70116ae2806e95017e73a10df766e15a01cb94023100a43ac2693fcd43c" },
+        { "path": "model-00004-of-00004.safetensors", "role": "weights", "sizeBytes": 2362540824, "sha256": null, "lfsOid": "e68c26b406383e00f2b6821613f4fd0e5a4708c88c3af8fef29a89d64e0bde21" }
+      ],
+      "license": {
+        "spdx": "MIT",
+        "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+        "status": "reviewed"
+      }
     }
   ]
 }
