@@ -1,5 +1,9 @@
 # Local topology planner
 
+[![Verify](https://github.com/uramawat/local-ai-topology/actions/workflows/validate-catalog.yml/badge.svg)](https://github.com/uramawat/local-ai-topology/actions/workflows/validate-catalog.yml)
+[![Code license: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Data license: CC0-1.0](https://img.shields.io/badge/data-CC0--1.0-brightgreen.svg)](LICENSE-DATA)
+
 An open-source planning tool for running open-weight AI models on hardware you
 actually own. It answers a question a VRAM calculator cannot: **which machines
 can run a specific model together, by which execution path, and with what
@@ -9,6 +13,15 @@ The planner is deliberately topology-aware. A cluster is not automatically one
 large memory pool, and a Mac attached to a remote NVIDIA server is not model
 sharding. Every result keeps weights, KV cache, runtime reserve, network
 assumptions, and evidence level visible.
+
+```mermaid
+flowchart LR
+  A[Select exact artifact] --> B[Choose hardware]
+  B --> C[Select deployment path]
+  C --> D[Calculate weights + KV + runtime]
+  D --> E[Fit and confidence result]
+  E --> F[Inspect evidence or contribute a run]
+```
 
 ## What it covers
 
@@ -52,8 +65,8 @@ Use `npm run build` to verify a production build.
 ## Contributing
 
 Contributions are most useful when they make a recommendation more
-reproducible—not just more optimistic. The in-product starting point is the
-[Contribute section of the planner](https://local-topology-planner.q5tynhntkd.chatgpt.site/#contribute).
+reproducible—not just more optimistic. Read the full
+[contribution guide](CONTRIBUTING.md) before opening a pull request.
 
 You can contribute one of three things:
 
@@ -71,7 +84,7 @@ measured results from estimates. For a heterogeneous topology, explicitly say
 whether it is remote serving, request routing, or true model sharding; those
 are different claims.
 
-Use the full field guide in [CONTRIBUTING.md](CONTRIBUTING.md). Before opening a pull request, run:
+Before opening a pull request, run:
 
 ```bash
 npm run build
