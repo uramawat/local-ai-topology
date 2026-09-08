@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "catalogVersion": "2026.09.07-seed.1",
   "generatedAt": "2026-09-07T00:00:00.000Z",
-  "coverage": { "modelArtifacts": 26, "hardwarePresets": 28, "targetModelArtifacts": 200, "status": "curation_in_progress" },
+  "coverage": { "modelArtifacts": 27, "hardwarePresets": 28, "targetModelArtifacts": 200, "status": "curation_in_progress" },
   "models": [
     { "id": "gemma3-4b-gguf-q4km", "name": "Gemma 3 4B", "family": "Google Gemma", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 3.1, "kvGiBAt8K": 0.6, "confidence": "estimated", "sourceUrl": "https://huggingface.co/google/gemma-3-4b-it" },
     { "id": "gemma3-12b-gguf-q4km", "name": "Gemma 3 12B", "family": "Google Gemma", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 7.7, "kvGiBAt8K": 1.0, "confidence": "estimated", "sourceUrl": "https://huggingface.co/google/gemma-3-12b-it" },
@@ -18,6 +18,7 @@
     { "id": "qwen25-coder-7b-gguf-q4km", "name": "Qwen2.5-Coder 7B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 4.6, "kvGiBAt8K": 0.8, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct" },
     { "id": "qwen25-coder-14b-gguf-q4km", "name": "Qwen2.5-Coder 14B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 9.0, "kvGiBAt8K": 1.1, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct" },
     { "id": "qwen25-coder-32b-gguf-q4km", "name": "Qwen2.5-Coder 32B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 20.3, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct" },
+    { "id": "qwen25-coder-32b-mlx-4bit", "name": "Qwen2.5-Coder 32B", "family": "Qwen", "artifact": "MLX · 4-bit", "format": "mlx", "quantization": "4-bit", "weightGiB": 16.9, "kvGiBAt8K": 1.4, "confidence": "estimated", "sourceUrl": "https://huggingface.co/mlx-community/Qwen2.5-Coder-32B-4bit" },
     { "id": "qwen3-4b-gguf-q4km", "name": "Qwen3 4B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 2.9, "kvGiBAt8K": 0.6, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen3-4B" },
     { "id": "qwen3-8b-gguf-q4km", "name": "Qwen3 8B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 5.2, "kvGiBAt8K": 0.8, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen3-8B" },
     { "id": "qwen3-14b-gguf-q4km", "name": "Qwen3 14B", "family": "Qwen", "artifact": "GGUF · Q4_K_M", "format": "gguf", "quantization": "Q4_K_M", "weightGiB": 9.0, "kvGiBAt8K": 1.1, "confidence": "estimated", "sourceUrl": "https://huggingface.co/Qwen/Qwen3-14B" },

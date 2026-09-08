@@ -82,6 +82,18 @@
         { "path": "model-00004-of-00004.safetensors", "role": "weights", "sizeBytes": 2357630312, "sha256": null, "lfsOid": "5cdadd1a77ec47b3ea7799255efb7d15431765874963f55a33f71f43386eb619" }
       ],
       "license": { "spdx": "Apache-2.0", "sourceUrl": "https://huggingface.co/mlx-community/Qwen3-32B-4bit", "status": "reviewed" }
+    },
+    {
+      "artifactId": "qwen25-coder-32b-mlx-4bit", "state": "approved", "reviewedAt": "2026-09-08T04:10:00.000Z", "reviewedBy": "first-party source audit",
+      "notes": "MLX Community conversion from Qwen/Qwen2.5-Coder-32B. Exact files are source-locked; planning values remain estimates.",
+      "source": { "provider": "huggingface", "repository": "mlx-community/Qwen2.5-Coder-32B-4bit", "revision": "95a94c79c01609c0ebd6eebab4164a65d2a690b8", "artifactUrl": "https://huggingface.co/mlx-community/Qwen2.5-Coder-32B-4bit/tree/95a94c79c01609c0ebd6eebab4164a65d2a690b8", "fetchedAt": "2026-09-08T04:10:00.000Z" },
+      "files": [
+        { "path": "model-00001-of-00004.safetensors", "role": "weights", "sizeBytes": 5366582717, "sha256": null, "lfsOid": "00cffd398c089bcb56c7b5137c70d980bca140b462eff83fda9dd78e852582af" },
+        { "path": "model-00002-of-00004.safetensors", "role": "weights", "sizeBytes": 5335712920, "sha256": null, "lfsOid": "1c84358130fff783610cb71a7f7ffb6d08c83924d7ed143a3ee41da22745ec41" },
+        { "path": "model-00003-of-00004.safetensors", "role": "weights", "sizeBytes": 5366641934, "sha256": null, "lfsOid": "674b6c578ba62d427909afb682ea8577bd1a1e93f5588cf95d7396e66f2662e6" },
+        { "path": "model-00004-of-00004.safetensors", "role": "weights", "sizeBytes": 2362540888, "sha256": null, "lfsOid": "1c5e6f4f9a5d04061567279711e37f5916e697cd76855a28b6af57715fdf0e0e" }
+      ],
+      "license": { "spdx": "Apache-2.0", "sourceUrl": "https://huggingface.co/mlx-community/Qwen2.5-Coder-32B-4bit", "status": "reviewed" }
     }
   ]
 }

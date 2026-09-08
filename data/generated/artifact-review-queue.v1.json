@@ -3,7 +3,7 @@
   "generatedAt": "2026-09-07T00:00:00.000Z",
   "policyVersion": "2026.09.07.1",
   "counts": {
-    "approved": 5,
+    "approved": 6,
     "needs_review": 21,
     "rejected": 0,
     "deprecated": 0
@@ -199,6 +199,15 @@
         "license decision"
       ],
       "reviewedAt": null
+    },
+    {
+      "artifactId": "qwen25-coder-32b-mlx-4bit",
+      "name": "Qwen2.5-Coder 32B",
+      "format": "mlx",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen2.5-Coder-32B-4bit",
+      "state": "approved",
+      "missing": [],
+      "reviewedAt": "2026-09-08T04:10:00.000Z"
     },
     {
       "artifactId": "qwen3-4b-gguf-q4km",

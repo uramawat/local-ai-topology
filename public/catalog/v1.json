@@ -3,7 +3,7 @@
   "catalogVersion": "2026.09.07-seed.1",
   "generatedAt": "2026-09-07T00:00:00.000Z",
   "coverage": {
-    "modelArtifacts": 26,
+    "modelArtifacts": 27,
     "hardwarePresets": 28,
     "targetModelArtifacts": 200,
     "status": "curation_in_progress"
@@ -222,6 +222,26 @@
       "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
       "provenance": {
         "state": "needs_review"
+      }
+    },
+    {
+      "id": "qwen25-coder-32b-mlx-4bit",
+      "name": "Qwen2.5-Coder 32B",
+      "family": "Qwen",
+      "artifact": "MLX · 4-bit",
+      "format": "mlx",
+      "quantization": "4-bit",
+      "weightGiB": 16.9,
+      "kvGiBAt8K": 1.4,
+      "confidence": "estimated",
+      "sourceUrl": "https://huggingface.co/mlx-community/Qwen2.5-Coder-32B-4bit",
+      "provenance": {
+        "state": "approved",
+        "revision": "95a94c79c01609c0ebd6eebab4164a65d2a690b8",
+        "artifactUrl": "https://huggingface.co/mlx-community/Qwen2.5-Coder-32B-4bit/tree/95a94c79c01609c0ebd6eebab4164a65d2a690b8",
+        "totalSizeBytes": 18431478459,
+        "license": "Apache-2.0",
+        "reviewedAt": "2026-09-08T04:10:00.000Z"
       }
     },
     {
