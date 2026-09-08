@@ -3,8 +3,8 @@
   "generatedAt": "2026-09-07T00:00:00.000Z",
   "policyVersion": "2026.09.07.1",
   "counts": {
-    "approved": 0,
-    "needs_review": 25,
+    "approved": 1,
+    "needs_review": 24,
     "rejected": 0,
     "deprecated": 0
   },
@@ -56,14 +56,9 @@
       "name": "Gemma 3 27B",
       "format": "mlx",
       "sourceUrl": "https://huggingface.co/mlx-community/gemma-3-27b-it-4bit",
-      "state": "needs_review",
-      "missing": [
-        "review record",
-        "immutable revision",
-        "exact file list",
-        "license decision"
-      ],
-      "reviewedAt": null
+      "state": "approved",
+      "missing": [],
+      "reviewedAt": "2026-09-08T03:39:39.501Z"
     },
     {
       "artifactId": "gpt-oss-20b-gguf-mxfp4",

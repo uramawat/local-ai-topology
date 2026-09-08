@@ -19,7 +19,10 @@
       "weightGiB": 3.1,
       "kvGiBAt8K": 0.6,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/google/gemma-3-4b-it"
+      "sourceUrl": "https://huggingface.co/google/gemma-3-4b-it",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "gemma3-12b-gguf-q4km",
@@ -31,7 +34,10 @@
       "weightGiB": 7.7,
       "kvGiBAt8K": 1,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/google/gemma-3-12b-it"
+      "sourceUrl": "https://huggingface.co/google/gemma-3-12b-it",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "gemma3-27b-gguf-q4km",
@@ -43,7 +49,10 @@
       "weightGiB": 17.1,
       "kvGiBAt8K": 1.7,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/google/gemma-3-27b-it"
+      "sourceUrl": "https://huggingface.co/google/gemma-3-27b-it",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "gemma3-27b-mlx-4bit",
@@ -55,7 +64,15 @@
       "weightGiB": 16.9,
       "kvGiBAt8K": 1.7,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/mlx-community/gemma-3-27b-it-4bit"
+      "sourceUrl": "https://huggingface.co/mlx-community/gemma-3-27b-it-4bit",
+      "provenance": {
+        "state": "approved",
+        "revision": "83acee3d10064661a7a39ead3732dddb16fe15bb",
+        "artifactUrl": "https://huggingface.co/mlx-community/gemma-3-27b-it-4bit/tree/83acee3d10064661a7a39ead3732dddb16fe15bb",
+        "totalSizeBytes": 16834020537,
+        "license": "LicenseRef-Gemma-Terms",
+        "reviewedAt": "2026-09-08T03:39:39.501Z"
+      }
     },
     {
       "id": "gpt-oss-20b-gguf-mxfp4",
@@ -67,7 +84,10 @@
       "weightGiB": 12.5,
       "kvGiBAt8K": 1.2,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/openai/gpt-oss-20b"
+      "sourceUrl": "https://huggingface.co/openai/gpt-oss-20b",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "gpt-oss-120b-gguf-mxfp4",
@@ -79,7 +99,10 @@
       "weightGiB": 65.2,
       "kvGiBAt8K": 2.1,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/openai/gpt-oss-120b"
+      "sourceUrl": "https://huggingface.co/openai/gpt-oss-120b",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "llama31-8b-gguf-q4km",
@@ -91,7 +114,10 @@
       "weightGiB": 5,
       "kvGiBAt8K": 0.8,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "llama33-70b-gguf-q4km",
@@ -103,7 +129,10 @@
       "weightGiB": 42.5,
       "kvGiBAt8K": 2,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+      "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "mistral-nemo-12b-gguf-q4km",
@@ -115,7 +144,10 @@
       "weightGiB": 7.5,
       "kvGiBAt8K": 1,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407"
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "mistral-small-31-24b-gguf-q4km",
@@ -127,7 +159,10 @@
       "weightGiB": 15,
       "kvGiBAt8K": 1.6,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503"
+      "sourceUrl": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "ministral-8b-gguf-q4km",
@@ -139,7 +174,10 @@
       "weightGiB": 5.1,
       "kvGiBAt8K": 0.8,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410"
+      "sourceUrl": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "qwen25-coder-7b-gguf-q4km",
@@ -151,7 +189,10 @@
       "weightGiB": 4.6,
       "kvGiBAt8K": 0.8,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct"
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "qwen25-coder-14b-gguf-q4km",
@@ -163,7 +204,10 @@
       "weightGiB": 9,
       "kvGiBAt8K": 1.1,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct"
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "qwen25-coder-32b-gguf-q4km",
@@ -175,7 +219,10 @@
       "weightGiB": 20.3,
       "kvGiBAt8K": 1.4,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct"
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "qwen3-4b-gguf-q4km",
@@ -187,7 +234,10 @@
       "weightGiB": 2.9,
       "kvGiBAt8K": 0.6,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-4B"
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-4B",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "qwen3-8b-gguf-q4km",
@@ -199,7 +249,10 @@
       "weightGiB": 5.2,
       "kvGiBAt8K": 0.8,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-8B"
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-8B",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "qwen3-14b-gguf-q4km",
@@ -211,7 +264,10 @@
       "weightGiB": 9,
       "kvGiBAt8K": 1.1,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-14B"
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-14B",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "qwen3-32b-gguf-q4km",
@@ -223,7 +279,10 @@
       "weightGiB": 20.3,
       "kvGiBAt8K": 1.4,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-32B"
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-32B",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "qwen3-235b-a22b-gguf-q4km",
@@ -235,7 +294,10 @@
       "weightGiB": 130.8,
       "kvGiBAt8K": 2.6,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-235B-A22B"
+      "sourceUrl": "https://huggingface.co/Qwen/Qwen3-235B-A22B",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "deepseek-r1-distill-14b-gguf-q4km",
@@ -247,7 +309,10 @@
       "weightGiB": 9,
       "kvGiBAt8K": 1.1,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "deepseek-r1-distill-32b-gguf-q4km",
@@ -259,7 +324,10 @@
       "weightGiB": 20.3,
       "kvGiBAt8K": 1.4,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+      "sourceUrl": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "deepseek-r1-distill-32b-mlx-4bit",
@@ -271,7 +339,10 @@
       "weightGiB": 18.4,
       "kvGiBAt8K": 1.4,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit"
+      "sourceUrl": "https://huggingface.co/mlx-community/DeepSeek-R1-Distill-Qwen-32B-MLX-4Bit",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "glm47-flash-gguf-q4k",
@@ -283,7 +354,10 @@
       "weightGiB": 16.99,
       "kvGiBAt8K": 1.8,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/ggml-org/GLM-4.7-Flash-GGUF/tree/main"
+      "sourceUrl": "https://huggingface.co/ggml-org/GLM-4.7-Flash-GGUF/tree/main",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "minimax-m27-gguf-ud-q4km",
@@ -295,7 +369,10 @@
       "weightGiB": 130.54,
       "kvGiBAt8K": 3.2,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/unsloth/MiniMax-M2.7-GGUF/tree/main/UD-Q4_K_M"
+      "sourceUrl": "https://huggingface.co/unsloth/MiniMax-M2.7-GGUF/tree/main/UD-Q4_K_M",
+      "provenance": {
+        "state": "needs_review"
+      }
     },
     {
       "id": "kimi-k25-gguf-q4km",
@@ -307,7 +384,10 @@
       "weightGiB": 578.58,
       "kvGiBAt8K": 4,
       "confidence": "estimated",
-      "sourceUrl": "https://huggingface.co/unsloth/Kimi-K2.5-GGUF/tree/main/Q4_K_M"
+      "sourceUrl": "https://huggingface.co/unsloth/Kimi-K2.5-GGUF/tree/main/Q4_K_M",
+      "provenance": {
+        "state": "needs_review"
+      }
     }
   ],
   "hardware": [

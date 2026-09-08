@@ -1,5 +1,31 @@
 {
   "schemaVersion": "1.0.0",
   "policyVersion": "2026.09.07.1",
-  "reviews": []
+  "reviews": [
+    {
+      "artifactId": "gemma3-27b-mlx-4bit",
+      "state": "approved",
+      "reviewedAt": "2026-09-08T03:39:39.501Z",
+      "reviewedBy": "first-party source audit",
+      "notes": "The four MLX safetensor shards are source-locked. File facts are exact; planner weights, KV cache, and runtime reserve remain estimates.",
+      "source": {
+        "provider": "huggingface",
+        "repository": "mlx-community/gemma-3-27b-it-4bit",
+        "revision": "83acee3d10064661a7a39ead3732dddb16fe15bb",
+        "artifactUrl": "https://huggingface.co/mlx-community/gemma-3-27b-it-4bit/tree/83acee3d10064661a7a39ead3732dddb16fe15bb",
+        "fetchedAt": "2026-09-08T03:39:39.501Z"
+      },
+      "files": [
+        { "path": "model-00001-of-00004.safetensors", "role": "weights", "sizeBytes": 5368126871, "sha256": null, "lfsOid": "7245a86f204f747ef70cfd9a97f4cc43154c9d069bac728f5d15fcc5b40402fe" },
+        { "path": "model-00002-of-00004.safetensors", "role": "weights", "sizeBytes": 5355062658, "sha256": null, "lfsOid": "aac2c9ae014660962187dafc41a12bb3149740e33714629ca24a56f172c01f3e" },
+        { "path": "model-00003-of-00004.safetensors", "role": "weights", "sizeBytes": 5305524829, "sha256": null, "lfsOid": "af2a4afc9e2b7889ca481e778eb955ed1d00c21f6d8e82afaa082455d7a207d4" },
+        { "path": "model-00004-of-00004.safetensors", "role": "weights", "sizeBytes": 805306179, "sha256": null, "lfsOid": "9b2559198db43d5822b4ddb74c2608ba1fef78ab3cba4f9975057396e5e4198e" }
+      ],
+      "license": {
+        "spdx": "LicenseRef-Gemma-Terms",
+        "sourceUrl": "https://ai.google.dev/gemma/terms",
+        "status": "reviewed"
+      }
+    }
+  ]
 }

@@ -16,6 +16,7 @@ const unique = (items, label) => {
 };
 
 const catalog = JSON.parse(await readFile(sourcePath, "utf8"));
+const reviewDocument = JSON.parse(await readFile(new URL("../data/artifact-reviews.v1.json", import.meta.url), "utf8"));
 required(catalog, ["schemaVersion", "catalogVersion", "generatedAt", "coverage", "models", "hardware"], "catalog");
 if (!Array.isArray(catalog.models) || !Array.isArray(catalog.hardware)) throw new Error("models and hardware must be arrays");
 unique(catalog.models, "models");
@@ -35,13 +36,32 @@ if (catalog.coverage.modelArtifacts !== catalog.models.length || catalog.coverag
   throw new Error("coverage counts must match the catalog");
 }
 
-const published = `${JSON.stringify(catalog, null, 2)}\n`;
+const approvedReviews = new Map(reviewDocument.reviews.filter((review) => review.state === "approved").map((review) => [review.artifactId, review]));
+const publishedCatalog = {
+  ...catalog,
+  models: catalog.models.map((model) => {
+    const review = approvedReviews.get(model.id);
+    if (!review) return { ...model, provenance: { state: "needs_review" } };
+    return {
+      ...model,
+      provenance: {
+        state: "approved",
+        revision: review.source.revision,
+        artifactUrl: review.source.artifactUrl,
+        totalSizeBytes: review.files.reduce((sum, file) => sum + file.sizeBytes, 0),
+        license: review.license.spdx,
+        reviewedAt: review.reviewedAt,
+      },
+    };
+  }),
+};
+const published = `${JSON.stringify(publishedCatalog, null, 2)}\n`;
 const index = {
-  schemaVersion: catalog.schemaVersion,
-  catalogVersion: catalog.catalogVersion,
-  generatedAt: catalog.generatedAt,
-  coverage: catalog.coverage,
-  families: [...new Set(catalog.models.map((model) => model.family))].sort(),
+  schemaVersion: publishedCatalog.schemaVersion,
+  catalogVersion: publishedCatalog.catalogVersion,
+  generatedAt: publishedCatalog.generatedAt,
+  coverage: { ...publishedCatalog.coverage, sourceLockedArtifacts: approvedReviews.size },
+  families: [...new Set(publishedCatalog.models.map((model) => model.family))].sort(),
 };
 await mkdir(new URL("../public/catalog/", import.meta.url), { recursive: true });
 await mkdir(new URL("../data/generated/", import.meta.url), { recursive: true });

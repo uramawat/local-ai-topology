@@ -36,6 +36,7 @@ const modes: Array<{ id: Mode; label: string; note: string }> = [
 
 const memory = (n: number) => `${n.toFixed(n >= 100 ? 0 : 1)} GiB`;
 const tokenCount = (thousands: number) => thousands >= 1000 ? `${(thousands / 1000).toFixed(thousands >= 10_000 ? 0 : 1)}M` : `${Math.round(thousands)}K`;
+const fileSize = (bytes: number) => `${(bytes / 1024 ** 3).toFixed(1)} GiB`;
 
 export default function Home() {
   const [catalog, setCatalog] = useState<Awaited<ReturnType<typeof loadCatalog>> | null>(null);
@@ -313,7 +314,7 @@ export default function Home() {
 
           <section className="result-panel" aria-live="polite">
             <div className="result-header"><span className={`confidence ${result.exact}`}>{result.exact}</span><span>{mode === "rpc" ? "HETEROGENEOUS PLAN" : mode === "mlx" ? "MLX CLUSTER PLAN" : mode === "remote" ? "REMOTE SERVING PLAN" : "SINGLE-NODE PLAN"}</span></div>
-            <div className="workload-summary"><span>SELECTED WORKLOAD</span><b>{model.name}</b><small>{model.artifact} · {model.confidence} artifact estimate · <a href={model.sourceUrl} target="_blank" rel="noreferrer">source ↗</a></small></div>
+            <div className="workload-summary"><span>SELECTED WORKLOAD</span><b>{model.name}</b><small>{model.artifact} · {model.provenance?.state === "approved" ? `source-locked ${fileSize(model.provenance.totalSizeBytes ?? 0)} · ${model.provenance.license ?? "reviewed license"}` : `${model.confidence} artifact estimate`} · <a href={model.provenance?.artifactUrl ?? model.sourceUrl} target="_blank" rel="noreferrer">source ↗</a></small></div>
             <div className="verdict-line"><span className={`verdict-symbol ${planFits ? "yes" : "no"}`}>{planFits ? "✓" : "×"}</span><h3>{planFits ? "This can run" : "This does not fit"}</h3></div>
             <p className="result-copy">{!result.fits ? `${model.name} needs ${memory(result.required - result.capacity)} more usable accelerator memory at this context.` : !topologyComplete ? "The memory math fits, but the selected link plan leaves an execution node disconnected." : !allocationFits ? "This custom split overfills at least one node. Adjust the allocation or return to automatic." : `${model.name} at ${Math.round(context / 1024)}K fits the selected deployment with ${memory(result.capacity - result.required)} total headroom.`}</p>
             <div className="metric-grid">

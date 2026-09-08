@@ -9,6 +9,14 @@ export type CatalogModel = {
   kvGiBAt8K: number;
   confidence: "estimated" | "inferred" | "verified";
   sourceUrl: string;
+  provenance?: {
+    state: "approved" | "needs_review";
+    revision?: string;
+    artifactUrl?: string;
+    totalSizeBytes?: number;
+    license?: string | null;
+    reviewedAt?: string;
+  };
 };
 
 export type CatalogHardware = {

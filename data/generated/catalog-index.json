@@ -6,7 +6,8 @@
     "modelArtifacts": 25,
     "hardwarePresets": 23,
     "targetModelArtifacts": 200,
-    "status": "seed"
+    "status": "seed",
+    "sourceLockedArtifacts": 1
   },
   "families": [
     "DeepSeek",
